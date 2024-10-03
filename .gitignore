@@ -1,3 +1,4 @@
 credentials.json
-request.json
+Offsets/request.json
 .venv
+__pycache__
