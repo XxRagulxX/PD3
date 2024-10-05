@@ -6,6 +6,7 @@ from Util.buy_Inventory import buy_inventory_callback
 from Util.buy_paints import buy_paint_callback
 from Util.buy_preplanning_assets import buy_preplanning_assets_callback
 from Util.buy_weapon_pattern import buy_weapon_pattern_callback
+from Util.buy_mask_pattern import buy_mask_pattern_callback
 
 # Setting up logging for debugger mode
 logger = logging.getLogger("Util.gui")
@@ -150,6 +151,8 @@ with dpg.window(label="Main Menu", tag="Main Menu", width=600, height=400, show=
             dpg.add_button(label=label, callback=buy_paint_callback)
         elif label == "Buy Weapon Pattern":
             dpg.add_button(label=label, callback=buy_weapon_pattern_callback)
+        elif label == "Buy Mask Pattern":
+            dpg.add_button(label=label, callback=buy_mask_pattern_callback)
         elif label == "Treasure Top-Up":
             dpg.add_button(label=label, callback=show_sub_menu, user_data="Treasure Top-Up Menu")
         elif label == "Unlocker":
