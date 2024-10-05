@@ -114,7 +114,7 @@ def ask_how_many_inventory(inventory_name, item_id, price, currency):
     with dpg.window(label=f"Buy {inventory_name}", tag="Buy Inventory Window", width=600, height=200, modal=True):
         dpg.add_text(f"How many {inventory_name} would you like to buy?")
         
-        dpg.add_input_int(label="Number of Inventory", min_value=1, default_value=1, tag="slot_count_input")
+        dpg.add_input_int(label="Number of Inventory", min_value=1, default_value=1, tag="slot_count_inventory_input")
         
         dpg.add_button(label="Confirm", callback=lambda: start_thread(confirm_slot_purchase, item_id, price, currency))
         dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Inventory Window"), dpg.show_item("Buy Inventory Menu")))
@@ -123,7 +123,7 @@ def confirm_slot_purchase(item_id, price, currency):
     global purchase_running
     """Logic to handle the purchase confirmation and create a new window."""
     logger.debug(f"Attempting to purchase item: {item_id}")
-    slot_count = dpg.get_value("slot_count_input")
+    slot_count = dpg.get_value("slot_count_inventory_input")
 
     # Close the current window
     if dpg.does_item_exist("Buy Inventory Window"):

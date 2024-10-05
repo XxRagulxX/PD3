@@ -56,7 +56,7 @@ def load_token_headers():
     return {}, ""
 
 def load_paints(file_path):
-    """Load Paint Paint from the specified JSON file."""
+    """Load Paint from the specified JSON file."""
     file_path = os.path.join(os.path.dirname(__file__), file_path)
     try:
         with open(file_path, 'r') as file:
@@ -113,7 +113,7 @@ def ask_how_many_paints(paint_name, item_id, price, currency):
     with dpg.window(label=f"Buy {paint_name}", tag="Buy Paint Window", width=600, height=200, modal=True):
         dpg.add_text(f"How many {paint_name} would you like to buy?")
         
-        dpg.add_input_int(label="Number of Paints", min_value=1, default_value=1, tag="slot_count_input")
+        dpg.add_input_int(label="Number of Paints", min_value=1, default_value=1, tag="slot_count_paint_input")
         
         dpg.add_button(label="Confirm", callback=lambda: start_thread(confirm_slot_purchase, item_id, price, currency))
         dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Paint Window"), dpg.show_item("Buy Paint Menu")))
@@ -122,7 +122,7 @@ def confirm_slot_purchase(item_id, price, currency):
     global purchase_running
     """Logic to handle the purchase confirmation and create a new window."""
     logger.debug(f"Attempting to purchase item: {item_id}")
-    slot_count = dpg.get_value("slot_count_input")
+    slot_count = dpg.get_value("slot_count_paint_input")
 
     # Close the current window
     if dpg.does_item_exist("Buy Paint Window"):
@@ -184,6 +184,9 @@ def buy_individual_paint(slot_count, item_id, price, currency):
     
     if dpg.does_item_exist("Purchase Confirmation Window"):
         dpg.delete_item("Purchase Confirmation Window")
+    
+    if dpg.does_item_exist("Buy Paint Window"):
+        dpg.delete_item("Buy Paint Window")
 
 
 #Bulk Purchase 
@@ -196,10 +199,10 @@ def ask_how_many_times_to_buy(total_paints):
     with dpg.window(label="Buy All Paints", tag="Buy All Paints Window", width=600, height=200, modal=True):
         dpg.add_text(f"How many times would you like to buy {total_paints} paints?")
         
-        dpg.add_input_int(label="Number of Times", min_value=1, default_value=1, tag="times_input")
+        dpg.add_input_int(label="Number of Times", min_value=1, default_value=1, tag="times_paints_input")
         
-        # Pass both total_paints and the value from times_input to confirm_buy_all
-        dpg.add_button(label="Confirm", callback=lambda: start_thread(confirm_buy_all, total_paints, dpg.get_value("times_input")))
+        # Pass both total_paints and the value from times_paints_input to confirm_buy_all
+        dpg.add_button(label="Confirm", callback=lambda: start_thread(confirm_buy_all, total_paints, dpg.get_value("times_paints_input")))
         dpg.add_button(label="Back", callback=lambda: dpg.hide_item("Buy All Paints Window"))
 
 
@@ -286,5 +289,8 @@ def execute_bulk_purchase(total_paints, times_count):
 
     if dpg.does_item_exist("force_stop_button_bulk"):
         dpg.delete_item("force_stop_button_bulk")
+
+    if dpg.does_item_exist("Buy All Paints Window"):
+        dpg.delete_item("Buy All Paints Window")
 
 

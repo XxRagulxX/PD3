@@ -61,8 +61,8 @@ def load_weapon_pattern(file_path):
     try:
         with open(file_path, 'r') as file:
             data = json.load(file)
-            paints = data.get("Weapon Pattern", [])
-            return paints
+            weapon_pattern = data.get("Weapon Pattern", [])
+            return weapon_pattern
     except Exception as e:
         logger.error(f"Failed to load Weapon Pattern: {e}")
         return []
@@ -82,14 +82,14 @@ def display_weapon_pattern_details(slot_data, Paint_type):
     with dpg.window(label="Buy Weapon Pattern", tag="Buy Weapon Pattern Menu", width=600, height=400, show=True):
         dpg.add_text(f"Items in {Paint_type}:")
         
-        total_paints = 0
+        total_weapon_pattern = 0
 
         for slot in slot_data:
             for weapon_pattern_name, details in slot.items():
                 logger.debug(f"Preparing button for {weapon_pattern_name} with details: {details}")
 
                 if details and isinstance(details, dict):
-                    total_paints += 1
+                    total_weapon_pattern += 1
 
                     def create_callback(weapon_pattern_name, item_id, price, currency):
                         return lambda: ask_how_manay_weapon_pattern(weapon_pattern_name, item_id, price, currency)
@@ -99,7 +99,7 @@ def display_weapon_pattern_details(slot_data, Paint_type):
                 else:
                     logger.warning(f"Slot details for {weapon_pattern_name} are invalid: {details}")
 
-        dpg.add_button(label="Buy All Weapon Pattern", callback=lambda: ask_how_many_times_to_buy(total_paints))
+        dpg.add_button(label="Buy All Weapon Pattern", callback=lambda: ask_how_many_times_to_buy(total_weapon_pattern))
 
         dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Weapon Pattern Menu"), dpg.show_item("Main Menu")))
 
@@ -113,7 +113,7 @@ def ask_how_manay_weapon_pattern(weapon_pattern_name, item_id, price, currency):
     with dpg.window(label=f"Buy {weapon_pattern_name}", tag="Buy Weapon Pattern Window", width=600, height=200, modal=True):
         dpg.add_text(f"How many {weapon_pattern_name} would you like to buy?")
         
-        dpg.add_input_int(label="Number of Weapon Pattern", min_value=1, default_value=1, tag="slot_count_input")
+        dpg.add_input_int(label="Number of Weapon Pattern", min_value=1, default_value=1, tag="weapon_pattern_count_input")
         
         dpg.add_button(label="Confirm", callback=lambda: start_thread(confirm_weapon_pattern_purchase, item_id, price, currency))
         dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Weapon Pattern Window"), dpg.show_item("Buy Weapon Pattern Menu")))
@@ -122,7 +122,7 @@ def confirm_weapon_pattern_purchase(item_id, price, currency):
     global purchase_running
     """Logic to handle the purchase confirmation and create a new window."""
     logger.debug(f"Attempting to purchase item: {item_id}")
-    slot_count = dpg.get_value("slot_count_input")
+    slot_count = dpg.get_value("weapon_pattern_count_input")
 
     # Close the current window
     if dpg.does_item_exist("Buy Weapon Pattern Window"):
@@ -188,22 +188,22 @@ def buy_individual_weapon_pattern(slot_count, item_id, price, currency):
 
 #Bulk Purchase 
 
-def ask_how_many_times_to_buy(total_paints):
+def ask_how_many_times_to_buy(total_weapon_pattern):
     """Prompt the user for how many times to Buy All Weapon Pattern."""
     if dpg.does_item_exist("Buy All Weapon Pattern Window"):
         dpg.delete_item("Buy All Weapon Pattern Window")
 
     with dpg.window(label="Buy All Weapon Pattern", tag="Buy All Weapon Pattern Window", width=600, height=200, modal=True):
-        dpg.add_text(f"How many times would you like to buy {total_paints} paints?")
+        dpg.add_text(f"How many times would you like to buy {total_weapon_pattern} weapon_pattern?")
         
-        dpg.add_input_int(label="Number of Times", min_value=1, default_value=1, tag="times_input")
+        dpg.add_input_int(label="Number of Times", min_value=1, default_value=1, tag="weapon_pattern_times_input")
         
-        # Pass both total_paints and the value from times_input to confirm_buy_all
-        dpg.add_button(label="Confirm", callback=lambda: start_thread(confirm_buy_all, total_paints, dpg.get_value("times_input")))
+        # Pass both total_weapon_pattern and the value from weapon_pattern_times_input to confirm_buy_all
+        dpg.add_button(label="Confirm", callback=lambda: start_thread(confirm_buy_all, total_weapon_pattern, dpg.get_value("weapon_pattern_times_input")))
         dpg.add_button(label="Back", callback=lambda: dpg.hide_item("Buy All Weapon Pattern Window"))
 
 
-def confirm_buy_all(total_paints, times_count):
+def confirm_buy_all(total_weapon_pattern, times_count):
     """Start the bulk purchase process in a new thread."""
     global purchase_running
     logger.debug("Attempting to purchase All Weapon Pattern")
@@ -220,9 +220,9 @@ def confirm_buy_all(total_paints, times_count):
         dpg.show_item("force_stop_button_bulk")
 
     purchase_running = True
-    threading.Thread(target=execute_bulk_purchase, args=(total_paints, times_count)).start()
+    threading.Thread(target=execute_bulk_purchase, args=(total_weapon_pattern, times_count)).start()
 
-def buy_bulk_paints(item_id, price, currency, count, total_paints):
+def buy_bulk_weapon_pattern(item_id, price, currency, count, total_weapon_pattern):
     """Purchase a paint item."""
     headers, url = load_token_headers()
 
@@ -238,7 +238,7 @@ def buy_bulk_paints(item_id, price, currency, count, total_paints):
 
         if response.status_code == 201:
             logger.debug(f"Weapon Pattern {item_id} purchased successfully.")
-            dpg.set_value("purchase_status_text_bulk", f"Purchased item {count + 1} of {total_paints}.")
+            dpg.set_value("purchase_status_text_bulk", f"Purchased item {count + 1} of {total_weapon_pattern}.")
         else:
             logger.error(f"Error purchasing item {item_id}: {response.text}")
             dpg.set_value("purchase_status_text_bulk", f"Error purchasing item {count + 1}: {response.text}")
@@ -249,13 +249,13 @@ def buy_bulk_paints(item_id, price, currency, count, total_paints):
     time.sleep(0.5)  # Delay between purchases
 
 
-def execute_bulk_purchase(total_paints, times_count):
+def execute_bulk_purchase(total_weapon_pattern, times_count):
     """Perform the bulk purchase in a separate thread."""
     global purchase_running
     slot_data = load_weapon_pattern('../Offsets/offsets.json')
 
 
-    logger.debug(f"Total times to purchase: {times_count} of {total_paints}")
+    logger.debug(f"Total times to purchase: {times_count} of {total_weapon_pattern}")
 
     count = 0
 
@@ -273,12 +273,12 @@ def execute_bulk_purchase(total_paints, times_count):
                 logger.debug(f"Buying paint: {weapon_pattern_name} (Item ID: {item_id})")
 
                 # Perform the purchase logic
-                buy_bulk_paints(item_id, price, currency, count, total_paints)
+                buy_bulk_weapon_pattern(item_id, price, currency, count, total_weapon_pattern)
                 count += 1
                 
 
-    logger.debug(f"Purchased {count} of {total_paints} items.")
-    dpg.set_value("purchase_status_text_bulk", f"Purchased {count} of {total_paints} items.")
+    logger.debug(f"Purchased {count} of {total_weapon_pattern} items.")
+    dpg.set_value("purchase_status_text_bulk", f"Purchased {count} of {total_weapon_pattern} items.")
 
 
     if dpg.does_item_exist("Purchase Confirmation Window Bulk"):

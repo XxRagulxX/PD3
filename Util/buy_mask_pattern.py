@@ -196,10 +196,10 @@ def ask_how_many_times_to_buy(total_mask_pattern):
     with dpg.window(label="Buy All Mask Pattern", tag="Buy All Mask Pattern Window", width=600, height=200, modal=True):
         dpg.add_text(f"How many times would you like to buy {total_mask_pattern} mask?")
         
-        dpg.add_input_int(label="Number of Times", min_value=1, default_value=1, tag="times_input")
+        dpg.add_input_int(label="Number of Times", min_value=1, default_value=1, tag="times_mask_pattern_input")
         
-        # Pass both total_mask_pattern and the value from times_input to confirm_buy_all
-        dpg.add_button(label="Confirm", callback=lambda: start_thread(confirm_buy_all, total_mask_pattern, dpg.get_value("times_input")))
+        # Pass both total_mask_pattern and the value from times_mask_pattern_input to confirm_buy_all
+        dpg.add_button(label="Confirm", callback=lambda: start_thread(confirm_buy_all, total_mask_pattern, dpg.get_value("times_mask_pattern_input")))
         dpg.add_button(label="Back", callback=lambda: dpg.hide_item("Buy All Mask Pattern Window"))
 
 

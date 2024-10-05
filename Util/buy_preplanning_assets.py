@@ -16,9 +16,9 @@ request_file = "../Offsets/request.json"
 
 # Starting Code..
 def buy_preplanning_assets_callback():
-    """Function to be triggered externally to open the Paint purchase window."""
-    slot_data = load_paints('../Offsets/offsets.json')
-    display_preplanning_details(slot_data, "Paint")
+    """Function to be triggered externally to open the preplanning assets purchase window."""
+    slot_data = load_perplanning_assets('../Offsets/offsets.json')
+    display_preplanning_details(slot_data, "Preplanning Assets")
             
 def force_stop_purchase():
     """Stop the ongoing purchase process."""
@@ -55,14 +55,14 @@ def load_token_headers():
             return {}, ""
     return {}, ""
 
-def load_paints(file_path):
-    """Load Paint Paint from the specified JSON file."""
+def load_perplanning_assets(file_path):
+    """Load Preplanning Assets from the specified JSON file."""
     file_path = os.path.join(os.path.dirname(__file__), file_path)
     try:
         with open(file_path, 'r') as file:
             data = json.load(file)
-            paints = data.get("Preplanning Assets", [])
-            return paints
+            preplanning_assets = data.get("Preplanning Assets", [])
+            return preplanning_assets
     except Exception as e:
         logger.error(f"Failed to load Preplanning Assets: {e}")
         return []
@@ -73,7 +73,7 @@ def start_thread(target, *args):
     thread.start()
 
 def display_preplanning_details(slot_data, Assets_type):
-    """Display the Paint details in the GUI."""
+    """Display the Preplanning Assets details in the GUI."""
     if dpg.does_item_exist("Buy Preplanning Assets"):
         dpg.delete_item("Buy Preplanning Assets")
     
@@ -82,14 +82,14 @@ def display_preplanning_details(slot_data, Assets_type):
     with dpg.window(label="Buy Preplanning Assets", tag="Buy Preplanning Assets", width=600, height=400, show=True):
         dpg.add_text(f"Items in {Assets_type}:")
         
-        total_paints = 0
+        total_preplanning_assets = 0
 
         for slot in slot_data:
             for assets_name, details in slot.items():
                 logger.debug(f"Preparing button for {assets_name} with details: {details}")
 
                 if details and isinstance(details, dict):
-                    total_paints += 1
+                    total_preplanning_assets += 1
 
                     def create_callback(assets_name, item_id, price, currency):
                         return lambda: ask_how_many_assets(assets_name, item_id, price, currency)
@@ -99,21 +99,21 @@ def display_preplanning_details(slot_data, Assets_type):
                 else:
                     logger.warning(f"Slot details for {assets_name} are invalid: {details}")
 
-        dpg.add_button(label="Buy All Preplanning Assets", callback=lambda: ask_how_many_times_to_buy(total_paints))
+        dpg.add_button(label="Buy All Preplanning Assets", callback=lambda: ask_how_many_times_to_buy(total_preplanning_assets))
 
         dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Preplanning Assets"), dpg.show_item("Main Menu")))
 
 # Individual Purchase. 
 
 def ask_how_many_assets(assets_name, item_id, price, currency):
-    """Prompt the user for the number of Paint to purchase."""
+    """Prompt the user for the number of Assets to purchase."""
     if dpg.does_item_exist("Buy Preplanning Assets Window"):
         dpg.delete_item("Buy Preplanning Assets Window")
     
     with dpg.window(label=f"Buy {assets_name}", tag="Buy Preplanning Assets Window", width=600, height=200, modal=True):
         dpg.add_text(f"How many {assets_name} would you like to buy?")
         
-        dpg.add_input_int(label="Number of Paints", min_value=1, default_value=1, tag="assets_count_input")
+        dpg.add_input_int(label="Number of preplanning_assets", min_value=1, default_value=1, tag="assets_count_input")
         
         dpg.add_button(label="Confirm", callback=lambda: start_thread(confirm_assets_purchase, item_id, price, currency))
         dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Preplanning Assets Window"), dpg.show_item("Buy Preplanning Assets")))
@@ -140,7 +140,7 @@ def confirm_assets_purchase(item_id, price, currency):
     threading.Thread(target=buy_preplanning_assets, args=(assets_count, item_id, price, currency)).start()
 
 def buy_preplanning_assets(assets_count, item_id, price, currency):
-    """Purchase a single paint item."""
+    """Purchase a single Preplanning Assets item."""
     headers, url = load_token_headers()
 
     if not url or not headers:
@@ -188,22 +188,22 @@ def buy_preplanning_assets(assets_count, item_id, price, currency):
 
 #Bulk Purchase 
 
-def ask_how_many_times_to_buy(total_paints):
+def ask_how_many_times_to_buy(total_preplanning_assets):
     """Prompt the user for how many times to Buy All Preplanning Assets."""
     if dpg.does_item_exist("Buy All Preplanning Assets Window"):
         dpg.delete_item("Buy All Preplanning Assets Window")
 
     with dpg.window(label="Buy All Preplanning Assets", tag="Buy All Preplanning Assets Window", width=600, height=200, modal=True):
-        dpg.add_text(f"How many times would you like to buy {total_paints} paints?")
+        dpg.add_text(f"How many times would you like to buy {total_preplanning_assets} preplanning_assets?")
         
-        dpg.add_input_int(label="Number of Times", min_value=1, default_value=1, tag="times_input")
+        dpg.add_input_int(label="Number of Times", min_value=1, default_value=1, tag="times_preplanning_assets_input")
         
-        # Pass both total_paints and the value from times_input to confirm_buy_all
-        dpg.add_button(label="Confirm", callback=lambda: start_thread(confirm_buy_all, total_paints, dpg.get_value("times_input")))
+        # Pass both total_preplanning_assets and the value from times_preplanning_assets_input to confirm_buy_all
+        dpg.add_button(label="Confirm", callback=lambda: start_thread(confirm_buy_all, total_preplanning_assets, dpg.get_value("times_preplanning_assets_input")))
         dpg.add_button(label="Back", callback=lambda: dpg.hide_item("Buy All Preplanning Assets Window"))
 
 
-def confirm_buy_all(total_paints, times_count):
+def confirm_buy_all(total_preplanning_assets, times_count):
     """Start the bulk purchase process in a new thread."""
     global purchase_running
     logger.debug("Attempting to purchase all Preplanning Assets")
@@ -220,10 +220,10 @@ def confirm_buy_all(total_paints, times_count):
         dpg.show_item("force_stop_button_bulk")
 
     purchase_running = True
-    threading.Thread(target=execute_bulk_purchase, args=(total_paints, times_count)).start()
+    threading.Thread(target=execute_bulk_purchase, args=(total_preplanning_assets, times_count)).start()
 
-def buy_bulk_preplanning_assets(item_id, price, currency, count, total_paints):
-    """Purchase a paint item."""
+def buy_bulk_preplanning_assets(item_id, price, currency, count, total_preplanning_assets):
+    """Purchase a Preplanning Assets item."""
     headers, url = load_token_headers()
 
     data = {
@@ -237,8 +237,8 @@ def buy_bulk_preplanning_assets(item_id, price, currency, count, total_paints):
         response = requests.post(url, json=data, headers=headers)
 
         if response.status_code == 201:
-            logger.debug(f"Paint {item_id} purchased successfully.")
-            dpg.set_value("purchase_status_text_bulk", f"Purchased item {count + 1} of {total_paints}.")
+            logger.debug(f"Preplanning Assets {item_id} purchased successfully.")
+            dpg.set_value("purchase_status_text_bulk", f"Purchased item {count + 1} of {total_preplanning_assets}.")
         else:
             logger.error(f"Error purchasing item {item_id}: {response.text}")
             dpg.set_value("purchase_status_text_bulk", f"Error purchasing item {count + 1}: {response.text}")
@@ -249,13 +249,13 @@ def buy_bulk_preplanning_assets(item_id, price, currency, count, total_paints):
     time.sleep(0.5)  # Delay between purchases
 
 
-def execute_bulk_purchase(total_paints, times_count):
+def execute_bulk_purchase(total_preplanning_assets, times_count):
     """Perform the bulk purchase in a separate thread."""
     global purchase_running
-    slot_data = load_paints('../Offsets/offsets.json')
+    slot_data = load_perplanning_assets('../Offsets/offsets.json')
 
 
-    logger.debug(f"Total times to purchase: {times_count} of {total_paints}")
+    logger.debug(f"Total times to purchase: {times_count} of {total_preplanning_assets}")
 
     count = 0
 
@@ -270,15 +270,15 @@ def execute_bulk_purchase(total_paints, times_count):
                 price = details['price']
                 currency = details['currency']
 
-                logger.debug(f"Buying paint: {assets_name} (Item ID: {item_id})")
+                logger.debug(f"Buying Preplanning Assets: {assets_name} (Item ID: {item_id})")
 
                 # Perform the purchase logic
-                buy_bulk_preplanning_assets(item_id, price, currency, count, total_paints)
+                buy_bulk_preplanning_assets(item_id, price, currency, count, total_preplanning_assets)
                 count += 1
                 
 
-    logger.debug(f"Purchased {count} of {total_paints} items.")
-    dpg.set_value("purchase_status_text_bulk", f"Purchased {count} of {total_paints} items.")
+    logger.debug(f"Purchased {count} of {total_preplanning_assets} items.")
+    dpg.set_value("purchase_status_text_bulk", f"Purchased {count} of {total_preplanning_assets} items.")
 
 
     if dpg.does_item_exist("Purchase Confirmation Window Bulk"):
