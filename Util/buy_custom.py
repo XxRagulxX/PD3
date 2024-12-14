@@ -22,7 +22,7 @@ def load_token_headers():
         try:
             with open(json_file_path, "r") as f:
                 data = json.load(f)
-                return data.get("headers", {}), data.get("payload_cstacks", {}), data.get("url_buy", {}).get("url_cstacks", "")
+                return data.get("headers", {}), data.get("url_buy_products", {}).get("url", "")
         except json.JSONDecodeError:
             logger.error("Error: Invalid JSON in request file.")
             return {}, {}, ""
@@ -55,65 +55,70 @@ def force_stop_purchase():
 
 # Display the Preplanning Assets purchase UI
 def display_preplanning_details(assets_type):
-    if dpg.does_item_exist("Buy Cstacks"):
-        dpg.delete_item("Buy Cstacks")
+    if dpg.does_item_exist("Buy Custom"):
+        dpg.delete_item("Buy Custom")
 
-    with dpg.window(label="Buy Cstacks", tag="Buy Cstacks", width=600, height=400, show=True):
+    with dpg.window(label="Buy Custom", tag="Buy Custom", width=600, height=400, show=True):
         dpg.add_text(f"Items in {assets_type}:")
 
         # Text boxes for user input
         dpg.add_input_text(label="Enter Item ID", tag="item_id_input", width=300)
         dpg.add_input_text(label="Enter Price", tag="price_input", width=300)
 
+        dpg.add_input_int(label="Number of Purchases", min_value=1, default_value=1, tag="purchase_count_input")
+
         # Payment type buttons
         dpg.add_text("Select Payment Type:")
-        dpg.add_button(label="CASH", callback=lambda: start_thread(confirm_assets_purchase)("CASH"))
-        dpg.add_button(label="GOLD", callback=lambda: start_thread(confirm_assets_purchase)("GOLD"))
-        dpg.add_button(label="CRED", callback=lambda: start_thread(confirm_assets_purchase)("CRED"))
+        dpg.add_button(label="CASH", callback=lambda: start_thread(confirm_assets_purchase, dpg.get_value("item_id_input"), dpg.get_value("price_input"), dpg.get_value("purchase_count_input") , "CASH"))
+        dpg.add_button(label="GOLD", callback=lambda: start_thread(confirm_assets_purchase, dpg.get_value("item_id_input"), dpg.get_value("price_input"), dpg.get_value("purchase_count_input") ,"GOLD"))
+        dpg.add_button(label="CRED", callback=lambda: start_thread(confirm_assets_purchase, dpg.get_value("item_id_input"), dpg.get_value("price_input"), dpg.get_value("purchase_count_input") ,"CRED"))
 
         # Action buttons
-        # dpg.add_button(label="Farm Cstacks", callback=lambda: start_thread(confirm_assets_purchase))
-        dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Cstacks"), dpg.show_item("Treasure Top-Up Menu")))
+        dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Custom"), dpg.show_item("Main Menu")))
 
 # Confirm the purchase and start a new thread
-def confirm_assets_purchase():
+def confirm_assets_purchase(item_id, price, purchase_count, currency):
     """Starts the purchase confirmation process."""
-    purchase_stop_event.clear()  # Reset the stop event
+#    purchase_stop_event.clear()  # Reset the stop event
     logger.debug("Starting individual purchase confirmation.")
     
-    if dpg.does_item_exist("Buy Cstacks"):
-        dpg.delete_item("Buy Cstacks")
+    if dpg.does_item_exist("Buy Custom"):
+        dpg.delete_item("Buy Custom")
 
     with dpg.window(label="Purchase Confirmation", tag="Purchase Confirmation Window", width=400, height=200):
         dpg.add_text("Your purchase is being processed...", tag="purchase_status_cstacks_buy")
         dpg.add_button(label="Force Stop", tag="force_stop_button_individual", callback=force_stop_purchase)
 
-    start_thread(buy_preplanning_assets)
+    start_thread(buy_preplanning_assets(item_id, price, purchase_count, currency))
+    # buy_preplanning_assets
 
 # Function to handle the purchase process
-def buy_preplanning_assets():
-    headers, payload_cstacks, url_cstacks = load_token_headers()
+def buy_preplanning_assets(item_id, price, num_purchases, currency, ):
+    payload_cstacks = {
+        "itemId": item_id,
+        "price": price,
+        "discountedPrice": price,
+        "currencyCode": currency
+    }
+    headers, url = load_token_headers()
 
-    if not url_cstacks or not headers:
+    if not url or not headers:
         logger.error("Failed to load URL or headers from request.json.")
         update_gui_element("purchase_status_cstacks_buy", "Failed to load request details.")
         return
 
-    update_gui_element("purchase_status_cstacks_buy", "Starting continuous purchase...")
-    purchase_slot = 1
-
-    while not purchase_stop_event.is_set():
+    update_gui_element("purchase_status_cstacks_buy", f"Starting purchase for {num_purchases} times...")
+    
+    for purchase_slot in range(1, num_purchases + 1):
         logger.debug(f"Purchasing slot {purchase_slot}.")
 
         try:
-            response = requests.put(url_cstacks, json=payload_cstacks, headers=headers)
+            response = requests.post(url, json=payload_cstacks, headers=headers)
             logger.debug(f"Response: {response.text}")
 
-            if response.status_code == 200:
+            if response.status_code == 201:
                 logger.debug("Purchase successful.")
-                response_data = response.json()
-                total_balance = response_data.get("balance", "Unknown balance")
-                update_gui_element("purchase_status_cstacks_buy", f"Purchase {purchase_slot} successful. Total balance: {total_balance}")
+                update_gui_element("purchase_status_cstacks_buy", f"Purchase {purchase_slot} successful. Total balance: {num_purchases}")
             elif response.status_code == 401:  # Token expired (unauthorized)
                 logger.warning("Token expired, attempting re-login.")
                 username, password = load_credentials()
@@ -122,12 +127,10 @@ def buy_preplanning_assets():
                     if access_token:
                         headers["Authorization"] = f"Bearer {access_token}"
                         logger.info("Retrying purchase after re-login.")
-                        response = requests.put(url_cstacks, json=payload_cstacks, headers=headers)
-                        if response.status_code == 200:
+                        response = requests.post(url, json=payload_cstacks, headers=headers)
+                        if response.status_code == 201:
                             logger.debug("Purchase successful after re-login.")
-                            response_data = response.json()
-                            total_balance = response_data.get("balance", "Unknown balance")
-                            update_gui_element("purchase_status_cstacks_buy", f"Purchase {purchase_slot} successful. Total balance: {total_balance}")
+                            update_gui_element("purchase_status_cstacks_buy", f"Purchase {purchase_slot} successful. Total balance: {num_purchases}")
                         else:
                             logger.error(f"Error after re-login: {response.text}")
                             update_gui_element("purchase_status_cstacks_buy", f"Error after re-login: {response.text}")
@@ -144,13 +147,7 @@ def buy_preplanning_assets():
             logger.error(f"Network error: {e}")
             update_gui_element("purchase_status_cstacks_buy", f"Network error: {e}")
 
-        purchase_slot += 1
-
-        # Use `purchase_stop_event.wait()` to check for stop signal and sleep for 10 seconds
-        if purchase_stop_event.wait(timeout=10):
-            break
-
-    logger.debug("Purchase process stopped.")
-    update_gui_element("purchase_status_cstacks_buy", "Purchase process stopped.")
+    logger.debug("Purchase process completed.")
+    update_gui_element("purchase_status_cstacks_buy", "Purchase process completed.")
     if dpg.does_item_exist("Purchase Confirmation Window"):
         dpg.delete_item("Purchase Confirmation Window")
