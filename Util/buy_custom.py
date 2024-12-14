@@ -69,10 +69,12 @@ def display_preplanning_details(assets_type):
 
         # Payment type buttons
         dpg.add_text("Select Payment Type:")
-        dpg.add_button(label="CASH", callback=lambda: start_thread(confirm_assets_purchase, dpg.get_value("item_id_input"), dpg.get_value("price_input"), dpg.get_value("purchase_count_input") , "CASH"))
-        dpg.add_button(label="GOLD", callback=lambda: start_thread(confirm_assets_purchase, dpg.get_value("item_id_input"), dpg.get_value("price_input"), dpg.get_value("purchase_count_input") ,"GOLD"))
-        dpg.add_button(label="CRED", callback=lambda: start_thread(confirm_assets_purchase, dpg.get_value("item_id_input"), dpg.get_value("price_input"), dpg.get_value("purchase_count_input") ,"CRED"))
-
+        with dpg.group(horizontal=True):
+            dpg.add_button(label="CASH", callback=lambda: start_thread(confirm_assets_purchase, dpg.get_value("item_id_input"), dpg.get_value("price_input"), dpg.get_value("purchase_count_input") , "CASH"))
+            dpg.add_button(label="GOLD", callback=lambda: start_thread(confirm_assets_purchase, dpg.get_value("item_id_input"), dpg.get_value("price_input"), dpg.get_value("purchase_count_input") ,"GOLD"))
+            dpg.add_button(label="CRED", callback=lambda: start_thread(confirm_assets_purchase, dpg.get_value("item_id_input"), dpg.get_value("price_input"), dpg.get_value("purchase_count_input") ,"CRED"))
+        
+        dpg.add_spacer()
         # Action buttons
         dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Custom"), dpg.show_item("Main Menu")))
 
