@@ -209,8 +209,8 @@ def confirm_buy_all(total_preplanning_assets, times_count):
     logger.debug("Attempting to purchase all Preplanning Assets")
 
 
-    if dpg.does_item_exist("Buy Preplanning Assets Window"):
-        dpg.delete_item("Buy Preplanning Assets Window")
+    if dpg.does_item_exist("Buy All Preplanning Assets Window"):
+        dpg.delete_item("Buy All Preplanning Assets Window")
 
 
     with dpg.window(label="Purchase Confirmation", tag="Purchase Confirmation Window Bulk", width=400, height=200):

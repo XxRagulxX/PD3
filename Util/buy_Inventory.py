@@ -213,8 +213,8 @@ def confirm_buy_all(total_Inventory, times_count):
     logger.debug("Attempting to purchase all Inventory.")
 
 
-    if dpg.does_item_exist("Buy Inventory Window"):
-        dpg.delete_item("Buy Inventory Window")
+    if dpg.does_item_exist("Buy All Inventory Window"):
+        dpg.delete_item("Buy All Inventory Window")
 
 
     with dpg.window(label="Purchase Confirmation", tag="Purchase Confirmation Window Bulk", width=400, height=200):

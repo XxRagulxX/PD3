@@ -15,11 +15,11 @@ def load_token_headers():
         try:
             with open(request_file, "r") as f:
                 data = json.load(f)
-                return data.get("token_header", {}), data.get("token_header_with_token", {}), data.get("url_buy_products", {}), data.get("headers",{})
+                return data.get("token_header", {}), data.get("token_header_with_token", {}), data.get("url_buy_products", {}), data.get("headers",{}), data.get("url_buy", {}), data.get("payload_money", {}) , data.get("payload_cstacks", {}), data.get("payload_cred" , {})
         except json.JSONDecodeError:
             print("Error: Invalid JSON in request file.")
-            return {}, {}, {} ,{}
-    return {}, {}, {} ,{}
+            return {}, {}, {} ,{}, {}, {}, {}
+    return {}, {}, {} ,{} , {} , {}, {}
 
 def save_token_headers(access_token, user_id):
     """Saves the updated token headers and user_id to request.json."""
@@ -27,7 +27,7 @@ def save_token_headers(access_token, user_id):
     os.makedirs("Offsets", exist_ok=True)
 
     # Load existing headers from request.json
-    original_headers, _, url_buy_products, headers = load_token_headers()
+    original_headers, _, url_buy_products, headers, url_buy , payload_money, payload_cstacks, payload_cred = load_token_headers()
 
     # Update the token header with the new access token
     updated_headers = original_headers.copy()
@@ -43,7 +43,11 @@ def save_token_headers(access_token, user_id):
         "token_header": original_headers,
         "token_header_with_token": updated_headers,
         "url_buy_products": url_buy_products,  # Now includes user_id in the URL
-        "headers": headers
+        "headers": headers,
+        "url_buy" : url_buy,
+        "payload_money" : payload_money,
+        "payload_cstacks" : payload_cstacks,
+        "payload_cred": payload_cred
     }
 
     # Save to request.json
@@ -62,7 +66,7 @@ def login(username, password):
     }
 
     # Load original token headers
-    token_headers, _, _ , _ = load_token_headers()
+    token_headers, _, _ , _, _, _, _, _ = load_token_headers()
 
     try:
         response = requests.post(url_token, headers=token_headers, data=data_token)

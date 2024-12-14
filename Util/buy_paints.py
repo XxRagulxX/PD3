@@ -212,8 +212,8 @@ def confirm_buy_all(total_paints, times_count):
     logger.debug("Attempting to purchase all paints.")
 
 
-    if dpg.does_item_exist("Buy Paint Window"):
-        dpg.delete_item("Buy Paint Window")
+    if dpg.does_item_exist("Buy All Paints Window"):
+        dpg.delete_item("Buy All Paints Window")
 
 
     with dpg.window(label="Purchase Confirmation", tag="Purchase Confirmation Window Bulk", width=400, height=200):

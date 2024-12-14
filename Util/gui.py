@@ -7,6 +7,11 @@ from Util.buy_paints import buy_paint_callback
 from Util.buy_preplanning_assets import buy_preplanning_assets_callback
 from Util.buy_weapon_pattern import buy_weapon_pattern_callback
 from Util.buy_mask_pattern import buy_mask_pattern_callback
+from Util.buy_weapon_sticker import buy_weapon_sticker_callback
+from Util.buy_money import buy_money_farmer_callback
+from Util.buy_cstacks import buy_cstacks_farmer_callback
+from Util.buy_cred import buy_cred_farmer_callback
+from Util.buy_custom import buy_custom_callback
 
 # Setting up logging for debugger mode
 logger = logging.getLogger("Util.gui")
@@ -123,7 +128,7 @@ dlc_menu_options = {
 # Farm menu options
 farm_menu_options = {
     0: "Money Farmer",
-    1: "Gold Farmer",
+    1: "Cstacks Farmer",
     2: "Cred Farmer",
     3: "Gun Max Level",
     4: "Max Level & Renown"
@@ -153,6 +158,10 @@ with dpg.window(label="Main Menu", tag="Main Menu", width=600, height=400, show=
             dpg.add_button(label=label, callback=buy_weapon_pattern_callback)
         elif label == "Buy Mask Pattern":
             dpg.add_button(label=label, callback=buy_mask_pattern_callback)
+        elif label == "Buy Weapon Sticker":
+            dpg.add_button(label=label, callback=buy_weapon_sticker_callback)
+        elif label == "Custom Buy":
+            dpg.add_button(label=label, callback=buy_custom_callback)
         elif label == "Treasure Top-Up":
             dpg.add_button(label=label, callback=show_sub_menu, user_data="Treasure Top-Up Menu")
         elif label == "Unlocker":
@@ -162,7 +171,17 @@ with dpg.window(label="Main Menu", tag="Main Menu", width=600, height=400, show=
 
 with dpg.window(label="Treasure Top-Up Menu", tag="Treasure Top-Up Menu", width=600, height=400, show=False):
     for key, label in farm_menu_options.items():
-        dpg.add_button(label=label, callback=menu_callback, user_data=label)
+        if label == "Money Farmer":
+            dpg.add_button(label=label, callback=buy_money_farmer_callback)
+        elif label == "Cstacks Farmer":
+            dpg.add_button(label=label, callback=buy_cstacks_farmer_callback)
+        elif label == "Cred Farmer":
+            dpg.add_button(label=label, callback=buy_cred_farmer_callback)
+        else:
+            dpg.add_button(label=label, callback=show_sub_menu, user_data=f"Sub Menu {key}")
+              
+        #dpg.add_button(label=label, callback=menu_callback, user_data=label)
+            
     dpg.add_button(label="Back", callback=back_to_main, user_data="Treasure Top-Up Menu")  # Back button
 
 # Unlocker Menu window

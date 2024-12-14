@@ -209,8 +209,8 @@ def confirm_buy_all(total_mask_pattern, times_count):
     logger.debug("Attempting to purchase all mask.")
 
 
-    if dpg.does_item_exist("Buy Mask Pattern Window"):
-        dpg.delete_item("Buy Mask Pattern Window")
+    if dpg.does_item_exist("Buy All Mask Pattern Window"):
+        dpg.delete_item("Buy All Mask Pattern Window")
 
 
     with dpg.window(label="Purchase Confirmation", tag="Purchase Confirmation Window Bulk", width=400, height=200):

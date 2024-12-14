@@ -209,8 +209,8 @@ def confirm_buy_all(total_weapon_pattern, times_count):
     logger.debug("Attempting to purchase All Weapon Pattern")
 
 
-    if dpg.does_item_exist("Buy Weapon Pattern Window"):
-        dpg.delete_item("Buy Weapon Pattern Window")
+    if dpg.does_item_exist("Buy All Weapon Pattern Window"):
+        dpg.delete_item("Buy All Weapon Pattern Window")
 
 
     with dpg.window(label="Purchase Confirmation", tag="Purchase Confirmation Window Bulk", width=400, height=200):
