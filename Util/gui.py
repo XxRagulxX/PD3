@@ -12,6 +12,7 @@ from Util.buy_money import buy_money_farmer_callback
 from Util.buy_cstacks import buy_cstacks_farmer_callback
 from Util.buy_cred import buy_cred_farmer_callback
 from Util.buy_custom import buy_custom_callback
+from Util.buy_heist import buy_Heist_Pack_callback
 
 # Setting up logging for debugger mode
 logger = logging.getLogger("Util.gui")
@@ -119,7 +120,7 @@ main_menu_options = {
 
 # DLC Unlocker options
 dlc_menu_options = {
-    0: "DLC Map Unlocker",
+    0: "DLC Heist Unlocker",
     1: "DLC Weapon Unlocker",
     2: "DLC Tailor Unlocker",
     3: "Twitch Drop, Preorder Bonus & Other Free Stuff Unlock"
@@ -180,14 +181,18 @@ with dpg.window(label="Treasure Top-Up Menu", tag="Treasure Top-Up Menu", width=
         else:
             dpg.add_button(label=label, callback=show_sub_menu, user_data=f"Sub Menu {key}")
               
-        #dpg.add_button(label=label, callback=menu_callback, user_data=label)
+        #dpg.add_button(label=label, callback=menu_callback, user_data=label)   
             
     dpg.add_button(label="Back", callback=back_to_main, user_data="Treasure Top-Up Menu")  # Back button
 
 # Unlocker Menu window
 with dpg.window(label="Unlocker Menu", tag="Unlocker Menu", width=600, height=400, show=False):
     for key, label in dlc_menu_options.items():
-        dpg.add_button(label=label, callback=menu_callback, user_data=label)
+        if label == "DLC Heist Unlocker":
+            dpg.add_button(label=label, callback=buy_Heist_Pack_callback)
+        else:
+            dpg.add_button(label=label, callback=show_sub_menu, user_data=f"Sub Menu {key}")
+        # dpg.add_button(label=label, callback=menu_callback, user_data=label)
     dpg.add_button(label="Back", callback=back_to_main, user_data="Unlocker Menu")  # Back button
 
 dpg.create_viewport(title="Payday Black Market- Revanced", width=800, height=600)
