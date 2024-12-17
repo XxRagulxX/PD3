@@ -99,21 +99,7 @@ def display_Heist_Pack_details(slot_data, Heist_Pack_type):
                 else:
                     logger.warning(f"Slot details for {Heist_Pack_name} are invalid: {details}")
 
-        dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Heist Pack Menu"), dpg.show_item("Main Menu")))
-
-
-# def ask_how_many_Heist_Packs(Heist_Pack_name, item_id, price, currency):
-#     """Prompt the user for the number of Heist Pack to purchase."""
-#     if dpg.does_item_exist("Buy Heist Pack Window"):
-#         dpg.delete_item("Buy Heist Pack Window")
-    
-#     with dpg.window(label=f"Buy {Heist_Pack_name}", tag="Buy Heist Pack Window", width=600, height=200, modal=True):
-#         dpg.add_text(f"How many {Heist_Pack_name} would you like to buy?")
-        
-#         dpg.add_input_int(label="Number of Heist_Packs", min_value=1, default_value=1, tag="slot_count_Heist_Pack_input")
-        
-#         dpg.add_button(label="Confirm", callback=lambda: start_thread(confirm_slot_purchase, item_id, price, currency))
-#         dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Heist_Pack Window"), dpg.show_item("Buy Heist_Pack Menu")))
+        dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Heist Pack Menu"), dpg.show_item("Unlocker Menu")))
 
 def confirm_slot_purchase(item_id, price, currency):
     global purchase_running
@@ -183,6 +169,3 @@ def buy_individual_Heist_Pack(slot_count, item_id, price, currency):
     
     if dpg.does_item_exist("Buy Heist Pack Window"):
         dpg.delete_item("Buy Heist Pack Window")
-
-
-
