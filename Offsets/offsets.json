@@ -2081,5 +2081,103 @@
                 "currency": "CASH"
             }
         }
+    ],
+    "Heist Pack": [
+        {
+            "Heist Art Gallery": {
+                "itemId": "489d79f9aab64f449f67748aa97259d0",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Branch Bank": {
+                "itemId": "64278f9403474eecace83eb2035030b8",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Cargo Dock": {
+                "itemId": "de6b03a887db46ebb5f3c189eee0736c",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Diamond District": {
+                "itemId": "e83972745a774d30b12f849143c3bf54",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Gold Sharke": {
+                "itemId": "51a4d1775a544f93b9dfdcf48f068c77",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Jewelry Store": {
+                "itemId": "452409c6100047a8bf7dc0a8e2eeda5b",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Night Club": {
+                "itemId": "b1476452baba4a3c8682e479acc44a46",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist One": {
+                "itemId": "7859abbae4a3488ba5555ff91b49cc91",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Pent House": {
+                "itemId": "0165fd5b2b704d6ca4f67f376e343b0d",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Station": {
+                "itemId": "4c1a3b8d1b3a4c32aff561c5d68c7eff",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Transport": {
+                "itemId": "0435cf118b294d259227310105876663",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Villa": {
+                "itemId": "1855ea53b51c493a954500566db71326",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        }
     ]
 }
