@@ -2179,5 +2179,71 @@
                 "currency": "CASH"
             }
         }
+    ],
+    "Epic Heist Pack": [
+        {
+            "Epic DLC01 Heist pack": {
+                "itemId": "711cd306bb1142678b74ffeb51072380",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic DLC02 Heist pack": {
+                "itemId": "3bf57ed271e34c5ba08592a8c57f5421",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic DLC03 Heist pack": {
+                "itemId": "8fb3b7bdb7d1437ab782685429b967aa",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic DLC04 Heist pack": {
+                "itemId": "dcd85e669ef84794bc7f18c9f70bdf45",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Courthouse Epic": {
+                "itemId": "3a50a8b0631349a8831ddcc15a6653e1",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Data Center Epic": {
+                "itemId": "db780556b7c2474fbe790ebd0bf8cc61",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Fort Epic": {
+                "itemId": "f26d7322b3b94f8d9e42624397c2d9cc",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Stock Exchange Epic": {
+                "itemId": "59999e9debf94f859894bed189f91325",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        }
     ]
 }
