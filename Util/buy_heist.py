@@ -49,7 +49,7 @@ def load_token_headers():
         try:
             with open(json_file_path, "r") as f:
                 data = json.load(f)
-                # return data.get("headers", {}), data.get("url_buy_products", {}).get("url", "") # Need to update . 
+                return data.get("headers", {}), data.get("url_buy_products", {}).get("url", "")
         except json.JSONDecodeError:
             logger.error("Error: Invalid JSON in request file.")
             return {}, ""
@@ -73,33 +73,39 @@ def start_thread(target, *args):
     thread.start()
 
 def display_Heist_Pack_details(slot_data, Heist_Pack_type):
-    """Display the Heist Pack details in the GUI."""
+    """Display the Heist Pack details in a dropdown list."""
     if dpg.does_item_exist("Buy Heist Pack Menu"):
         dpg.delete_item("Buy Heist Pack Menu")
     
     logger.debug(f"Loaded slot data: {slot_data}")
 
     with dpg.window(label="Buy Heist Pack", tag="Buy Heist Pack Menu", width=600, height=400, show=True):
-        dpg.add_text(f"Items in {Heist_Pack_type}:")
+        dpg.add_text(f"Select an item from {Heist_Pack_type}:")
         
-        total_Heist_Packs = 0
+        heist_pack_options = []  # List to hold the names of Heist Packs
+        heist_pack_callbacks = {}  # Dictionary to map the pack name to its purchase callback
 
         for slot in slot_data:
             for Heist_Pack_name, details in slot.items():
-                logger.debug(f"Preparing button for {Heist_Pack_name} with details: {details}")
+                logger.debug(f"Preparing option for {Heist_Pack_name} with details: {details}")
 
                 if details and isinstance(details, dict):
-                    total_Heist_Packs += 1
+                    heist_pack_options.append(Heist_Pack_name)
+                    
+                    # Store the callback for this Heist Pack
+                    def create_callback(item_id, price, currency):
+                        return lambda: confirm_slot_purchase(item_id, price, currency)
 
-                    def create_callback(Heist_Pack_name, item_id, price, currency):
-                        return lambda: confirm_slot_purchase(Heist_Pack_name, item_id, price, currency)  
-
-                    dpg.add_button(label=Heist_Pack_name,
-                                   callback=create_callback(Heist_Pack_name, details['itemId'], details['price'], details['currency']))
+                    heist_pack_callbacks[Heist_Pack_name] = create_callback(details['itemId'], details['price'], details['currency'])
                 else:
                     logger.warning(f"Slot details for {Heist_Pack_name} are invalid: {details}")
 
+        # Add a dropdown (combo box) to select a Heist Pack
+        selected_pack = dpg.add_combo(heist_pack_options, label="Heist Pack", callback=lambda sender, app_data: heist_pack_callbacks[app_data]())
+
+        # Back button to return to the previous menu
         dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Heist Pack Menu"), dpg.show_item("Unlocker Menu")))
+
 
 def confirm_slot_purchase(item_id, price, currency):
     global purchase_running
@@ -151,6 +157,7 @@ def buy_individual_Heist_Pack(slot_count, item_id, price, currency):
 
     try:
         response = requests.post(url, json=data, headers=headers)
+        print(response.text)
         logger.debug(f"Response: {response.text}")
 
         if response.status_code == 201:
