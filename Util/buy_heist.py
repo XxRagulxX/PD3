@@ -18,7 +18,7 @@ request_file = "../Offsets/request.json"
 def buy_Heist_Pack_callback():
     """Function to be triggered externally to open the Heist_Pack purchase window."""
     slot_data = load_Heist_Packs('../Offsets/offsets.json')
-    display_Heist_Pack_details(slot_data, "Heist_Pack")
+    display_Heist_Pack_details(slot_data, "All Heist Map")
             
 def force_stop_purchase():
     """Stop the ongoing purchase process."""
@@ -128,13 +128,13 @@ def display_Heist_Pack_details(slot_data, Heist_Pack_type):
         # Add dropdown (combo box) to select a regular Heist Pack
         dpg.add_combo(
             heist_pack_options,
-            label="Heist Pack",
+            label="All Heist Maps",
             callback=lambda sender, app_data: heist_pack_callbacks[app_data](),
         )
 
         # Add dropdown for Epic Heist Packs
         slot_data_epic = load_Heist_Packs_Epic('../Offsets/offsets.json')
-        dpg.add_text("Select an item from Epic Heist Packs:")
+        dpg.add_text("Select an item from Epic DLC Heist Packs:")
         epic_pack_options = []
         epic_pack_callbacks = {}
 
@@ -156,13 +156,13 @@ def display_Heist_Pack_details(slot_data, Heist_Pack_type):
         # Add dropdown (combo box) to select an Epic Heist Pack
         dpg.add_combo(
             epic_pack_options,
-            label="Epic Heist Pack",
+            label="Epic DLC Heist Packs",
             callback=lambda sender, app_data: epic_pack_callbacks[app_data](),
         )
 
                 # Add dropdown for Steam Heist Packs
         slot_data_steam = load_Heist_Packs_Steam('../Offsets/offsets.json')
-        dpg.add_text("Select an item from Steam Heist Packs:")
+        dpg.add_text("Select an item from Steam DLC Heist Packs:")
         steam_pack_options = []
         steam_pack_callbacks = {}
 
@@ -184,12 +184,14 @@ def display_Heist_Pack_details(slot_data, Heist_Pack_type):
         # Add dropdown (combo box) to select an Steam Heist Pack
         dpg.add_combo(
             steam_pack_options,
-            label="Steam Heist Pack",
+            label="Steam DLC Heist Packs",
             callback=lambda sender, app_data: steam_pack_callbacks[app_data](),
         )
 
         # Add a Back button to return to the previous menu
-        dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Heist Pack Menu"), dpg.show_item("Unlocker Menu")))
+        dpg.add_spacer()
+        dpg.add_button(label="Back",callback=lambda: (dpg.hide_item("Buy Heist Pack Menu"), dpg.show_item("Unlocker Menu"))
+)
 
 
 def confirm_slot_purchase(item_id, price, currency):
