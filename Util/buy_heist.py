@@ -66,6 +66,30 @@ def load_Heist_Packs(file_path):
     except Exception as e:
         logger.error(f"Failed to load Heist Pack: {e}")
         return []
+    
+def load_Heist_Packs_Epic(file_path):
+    """Load Heist_Pack from the specified JSON file."""
+    file_path = os.path.join(os.path.dirname(__file__), file_path)
+    try:
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+            Heist_Packs = data.get("Epic Heist Pack", [])
+            return Heist_Packs
+    except Exception as e:
+        logger.error(f"Failed to load Heist Pack: {e}")
+        return []
+    
+def load_Heist_Packs_Steam(file_path):
+    """Load Heist_Pack from the specified JSON file."""
+    file_path = os.path.join(os.path.dirname(__file__), file_path)
+    try:
+        with open(file_path, 'r') as file:
+            data = json.load(file)
+            Heist_Packs = data.get("Steam Heist Pack", [])
+            return Heist_Packs
+    except Exception as e:
+        logger.error(f"Failed to load Heist Pack: {e}")
+        return []
 
 def start_thread(target, *args):
     """Start a thread to run the target function."""
@@ -73,15 +97,16 @@ def start_thread(target, *args):
     thread.start()
 
 def display_Heist_Pack_details(slot_data, Heist_Pack_type):
-    """Display the Heist Pack details in a dropdown list."""
+    """Display both Heist Pack and Epic Pack details in dropdown lists."""
     if dpg.does_item_exist("Buy Heist Pack Menu"):
         dpg.delete_item("Buy Heist Pack Menu")
     
     logger.debug(f"Loaded slot data: {slot_data}")
 
     with dpg.window(label="Buy Heist Pack", tag="Buy Heist Pack Menu", width=600, height=400, show=True):
+        # Add dropdown for regular Heist Packs
         dpg.add_text(f"Select an item from {Heist_Pack_type}:")
-        
+
         heist_pack_options = []  # List to hold the names of Heist Packs
         heist_pack_callbacks = {}  # Dictionary to map the pack name to its purchase callback
 
@@ -100,10 +125,70 @@ def display_Heist_Pack_details(slot_data, Heist_Pack_type):
                 else:
                     logger.warning(f"Slot details for {Heist_Pack_name} are invalid: {details}")
 
-        # Add a dropdown (combo box) to select a Heist Pack
-        selected_pack = dpg.add_combo(heist_pack_options, label="Heist Pack", callback=lambda sender, app_data: heist_pack_callbacks[app_data]())
+        # Add dropdown (combo box) to select a regular Heist Pack
+        dpg.add_combo(
+            heist_pack_options,
+            label="Heist Pack",
+            callback=lambda sender, app_data: heist_pack_callbacks[app_data](),
+        )
 
-        # Back button to return to the previous menu
+        # Add dropdown for Epic Heist Packs
+        slot_data_epic = load_Heist_Packs_Epic('../Offsets/offsets.json')
+        dpg.add_text("Select an item from Epic Heist Packs:")
+        epic_pack_options = []
+        epic_pack_callbacks = {}
+
+        for slot in slot_data_epic:
+            for Heist_Pack_name, details in slot.items():
+                logger.debug(f"Preparing option for {Heist_Pack_name} with details: {details}")
+
+                if details and isinstance(details, dict):
+                    epic_pack_options.append(Heist_Pack_name)
+
+                    # Store the callback for this Epic Heist Pack
+                    def create_callback(item_id, price, currency):
+                        return lambda: confirm_slot_purchase(item_id, price, currency)
+
+                    epic_pack_callbacks[Heist_Pack_name] = create_callback(details['itemId'], details['price'], details['currency'])
+                else:
+                    logger.warning(f"Slot details for {Heist_Pack_name} are invalid: {details}")
+
+        # Add dropdown (combo box) to select an Epic Heist Pack
+        dpg.add_combo(
+            epic_pack_options,
+            label="Epic Heist Pack",
+            callback=lambda sender, app_data: epic_pack_callbacks[app_data](),
+        )
+
+                # Add dropdown for Steam Heist Packs
+        slot_data_steam = load_Heist_Packs_Steam('../Offsets/offsets.json')
+        dpg.add_text("Select an item from Steam Heist Packs:")
+        steam_pack_options = []
+        steam_pack_callbacks = {}
+
+        for slot in slot_data_steam:
+            for Heist_Pack_name, details in slot.items():
+                logger.debug(f"Preparing option for {Heist_Pack_name} with details: {details}")
+
+                if details and isinstance(details, dict):
+                    steam_pack_options.append(Heist_Pack_name)
+
+                    # Store the callback for this Steam Heist Pack
+                    def create_callback(item_id, price, currency):
+                        return lambda: confirm_slot_purchase(item_id, price, currency)
+
+                    steam_pack_callbacks[Heist_Pack_name] = create_callback(details['itemId'], details['price'], details['currency'])
+                else:
+                    logger.warning(f"Slot details for {Heist_Pack_name} are invalid: {details}")
+
+        # Add dropdown (combo box) to select an Steam Heist Pack
+        dpg.add_combo(
+            steam_pack_options,
+            label="Steam Heist Pack",
+            callback=lambda sender, app_data: steam_pack_callbacks[app_data](),
+        )
+
+        # Add a Back button to return to the previous menu
         dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy Heist Pack Menu"), dpg.show_item("Unlocker Menu")))
 
 
