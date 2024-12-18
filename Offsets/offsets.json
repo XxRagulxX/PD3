@@ -2245,5 +2245,63 @@
                 "currency": "CASH"
             }
         }
+    ],
+    "Steam Heist Pack": [
+        {
+            "Heist Courthouse Steam": {
+                "itemId": "85ec3e3656cf475ca514d4c3039cd739",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Data Center Steam": {
+                "itemId": "9b3e2be8772e4674bb85dc28f533924e",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Fort Steam": {
+                "itemId": "ebecba276c3342b481c434da16d69a5f",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Stock Exchange Steam": {
+                "itemId": "454e69fa3cf042139b1d3d1525e94484",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam DLC01 Heist pack": {
+                "itemId": "f7bb2ffd415b4e39be0c09ebb6736b9a",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam DLC02 Heist pack": {
+                "itemId": "d9b299caae7e4620b17e961243e3aea6",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam DLC04 Heist pack": {
+                "itemId": "87e8cb11af3744e59ddb9bdf0598ac6a",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        }
     ]
 }
