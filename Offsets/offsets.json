@@ -2303,5 +2303,89 @@
                 "currency": "CASH"
             }
         }
+    ],
+    "Epic Weapon Packs": [
+        {
+            "Epic DLC01 Weapon pack ": {
+                "itemId": "4bd7858dedf74532abc83f987470e4ab",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic DLC02 Weapon pack ": {
+                "itemId": "a5be4db055714c7ab722cf09f6f05c34",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic DLC03 Weapon pack": {
+                "itemId": "0689084274d64988b5b996b0ac501afb",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic DLC04 Weapon pack": {
+                "itemId": "028dfa799af94f1bb98ea17645064b11",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Star Weapon Preset": {
+                "itemId": "997fe02e9963435b85a25ee42c46e4b6",
+                "price": 50,
+                "discountedPrice": 50,
+                "currency": "GOLD"
+            }
+        }
+    ],
+    "Steam Weapon Packs": [
+        {
+            "Steam DLC01 Weapon pack ": {
+                "itemId": "1cdb0fddde344c0ea9ae09ee408e66d7",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam DLC02 Weapon pack ": {
+                "itemId": "16eb187877eb4b7da217b0d5698a8aa9",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam DLC03 Weapon pack": {
+                "itemId": "82e5cb4b9aa44e82ae5bb6b9875f0338",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam DLC04 Weapon pack": {
+                "itemId": "1925e9106026489ea86a223e5f5c3cb2",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Star Weapon Preset": {
+                "itemId": "51cecc597b7d4dbda7fd6f10bc13b571",
+                "price": 50,
+                "discountedPrice": 50,
+                "currency": "GOLD"
+            }
+        }
     ]
 }
