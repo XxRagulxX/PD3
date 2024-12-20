@@ -2387,5 +2387,947 @@
                 "currency": "GOLD"
             }
         }
+    ],
+    "Tailor Packs": [
+        {
+            "Tailor pack 02  gloves 04": {
+                "itemId": "373b232fdd324401a79e42a617358c4f",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Tailor pack 02 gloves 01": {
+                "itemId": "469cd5e48fce4060b4db904fe0beddff",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Tailor pack 02 gloves 02": {
+                "itemId": "a6cea8a8636d41739d07fbd88add16ba",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Tailor pack 02 gloves 03": {
+                "itemId": "3096892cdbf5439e80e5f50dcf6fa411",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Tailor pack 02 mask 01": {
+                "itemId": "2663e7ff04f74498ac60933bc6105589",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Tailor pack 02 mask 02": {
+                "itemId": "59c71808a9c448408ef02f173bc753c0",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Tailor pack 02 mask 04": {
+                "itemId": "a23f0964d57048f78afac4e0905e256b",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Tailor pack 02 suit 01": {
+                "itemId": "0bb4cdf0d4be4a15a14a050c9b08275b",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Tailor pack 02 suit 02": {
+                "itemId": "ef5215a3870c4e22b682990064390c36",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Tailor pack 02 suit 03": {
+                "itemId": "c18726a698a4470495a2ba31d525062d",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Tailor pack 02 suit 04": {
+                "itemId": "2567224ba39f4acea1a6dcdd3499a114",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        }
+    ],
+    "Epic Tailor Packs": [
+        {
+            "Epic DLC02 Tailor pack": {
+                "itemId": "458fa0836b654f13a9c01595af07103d",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic DLC03 Tailor pack": {
+                "itemId": "38df19ce613a436cbbd799a26b48e2fc",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic DLC04 Tailor pack": {
+                "itemId": "f2205fbbf08a454a95845934f394f751",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 03 Gloves 01": {
+                "itemId": "9866f2d75c7f42a182b1e8b8369de5ea",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 03 Gloves 02": {
+                "itemId": "1717f486e6414e4ca61dc73509b4e0a9",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 03 Gloves 03": {
+                "itemId": "db6f92231a774f038971b2c678d3b1f0",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 03 Gloves 04": {
+                "itemId": "47bd52c190f34258b07dd6a413d2b591",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 03 Mask 01": {
+                "itemId": "ceca679bf82041d9bd16a82727cd5987",
+                "price": 222,
+                "discountedPrice": 222,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 03 Mask 02": {
+                "itemId": "1f992ebf8ba04be8abdf10b907577fc5",
+                "price": 222,
+                "discountedPrice": 222,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 03 Mask 03": {
+                "itemId": "548df9398f814f90827390bc1952e3d6",
+                "price": 222,
+                "discountedPrice": 222,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 03 Mask 04": {
+                "itemId": "e4969ec73ef84d2c85170c3e4533f052",
+                "price": 222,
+                "discountedPrice": 222,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 03 Suit 01": {
+                "itemId": "39c65674349a4ab7a0317eafe38a6db0",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 03 Suit 02": {
+                "itemId": "7e36f35e695a4894adecf2acbc834fba",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 03 Suit 03": {
+                "itemId": "576d8f7cff154c8396f4af710a9baabd",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 03 Suit 04": {
+                "itemId": "a32f3ec3d7564bf2997eddf62e6e0663",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 04 Gloves 01": {
+                "itemId": "d668841338f248a88399b0dddbcfd4d9",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 04 Gloves 02": {
+                "itemId": "d944e5df18c1473a9b9bb9eb3cc5e743",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 04 Gloves 03": {
+                "itemId": "d94c726aedaf4e2686ae098bd4815620",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 04 Gloves 04": {
+                "itemId": "4edf8f7ef95d41588b1f225e2b4dd616",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 04 Mask 01": {
+                "itemId": "2c70891f6f1745f1bf8e1734c1de0985",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 04 Mask 02": {
+                "itemId": "b4030417319c414cb905e2b0ff4d8a13",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 04 Mask 03": {
+                "itemId": "f76fbb432c0d4b798332cd364f991a47",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 04 Mask 04": {
+                "itemId": "a1abdabc362942b39cd641ea091e3f10",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 04 Mask 01": {
+                "itemId": "ae2acfd57bae45a682df2f047cecbc0f",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 04 Suit 02": {
+                "itemId": "abe1cb33bf6241d59ba8aad5c761ec4f",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 04 Suit 03": {
+                "itemId": "9816a2b847094b93bc92c7924380e468",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor Pack 04 Suit 04": {
+                "itemId": "fc1c4c8b9ab3425f88e696148feb670b",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 01 gloves 01": {
+                "itemId": "587a7177f7e2481b9bae4bb8d6d935d9",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 01 gloves 02": {
+                "itemId": "dadff347515741ceb213c60d6770093c",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 01 gloves 03": {
+                "itemId": "02e2890b2c8547389f23efd42e9baa4f",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 01 gloves 04": {
+                "itemId": "d09eb1b2c3764f579d06d59cd36489f4",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 01 mask 01": {
+                "itemId": "40fb983b2a254ec79b26e7dbbacb0b04",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 01 mask 02": {
+                "itemId": "ac72fd0f475343298e31443f25fa50b9",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 01 mask 03": {
+                "itemId": "14201497775e4d4391a653ed8d2f3528",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 01 mask 04": {
+                "itemId": "8f451efae3774315bb305cfc8a9dc914",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 01 suit 01": {
+                "itemId": "04fd0a5949204f63b2b39eaa9634ce36",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 01 suit 02": {
+                "itemId": "a97e67e9d356437ab87308140720167e",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 01 suit 03": {
+                "itemId": "89a7c03520794ddeb26d12e3453bb72c",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 01 suit 04": {
+                "itemId": "e0642a77bbd24ec0a38162377eada954",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 02 gloves 01": {
+                "itemId": "20148290fc3b4554b7f5a31d7f1d8df2",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 02 gloves 02": {
+                "itemId": "bf17cb3854d84612a18b62b1d2907891",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 02 gloves 03": {
+                "itemId": "8ebce252b5674345bf1b415e3e4d7f31",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 02 gloves 04": {
+                "itemId": "22b9b8e48e104a359ae057831676d0a5",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 02 mask 01": {
+                "itemId": "fbd4eea107884b269575f69a31db6450",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 02 mask 02": {
+                "itemId": "5e68d716aec54051a42104e2008b7869",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 02 mask 03": {
+                "itemId": "27ce30cc9bdc4cd584c1a8eff6ba3853",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "pd3_epic_cosmetic_tailorpack_02_mask_04": {
+                "itemId": "b063a32652df40209ee1c242ae405892",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 02 suit 01": {
+                "itemId": "85c78d0381034d109856306b054e6c19",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 02 suit 02": {
+                "itemId": "46bdf29668c0458fbf83e3828e15cfa2",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 02 suit 03": {
+                "itemId": "f32a0886cf4d4a7a9c4aca6fe7fe314d",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Epic Tailor pack 02 suit 04": {
+                "itemId": "159a886183c645af8949bc2c104dff62",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Trifecta Lootbag Bundle Epic": {
+                "itemId": "6cce475cf54b4d0090df7e6df40170aa",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        }
+    ],
+    "Steam Tailor Packs": [
+        {
+            "Steam DLC01 Tailor pack": {
+                "itemId": "9f7a29d54a5c4e20a8c8176c7b1ecf01",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam DLC02 Tailor pack": {
+                "itemId": "a726b9c47e9546a3bfab010b448c8b41",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam DLC03 Tailor pack": {
+                "itemId": "bbe6421c96734553b1770c32a05898a8",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam DLC04 Tailor pack": {
+                "itemId": "0977dd72dce140ff961679caca72069d",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 03 Gloves 01": {
+                "itemId": "18a15306e99343459e5d330724dbec33",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 03 Gloves 02": {
+                "itemId": "858e1c70c98f40d8b137a0936b38b7a3",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 03 Gloves 03": {
+                "itemId": "f79f0b565631405699ae4b832fe7249a",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 03 Gloves 04": {
+                "itemId": "6179e403f918453c9ec5bbe63a0aa962",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 03 Mask 01": {
+                "itemId": "9a220595045d479c8d5692f5671d0287",
+                "price": 222,
+                "discountedPrice": 222,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 03 Mask 02": {
+                "itemId": "91b3682e77ca4ca690a991d38a6ed153",
+                "price": 222,
+                "discountedPrice": 222,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 03 Mask 03": {
+                "itemId": "e625aa9d84e4454dbde2334931736579",
+                "price": 222,
+                "discountedPrice": 222,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 03 Mask 04": {
+                "itemId": "ba5e801d46da4ab1a60fa33dafff9ec5",
+                "price": 222,
+                "discountedPrice": 222,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 03 Suit 01": {
+                "itemId": "80580e1c1fb04f36bc4c32cb3c00c792",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 03 Suit 02": {
+                "itemId": "fa1f017343754ec5894564dac0c6a946",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 03 Suit 03": {
+                "itemId": "026f174ffb314c5ba06849a1115e5b11",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 03 Suit 04": {
+                "itemId": "08554a9f99054b469207aceb6a0400e8",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 04 Gloves 01": {
+                "itemId": "db4b3588ef3643df90a152afee6eea7e",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 04 Gloves 02": {
+                "itemId": "efee9f57cfc94039b96df40c8e4afc7b",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 04 Gloves 03": {
+                "itemId": "0fe1dacb50f74caf9566292a5e7bcb1d",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 04 Gloves 04": {
+                "itemId": "b45c4b6eb98b4797a1b2cc53498c5ddc",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 04 Mask 01": {
+                "itemId": "b478cc3085944b94ad6e6c48eebfdee4",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 04 Mask 02": {
+                "itemId": "f82c5fbf7eab4f64822140cd2274627b",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 04 Mask 03": {
+                "itemId": "a3a5910706984b3b9591b5caf43e099b",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 04 Mask 04": {
+                "itemId": "f8abcb38cf314c36abf547109d10f453",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 04 Mask 01": {
+                "itemId": "9fe470c9e9194c43961ea3debd0d47f3",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 04 Suit 02": {
+                "itemId": "857bb026e48543b3a8d68c1feeb81065",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 04 Suit 03": {
+                "itemId": "6660ed75c59f451ebb0ecfbebb2f8ddb",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor Pack 04 Suit 04": {
+                "itemId": "2c88228ac05f4a858f39e1a1b9421b7f",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 01 gloves 01": {
+                "itemId": "1cbbb9441d8b4b0c90dc1ccc788f513d",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 01 gloves 02": {
+                "itemId": "46093ee8374149a3a213d8e71c6eb133",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 01 gloves 03": {
+                "itemId": "8e93faab93644527a7682a49ddb71196",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 01 gloves 03": {
+                "itemId": "4466f7c8e32141c5b5a0e1e4691a1803",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 01 gloves 04": {
+                "itemId": "2d5b8b20c9a94614bc0a14921e570930",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 01 mask 01": {
+                "itemId": "3030cd162d6b47ccad5e44403ccc7b35",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 01 mask 02": {
+                "itemId": "7d4b37f472c040c58a388527579f5704",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 01 mask 03": {
+                "itemId": "36d2557e1a344a62bb52c52201eaa1bc",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 01 mask 04 ": {
+                "itemId": "47f3fb495bb944a68230e21759b29ee9",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 01 suit 01": {
+                "itemId": "a5fbc130a37046059af2b93df1496e29",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 01 suit 02": {
+                "itemId": "57596dc1166e4cc7933f0f866d39872d",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 01 suit 03": {
+                "itemId": "eb9eddc16a6b421f80d2c3d2f36229c5",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 01 suit 04": {
+                "itemId": "09d5e836e5a041d7a73d5e4a6782d12b",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 02 gloves 01": {
+                "itemId": "90704d5499664cbcbee0077aa4cee500",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 02 gloves 02": {
+                "itemId": "8a5735aeea2c4d0caee2c08590345ad3",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 02 gloves 03": {
+                "itemId": "f0d93dd993de4264bc176e1a3c9e4665",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 02 gloves 04": {
+                "itemId": "deba500d01ad4edd87b61cbaeb9871ea",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 02 mask 01": {
+                "itemId": "f03326c29b8c41d8830cb223fc546fc5",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 02 mask 02": {
+                "itemId": "2ab11476f72e481aa90c707cbb6163ae",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 02 mask 03": {
+                "itemId": "db96930d512645238d191f3e379c423a",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 02 mask 04": {
+                "itemId": "45aa8cb1b45b4cc0904a64f4cb765574",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 02 suit 01": {
+                "itemId": "f8a570f007c6499e80056a075b987de9",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 02 suit 02": {
+                "itemId": "9f189fc992204b73a17ed9d9c07861ff",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 02 suit 03": {
+                "itemId": "d06db2883e0d4d26ae078f82e40ec5a4",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam Tailor pack 02 suit 04": {
+                "itemId": "9d807388b7464a9bafc03b05cc08e6dc",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Trifecta Lootbag Bundle Steam": {
+                "itemId": "e29db70296e14583a91a9126d363d780",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        }
     ]
 }
