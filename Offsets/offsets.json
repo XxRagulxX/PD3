@@ -3329,5 +3329,311 @@
                 "currency": "CASH"
             }
         }
+    ],
+    "Twitch Items": [
+        {
+            "DLC04 Twitch Drops Mask 01": {
+                "itemId": "35d1cf09fd694c468ede064666b4799c",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "DLC04 Twitch Drops Pattern 01": {
+                "itemId": "042562541ea04731abe4290071e14bc9",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "DLC04 Twitch Drops Mask Pattern 02": {
+                "itemId": "b2b176bf50ed49c8a4775e52317eabbb",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "DLC04 Twitch Drops Weapon Charm 01": {
+                "itemId": "6c14ef8add654403a8da5091fa1157ef",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "DLC04 Twitch Drops Weapon Sticker 01": {
+                "itemId": "94084b297316475a8637e43188d44001",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "DLC04 Twitch Drops Weapon Sticker 02": {
+                "itemId": "eab4480a4dbb4dccaa61eac2673129eb",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Mask STPatch 05 Twitch Drops 01 *new*": {
+                "itemId": "68ef489895a3423cbd847063b663c19c",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "STP04 Twitch Drops  Weapon Charm 01": {
+                "itemId": "0462c8d275134e8bb85671e023a944b6",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "STP04 Twitch Drops  Weapon Sticker 01": {
+                "itemId": "162fdac5a4ee4008955bd85d8e8a8448",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "STP04 Twitch Drops  Weapon Sticker 02": {
+                "itemId": "a76a260c4a4941e18ce42602be29affd",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "STP04 Twitch Drops  Weapon Sticker 03": {
+                "itemId": "0cebe4a50e464f218449435091c50761",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "STP04 Twitch Drops Mask 01": {
+                "itemId": "2483dc440a05416b951207c5f6efd630",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "STPatch 05 Twitch Drops Bundle *new*": {
+                "itemId": "2356480e5b2a4df2b4bac8d2b8b07143",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch Drops 06 Bundle01 *new*": {
+                "itemId": "9fcd49a030d54c0287000852131ca625",
+                "price": 1,
+                "discountedPrice": 1,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch Drops 06 Mask Mould 01 *new*": {
+                "itemId": "a01616b8f3784e8d9a21a2e680e345d4",
+                "price": 1,
+                "discountedPrice": 1,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch Drops 06 Mask Pattern01 *new*": {
+                "itemId": "2a392e877de94e2b8c73e783bdaf03f0",
+                "price": 1,
+                "discountedPrice": 1,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch Drops 06 Weapon Charm 01 *new*": {
+                "itemId": "f83a7e92f67640c983db9a14df82f16e",
+                "price": 1,
+                "discountedPrice": 1,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch Drops 06 Weapon Sticker 01 *new*": {
+                "itemId": "385bb49e4a04450b8a822b98a61c31ca",
+                "price": 1,
+                "discountedPrice": 1,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch Drops 06 Weapon Sticker 02 *new*": {
+                "itemId": "1d4e1d0b045a4b678db5822ea073744e",
+                "price": 1,
+                "discountedPrice": 1,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch Drops Scuba mask Mould 01": {
+                "itemId": "f6d0d8f54d054d4399e32f07990e6d8d",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch Drops Weapon Charm BeachBall  01": {
+                "itemId": "0422b3db10d546d7941b1f7608d7654f",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch Drops Weapon Sticker Cocktail  01": {
+                "itemId": "a75bb4b8d33c410b8bdffe33550e379b",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch Drops Weapon Sticker Icecream  01": {
+                "itemId": "052ff2d0c5e5413995d63071e66de0b0",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch Drops Weapon Sticker SandCastle  01": {
+                "itemId": "59319d2fdc5945f3a6edbe1bcb72155d",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch drops Mask mould Pig 01": {
+                "itemId": "38b42b5755fc4de1abd522d2593e1293",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch drops Mask pattern Pignose 01": {
+                "itemId": "72505aad8fb14b1586baf001dbc19b1b",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch drops Mask pattern Prison 01": {
+                "itemId": "9794c8502d1e4dcbb4b0db39047ec65e",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch drops set 01": {
+                "itemId": "0d8be77d9e0f47b9843fd75db7a2d5d6",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch drops set 02": {
+                "itemId": "9f3757e8f5164851a801452c69fa2764",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch drops set 03": {
+                "itemId": "685b2e2d4dd54c8c8188b081e07c9d35",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch drops set 04": {
+                "itemId": "4e113d8c073044c187be1cbb3be3a25c",
+                "price": 123,
+                "discountedPrice": 123,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch drops weapon charm Bacon 01": {
+                "itemId": "d6f974bf1618472eab17d90e4fe04fc7",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch drops weapon sticker Egg 01": {
+                "itemId": "b71c2176059c4944b16a41bb97688a1d",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch drops weapon sticker Potatisgris 01": {
+                "itemId": "db558d1fb7fe4a0e9699ae9d9a5be31b",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Weapon Charm STPatch 05 Twitch Drops 01 *new*": {
+                "itemId": "bbdbdaa55379493dadb0edc248703071",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Weapon Sticker STPatch 05 Twitch Drops 01 *new*": {
+                "itemId": "dd62f33eb0b44ed38e7f01fff9f8bf17",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Weapon Sticker STPatch 05 Twitch Drops 02 *new*": {
+                "itemId": "aec9b329de494cf78f09ecc9efe7f95e",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Weapon Sticker STPatch 05 Twitch Drops 03 *new*": {
+                "itemId": "7c94dcd1223c4f6ca7c1bb2f5d89eee1",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        }
     ]
 }

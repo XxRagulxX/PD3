@@ -15,6 +15,7 @@ from Util.buy_custom import buy_custom_callback
 from Util.buy_heist import buy_Heist_Pack_callback
 from Util.buy_dlcweapon import buy_dlcweapon_Pack_callback
 from Util.buy_dlctailor import buy_dlctailor_Pack_callback
+from Util.buy_twitchdrop import buy_Twitch_Pack_callback
 
 # Setting up logging for debugger mode
 logger = logging.getLogger("Util.gui")
@@ -196,6 +197,8 @@ with dpg.window(label="Unlocker Menu", tag="Unlocker Menu", width=600, height=40
             dpg.add_button(label=label, callback=buy_dlcweapon_Pack_callback)
         elif label == "DLC Tailor Unlocker":
             dpg.add_button(label=label, callback=buy_dlctailor_Pack_callback)
+        elif label == "Twitch Drop, Preorder Bonus & Other Free Stuff Unlock":
+            dpg.add_button(label=label, callback=buy_Twitch_Pack_callback)
         else:
             dpg.add_button(label=label, callback=show_sub_menu, user_data=f"Sub Menu {key}")
         # dpg.add_button(label=label, callback=menu_callback, user_data=label)
