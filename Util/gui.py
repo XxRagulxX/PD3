@@ -16,6 +16,7 @@ from Util.buy_heist import buy_Heist_Pack_callback
 from Util.buy_dlcweapon import buy_dlcweapon_Pack_callback
 from Util.buy_dlctailor import buy_dlctailor_Pack_callback
 from Util.buy_twitchdrop import buy_Twitch_Pack_callback
+from Util.update_items import fetch_weapon_data
 
 # Setting up logging for debugger mode
 logger = logging.getLogger("Util.gui")
@@ -118,7 +119,8 @@ main_menu_options = {
     7: "Buy Mask Pattern",
     8: "Buy Weapon Sticker",
     9: "Unlocker",
-    10: "Treasure Top-Up"
+    10: "Treasure Top-Up",
+    11: "Update script"
 }
 
 # DLC Unlocker options
@@ -170,6 +172,8 @@ with dpg.window(label="Main Menu", tag="Main Menu", width=600, height=400, show=
             dpg.add_button(label=label, callback=show_sub_menu, user_data="Treasure Top-Up Menu")
         elif label == "Unlocker":
             dpg.add_button(label=label, callback=show_sub_menu, user_data="Unlocker Menu")
+        elif label == "Update script":
+            dpg.add_button(label=label, callback=fetch_weapon_data)
         else:
             dpg.add_button(label=label, callback=show_sub_menu, user_data=f"Sub Menu {key}")
 
