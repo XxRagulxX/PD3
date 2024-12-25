@@ -1,31 +1,176 @@
 [
-    "pistol-s40-weapon-level",
-    "marksman-a114-weapon-level",
-    "pistol-stryk7-weapon-level",
-    "revolver-castigo44-weapon-level",
-    "shotgun-r880-weapon-level",
-    "assaultrifle-vf7s-weapon-level",
-    "pistol-spm11-weapon-level",
-    "shotgun-mosconi12c-weapon-level",
-    "pistol-s403-weapon-level",
-    "smg-pc9-weapon-level",
-    "revolver-bison-weapon-level",
-    "assaultrifle-ku59-weapon-level",
-    "marksman-r900s-weapon-level",
-    "smg-compact7-weapon-level",
-    "assaultrifle-nwb9-weapon-level",
-    "smg-commando-weapon-level",
-    "assaultrifle-car4-weapon-level",
-    "shotgun-fsa12-weapon-level",
-    "revolver-bullkick500-weapon-level",
-    "smg-war45-weapon-level",
-    "assaultrifle-rg5-weapon-level",
-    "smg-atk7-weapon-level",
-    "marksman-fik22-weapon-level",
-    "lmg-mx63-weapon-level",
-    "shotgun-m7p-weapon-level",
-    "pistol-pd5-weapon-level",
-    "assaultrifle-chs3-weapon-level",
-    "pistol-t32-weapon-level",
-    "pistol-gv50-weapon-level"
+    {
+        "Pistol S40": {
+            "statCode": "pistol-s40-weapon-level",
+            "value": 13.0
+        }
+    },
+    {
+        "Marksman A114": {
+            "statCode": "marksman-a114-weapon-level",
+            "value": 24.0
+        }
+    },
+    {
+        "Pistol Stryk7": {
+            "statCode": "pistol-stryk7-weapon-level",
+            "value": 13.0
+        }
+    },
+    {
+        "Revolver Castigo44": {
+            "statCode": "revolver-castigo44-weapon-level",
+            "value": 12.0
+        }
+    },
+    {
+        "Shotgun R880": {
+            "statCode": "shotgun-r880-weapon-level",
+            "value": 17.0
+        }
+    },
+    {
+        "Assaultrifle Vf7S": {
+            "statCode": "assaultrifle-vf7s-weapon-level",
+            "value": 29.0
+        }
+    },
+    {
+        "Pistol Spm11": {
+            "statCode": "pistol-spm11-weapon-level",
+            "value": 13.0
+        }
+    },
+    {
+        "Shotgun Mosconi12C": {
+            "statCode": "shotgun-mosconi12c-weapon-level",
+            "value": 12.0
+        }
+    },
+    {
+        "Pistol S403": {
+            "statCode": "pistol-s403-weapon-level",
+            "value": 13.0
+        }
+    },
+    {
+        "Smg Pc9": {
+            "statCode": "smg-pc9-weapon-level",
+            "value": 24.0
+        }
+    },
+    {
+        "Revolver Bison": {
+            "statCode": "revolver-bison-weapon-level",
+            "value": 11.0
+        }
+    },
+    {
+        "Assaultrifle Ku59": {
+            "statCode": "assaultrifle-ku59-weapon-level",
+            "value": 29.0
+        }
+    },
+    {
+        "Marksman R900S": {
+            "statCode": "marksman-r900s-weapon-level",
+            "value": 14.0
+        }
+    },
+    {
+        "Smg Compact7": {
+            "statCode": "smg-compact7-weapon-level",
+            "value": 17.0
+        }
+    },
+    {
+        "Assaultrifle Nwb9": {
+            "statCode": "assaultrifle-nwb9-weapon-level",
+            "value": 27.0
+        }
+    },
+    {
+        "Smg Commando": {
+            "statCode": "smg-commando-weapon-level",
+            "value": 17.0
+        }
+    },
+    {
+        "Assaultrifle Car4": {
+            "statCode": "assaultrifle-car4-weapon-level",
+            "value": 29.0
+        }
+    },
+    {
+        "Shotgun Fsa12": {
+            "statCode": "shotgun-fsa12-weapon-level",
+            "value": 26.0
+        }
+    },
+    {
+        "Revolver Bullkick500": {
+            "statCode": "revolver-bullkick500-weapon-level",
+            "value": 80001.0
+        }
+    },
+    {
+        "Smg War45": {
+            "statCode": "smg-war45-weapon-level",
+            "value": 25.0
+        }
+    },
+    {
+        "Assaultrifle Rg5": {
+            "statCode": "assaultrifle-rg5-weapon-level",
+            "value": 28.0
+        }
+    },
+    {
+        "Smg Atk7": {
+            "statCode": "smg-atk7-weapon-level",
+            "value": 22.0
+        }
+    },
+    {
+        "Marksman Fik22": {
+            "statCode": "marksman-fik22-weapon-level",
+            "value": 216.0
+        }
+    },
+    {
+        "Lmg Mx63": {
+            "statCode": "lmg-mx63-weapon-level",
+            "value": 27.0
+        }
+    },
+    {
+        "Shotgun M7P": {
+            "statCode": "shotgun-m7p-weapon-level",
+            "value": 20.0
+        }
+    },
+    {
+        "Pistol Pd5": {
+            "statCode": "pistol-pd5-weapon-level",
+            "value": 14.0
+        }
+    },
+    {
+        "Assaultrifle Chs3": {
+            "statCode": "assaultrifle-chs3-weapon-level",
+            "value": 26.0
+        }
+    },
+    {
+        "Pistol T32": {
+            "statCode": "pistol-t32-weapon-level",
+            "value": 13.0
+        }
+    },
+    {
+        "Pistol Gv50": {
+            "statCode": "pistol-gv50-weapon-level",
+            "value": 2.0
+        }
+    }
 ]

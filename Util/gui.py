@@ -17,6 +17,7 @@ from Util.buy_dlcweapon import buy_dlcweapon_Pack_callback
 from Util.buy_dlctailor import buy_dlctailor_Pack_callback
 from Util.buy_twitchdrop import buy_Twitch_Pack_callback
 from Util.update_items import fetch_weapon_data
+from Util.gun_stats import gun_stats_callback
 
 # Setting up logging for debugger mode
 logger = logging.getLogger("Util.gui")
@@ -185,6 +186,8 @@ with dpg.window(label="Treasure Top-Up Menu", tag="Treasure Top-Up Menu", width=
             dpg.add_button(label=label, callback=buy_cstacks_farmer_callback)
         elif label == "Cred Farmer":
             dpg.add_button(label=label, callback=buy_cred_farmer_callback)
+        elif label == "Gun Max Level":
+            dpg.add_button(label=label, callback=gun_stats_callback)
         else:
             dpg.add_button(label=label, callback=show_sub_menu, user_data=f"Sub Menu {key}")
               

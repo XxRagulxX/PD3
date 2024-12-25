@@ -52,8 +52,16 @@ def fetch_weapon_data():
                 if isinstance(item, dict):
                     # Check if "statCode" contains "weapon-level"
                     if "weapon-level" in item.get("statCode", ""):
-                        # Append the "statCode" to results
-                        results.append(item.get("statCode", "Unknown Code"))
+                        # Extract weapon name by formatting the "statCode"
+                        weapon_name = item.get("statCode", "").split("-weapon-level")[0].replace("-", " ").title()
+
+                        # Append the formatted dictionary to results
+                        results.append({
+                            weapon_name: {
+                                "statCode": item.get("statCode", "Unknown Code"),
+                                "value": item.get("value", 0.0)  # Default to 0.0 if "value" is missing
+                            }
+                        })
 
             # Save results to the output JSON file
             os.makedirs(os.path.dirname(output_file), exist_ok=True)
