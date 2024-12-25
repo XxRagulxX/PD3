@@ -60,17 +60,18 @@ def fetch_weapon_data():
             with open(output_file, "w") as file:
                 json.dump(results, file, indent=4)
 
-            close_window()
-            return results
+            logger.debug("Weapon data update completed successfully.")
+            dpg.add_text("Update completed successfully.", parent="Weapon Data")
+            dpg.add_button(label="Close", callback=lambda: dpg.delete_item("Weapon Data"), parent="Weapon Data")
         except json.JSONDecodeError:
-            raise ValueError("Failed to decode JSON response.")
+            logger.error("Failed to decode JSON response.")
+            dpg.add_text("Failed to decode JSON response.", parent="Weapon Data", color=[255, 0, 0])
+            dpg.add_button(label="Close", callback=lambda: dpg.delete_item("Weapon Data"), parent="Weapon Data")
         except Exception as e:
             logger.error(f"Error during script update: {e}")
-            raise e
+            dpg.add_text(f"Error during script update: {e}", parent="Weapon Data", color=[255, 0, 0])
+            dpg.add_button(label="Close", callback=lambda: dpg.delete_item("Weapon Data"), parent="Weapon Data")
     else:
-        raise ValueError(f"Failed to retrieve data. Status code: {response.status_code}")
-    
-def close_window():
-    """Function to close the weapon data window."""
-    if dpg.does_item_exist("Weapon Data"):
-        dpg.delete_item("Weapon Data")
+        logger.error(f"Failed to retrieve data. Status code: {response.status_code}")
+        dpg.add_text(f"Connection error: {response.status_code}", parent="Weapon Data", color=[255, 0, 0])
+        dpg.add_button(label="Close", callback=lambda: dpg.delete_item("Weapon Data"), parent="Weapon Data")
