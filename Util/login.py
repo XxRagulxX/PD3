@@ -37,6 +37,7 @@ def save_token_headers(access_token, user_id):
     # Update the url_buy_products with the actual user_id
     if "url" in url_buy_products:
         url_buy_products["url"] = url_buy_products["url"].replace("{user_id}", user_id)
+        url_buy_products["url_upgrade"] = url_buy_products["url_upgrade"].replace("{user_id}", user_id)
 
     # Prepare the data to save in the JSON file
     data_to_save = {
