@@ -22,7 +22,7 @@ def load_token_headers():
         try:
             with open(json_file_path, "r") as f:
                 data = json.load(f)
-                return data.get("headers", {}), data.get("payload_cred", {}), data.get("url_buy", {}).get("url_cred", "")
+                return data.get("headers", {}), data.get("payload_cred", {}), data.get("url_buy", {}).get("url_usd", "")
         except json.JSONDecodeError:
             logger.error("Error: Invalid JSON in request file.")
             return {}, {}, ""
@@ -80,9 +80,9 @@ def confirm_assets_purchase():
 
 # Function to handle the purchase process
 def buy_preplanning_assets():
-    headers, payload_cred, url_cred = load_token_headers()
+    headers, payload_cred, url_usd = load_token_headers()
 
-    if not url_cred or not headers:
+    if not url_usd or not headers:
         logger.error("Failed to load URL or headers from request.json.")
         update_gui_element("purchase_status_cred_buy", "Failed to load request details.")
         return
@@ -94,7 +94,7 @@ def buy_preplanning_assets():
         logger.debug(f"Purchasing slot {purchase_slot}.")
 
         try:
-            response = requests.put(url_cred, json=payload_cred, headers=headers)
+            response = requests.put(url_usd, json=payload_cred, headers=headers)
             logger.debug(f"Response: {response.text}")
 
             if response.status_code == 200:
@@ -110,7 +110,7 @@ def buy_preplanning_assets():
                     if access_token:
                         headers["Authorization"] = f"Bearer {access_token}"
                         logger.info("Retrying purchase after re-login.")
-                        response = requests.put(url_cred, json=payload_cred, headers=headers)
+                        response = requests.put(url_usd, json=payload_cred, headers=headers)
                         if response.status_code == 200:
                             logger.debug("Purchase successful after re-login.")
                             response_data = response.json()

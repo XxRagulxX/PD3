@@ -72,7 +72,7 @@ def display_preplanning_details(assets_type):
         with dpg.group(horizontal=True):
             dpg.add_button(label="CASH", callback=lambda: start_thread(confirm_assets_purchase, dpg.get_value("item_id_input"), dpg.get_value("price_input"), dpg.get_value("purchase_count_input") , "CASH"))
             dpg.add_button(label="GOLD", callback=lambda: start_thread(confirm_assets_purchase, dpg.get_value("item_id_input"), dpg.get_value("price_input"), dpg.get_value("purchase_count_input") ,"GOLD"))
-            dpg.add_button(label="CRED", callback=lambda: start_thread(confirm_assets_purchase, dpg.get_value("item_id_input"), dpg.get_value("price_input"), dpg.get_value("purchase_count_input") ,"CRED"))
+            dpg.add_button(label="USD", callback=lambda: start_thread(confirm_assets_purchase, dpg.get_value("item_id_input"), dpg.get_value("price_input"), dpg.get_value("purchase_count_input") ,"USD"))
         
         dpg.add_spacer()
         # Action buttons

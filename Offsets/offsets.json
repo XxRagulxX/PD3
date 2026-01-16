@@ -1,411 +1,11 @@
 {
     "Preplanning Assets": [
         {
-            "4 Fort Preplanning Asset": {
-                "itemId": "1e8e1becbe674c979b5ca132fabd2808",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "3 Fort Preplanning Asset": {
-                "itemId": "1d5d3f22a3ec44bbaa60a28db664c632",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "2 Fort Preplanning Asset": {
-                "itemId": "3e550b4e4ea145509cbc4778f10aa9d3",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "1 Fort Preplanning Asset": {
-                "itemId": "482bd77678a848eba8ad15db056c215c",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "1 Data Center Preplanning Asset": {
-                "itemId": "78502eb46ce44bd08b156c6a5466fbd3",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "3 Data Center Preplanning Asset": {
-                "itemId": "4876f3b42f904fc2af6cb2c75de27942",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "2 Data Center Preplanning Asset": {
-                "itemId": "b1535c1e89e54b7ab749d622ebe2e86f",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "4 Station Preplanning Asset": {
-                "itemId": "b8e2a0ce38444458bc50d1a3e5bb075d",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "3 Station Preplanning Asset": {
-                "itemId": "bdba4c27cfad4225ad1faa263a1d5f4a",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "2 Station Preplanning Asset": {
-                "itemId": "1543ccb3ff5146f4b713911839d493d0",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "1 Station Preplanning Asset": {
-                "itemId": "9ef4512c63e04a1d8f4f447db1dd0117",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "4 Villa Preplanning Asset": {
-                "itemId": "24feafdb91504f458670a133d86ea37e",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "3 Villa Preplanning Asset": {
-                "itemId": "a96c77c1d5d54e5180e0486c78e95998",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "2 Villa Preplanning Asset": {
-                "itemId": "84eff09190304f8ca6d4b964fbe99a2c",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "1 Villa Preplanning Asset": {
-                "itemId": "04dfe4043b9449549e6c897ad413929b",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Additional Loot Secure Point Art Gallery Preplanning Asset": {
-                "itemId": "ed77cf56bf8d435ab25b07eb476bf341",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Additional Secure Point Night Club Preplanning Asset": {
-                "itemId": "3540c541445e4c86be79d0d9d618fa62",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Ammo Bag preplanning Asset": {
-                "itemId": "95f57d5c08e34dcb946483ba865c7d54",
-                "price": 10000,
-                "discountedPrice": 10000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Armor Bag preplanning Asset": {
-                "itemId": "f87963ec8bab4381b62396e2974e97b8",
-                "price": 10000,
-                "discountedPrice": 10000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Cafe Celebration Sharke Bank Preplanning Asset": {
-                "itemId": "24fb047fe6bb4227a09d1089d1271f7d",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Crypto Wallet Timer Night Club Preplanning Asset": {
-                "itemId": "dca07cf916b04dbf8f3eb4a134e874cf",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Degradation Time Cargo Dock Preplanning Asset": {
-                "itemId": "96de618c6aca4d3a9b4df9b3220fcb1c",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Elevator Shaft Sharke Bank Preplanning Asset": {
-                "itemId": "6c0bc7b7053c486496f68402d313c20d",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Employee Backdoor Jewelry Store Preplanning Asset": {
-                "itemId": "ed3734c6be7142ca9ac17df4b91e4acb",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Chopper Jewelry Store Preplanning Asset": {
-                "itemId": "b21d68ea6ba94dc38032697233b6aa41",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Escape Van Jewelry Store Preplanning Asset": {
-                "itemId": "736ee0a77016416ba9d35a9a5f4c7fd0",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Garbage Chute Armored Transport Preplanning Asset": {
-                "itemId": "762a1305c25844a7aac3d0f0666c70e6",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Helicopter Pilot Art Gallery Preplanning Asset": {
-                "itemId": "3872ce94c1bf4ae49962e97e6eee4c13",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Inside Man Keycard Night Club Preplanning Asset": {
-                "itemId": "ea9fd9afab3d4e88ab8f9276bd5e66b3",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Keycard Art Gallery Preplanning Asset": {
-                "itemId": "714a8344431147b1bbb9a36c51a6e0fe",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Keycard Branch Bank Preplanning Asset": {
-                "itemId": "fb595a70be16479cbd6398866ceace43",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Less Containers Cargo Dock Preplanning Asset": {
-                "itemId": "0cd47901794a44b38a9f2d4b7b1b3f61",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Manager Cake Jewelry Store Preplanning Asset": {
-                "itemId": "a8a42735b6ed4bf48456de9f33ff6477",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Health Bag preplanning Asset": {
-                "itemId": "340a890d972d47b5adfacdf5ef854f2c",
-                "price": 10000,
-                "discountedPrice": 10000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "More Explosives Cargo Dock Preplanning Asset": {
-                "itemId": "b91465e2dc624101a3d157305637bbda",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "More Planks Armored Transport Preplanning Asset": {
-                "itemId": "0441acf170484c509bcb2c7869170403",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "More Thermite Branch Bank Preplanning Asset": {
-                "itemId": "ec4f15db42d54fdfa1a4716d3e880aaf",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Open Door Art Gallery Preplanning Asset": {
-                "itemId": "d1a8dbc374684db69970fb9655af3e98",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Poison Penthouse Preplanning Asset": {
-                "itemId": "b815a9b61ba944dda953eb85fd8d6bbf",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "RC Signal Armored Transport Preplanning Asset": {
-                "itemId": "86104f11f3534828b6112f28717c5308",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Sniper Tower Armored Transport Preplanning Asset": {
-                "itemId": "f55bbfc9483948d69be74a55b5cd5038",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Teller Door Sharke Bank Preplanning Asset": {
-                "itemId": "244a532a15a540b8a2bb08ba61ca2cbe",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Thermal Lance Sharke Bank Preplanning Asset": {
-                "itemId": "df2e66d7a0e94ff28ba46337ceaf9555",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Thermite Drop Cargo Dock Preplanning Asset": {
-                "itemId": "ff2464ce14da473e97590ea2fb33b327",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Thermite Penthouse Preplanning Asset": {
-                "itemId": "87d91fc1cc5f4e8fa3c4e9e2bd303376",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Van Escape Branch Bank Preplanning Asset": {
-                "itemId": "7ef67d46c6224310b813afcc5f53ae62",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Vault Code Night Club Preplanning Asset": {
-                "itemId": "65a355215bb8473bbf9d3f2661211899",
-                "price": 1999,
-                "discountedPrice": 1999,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Vent Secure Point Penthouse Preplanning Asset": {
-                "itemId": "86b9d2fede264495a71aac9786b20a45",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Window Platform Penthouse Preplanning Asset": {
-                "itemId": "d953877d2f494605b89f40896fe85781",
-                "price": 1000,
-                "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Zipline Universal Preplanning Asset": {
-                "itemId": "cfb70d967cf149988eec391a61d4ac08",
-                "price": 10000,
-                "discountedPrice": 10000,
-                "currency": "CASH"
-            }
-        },
-        {
-            "1 BUST Preplanning Asset *new*": {
+            "1 BUST Preplanning Asset": {
                 "itemId": "e69e007a017a45fd83b7baa4157cef31",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -413,7 +13,15 @@
                 "itemId": "2c7d5dfcf5694ee188742640c0516dfb",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
+            }
+        },
+        {
+            "1 Data Center Preplanning Asset": {
+                "itemId": "78502eb46ce44bd08b156c6a5466fbd3",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
             }
         },
         {
@@ -421,31 +29,71 @@
                 "itemId": "acc3173c3b4f4e4da014b1e6de357132",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
-            "1 ONE Preplanning Asset  *new*": {
+            "1 Fort Preplanning Asset": {
+                "itemId": "482bd77678a848eba8ad15db056c215c",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "1 ONE Preplanning Asset ": {
                 "itemId": "e1f2d47fd556482bb837ce5cb76844bd",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
-            "1 Stonk Preplanning Asset *new*": {
+            "1 Station Preplanning Asset": {
+                "itemId": "9ef4512c63e04a1d8f4f447db1dd0117",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "1 Stonk Preplanning Asset": {
                 "itemId": "16b8f71c86e04adbb8697514bc365905",
                 "price": 1000,
                 "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "1 Villa Preplanning Asset": {
+                "itemId": "04dfe4043b9449549e6c897ad413929b",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "1 dema preplanning asset *new*": {
+                "itemId": "e0f765b3238541188be9a5b3a2de2551",
+                "price": 70000,
+                "discountedPrice": 70000,
                 "currency": "CASH"
             }
         },
         {
-            "2 BUST Preplanning Asset *new*": {
+            "1 shiya preplanning asset *new*": {
+                "itemId": "e7b485d0b3e74c1aaa256d1bda94be17",
+                "price": 15000,
+                "discountedPrice": 15000,
+                "currency": "CASH"
+            }
+        },
+        {
+            "2 BUST Preplanning Asset": {
                 "itemId": "9c20941d5d73418abb6dd3a41f2be061",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -453,7 +101,15 @@
                 "itemId": "30736719ea16457ab26cb42a381d9c8f",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
+            }
+        },
+        {
+            "2 Data Center Preplanning Asset": {
+                "itemId": "b1535c1e89e54b7ab749d622ebe2e86f",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
             }
         },
         {
@@ -461,31 +117,71 @@
                 "itemId": "e96ba1e6c7b24c91bb79a8586af172f1",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
-            "pd3_preplanning_one_1 *new*": {
+            "2 Fort Preplanning Asset": {
+                "itemId": "3e550b4e4ea145509cbc4778f10aa9d3",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "pd3_preplanning_one_1": {
                 "itemId": "a8c355565f8a4d6cbb66c887d0ebd1dc",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
-            "2 Stonk Preplanning Asset *new*": {
+            "2 Station Preplanning Asset": {
+                "itemId": "1543ccb3ff5146f4b713911839d493d0",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "2 Stonk Preplanning Asset": {
                 "itemId": "4f6f72de7cba496e80b65bdcf67b95be",
                 "price": 1000,
                 "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "2 Villa Preplanning Asset": {
+                "itemId": "84eff09190304f8ca6d4b964fbe99a2c",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "2 dema preplanning asset *new*": {
+                "itemId": "fc1a755c30464c75a6a16df5e6c78b26",
+                "price": 15000,
+                "discountedPrice": 15000,
                 "currency": "CASH"
             }
         },
         {
-            "3 BUST Preplanning Asset *new*": {
+            "2 shiya preplanning asset *new*": {
+                "itemId": "22db3e56b7034cea9743d70f4eb87db2",
+                "price": 105000,
+                "discountedPrice": 105000,
+                "currency": "CASH"
+            }
+        },
+        {
+            "3 BUST Preplanning Asset": {
                 "itemId": "6cdc7b0c1c5f45eb87d46f31b7eaaf47",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -493,7 +189,15 @@
                 "itemId": "883aeffbe34443a7bb38d095f689878a",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
+            }
+        },
+        {
+            "3 Data Center Preplanning Asset": {
+                "itemId": "4876f3b42f904fc2af6cb2c75de27942",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
             }
         },
         {
@@ -501,23 +205,71 @@
                 "itemId": "fd38dd8824244d27beff10d11b19fc83",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
-            "3 Stonk Preplanning Asset *new*": {
+            "3 Fort Preplanning Asset": {
+                "itemId": "1d5d3f22a3ec44bbaa60a28db664c632",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "1 ONE Preplanning Asset ": {
+                "itemId": "9eba920bf210414c9cb27c1a223de4a1",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "3 Station Preplanning Asset": {
+                "itemId": "bdba4c27cfad4225ad1faa263a1d5f4a",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "3 Stonk Preplanning Asset": {
                 "itemId": "a0810a691e8b43f7a3d5566005b75550",
                 "price": 1000,
                 "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "3 Villa Preplanning Asset": {
+                "itemId": "a96c77c1d5d54e5180e0486c78e95998",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "3 dema preplanning asset *new*": {
+                "itemId": "b4572cdeaaa04c3681cd71d9989184ee",
+                "price": 60000,
+                "discountedPrice": 60000,
                 "currency": "CASH"
             }
         },
         {
-            "4 BUST Preplanning Asset *new*": {
+            "3 shiya preplanning asset *new*": {
+                "itemId": "839d4408edce4aadb4da918361da0368",
+                "price": 85000,
+                "discountedPrice": 85000,
+                "currency": "CASH"
+            }
+        },
+        {
+            "4 BUST Preplanning Asset": {
                 "itemId": "35b815dd0a7945bfa6020c6526f9da52",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -525,7 +277,15 @@
                 "itemId": "8f430aaa47dd4f6ba9ce010b53113106",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
+            }
+        },
+        {
+            "1 Data Center Preplanning Asset": {
+                "itemId": "5c1b77fc240c4687b5ec4fa3ba215343",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
             }
         },
         {
@@ -533,39 +293,79 @@
                 "itemId": "9b50f7a9719941e48db1647b3ba68c85",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
-            "4 ONE Preplanning Asset  *new*": {
+            "4 Fort Preplanning Asset": {
+                "itemId": "1e8e1becbe674c979b5ca132fabd2808",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "4 ONE Preplanning Asset ": {
                 "itemId": "85dc44d85d004223ac984f07c55a84b0",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
-            "4 Stonk Preplanning Asset *new*": {
+            "4 Station Preplanning Asset": {
+                "itemId": "b8e2a0ce38444458bc50d1a3e5bb075d",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "4 Stonk Preplanning Asset": {
                 "itemId": "510dad0db168441fb1888cae2bd5ea71",
                 "price": 1000,
                 "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "4 Villa Preplanning Asset": {
+                "itemId": "24feafdb91504f458670a133d86ea37e",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "4 dema preplanning asset *new*": {
+                "itemId": "4ea50a7ae4274b14b66d3ee0af107286",
+                "price": 40000,
+                "discountedPrice": 40000,
                 "currency": "CASH"
             }
         },
         {
-            "5 ONE Preplanning Asset  *new*": {
+            "4 shiya preplanning asset *new*": {
+                "itemId": "0ddfdac3ef7943428c2b938ed4072863",
+                "price": 62000,
+                "discountedPrice": 62000,
+                "currency": "CASH"
+            }
+        },
+        {
+            "5 ONE Preplanning Asset ": {
                 "itemId": "4ef7826cc99f4f6ea0c434bfbd7e80cd",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
-            "6 ONE Preplanning Asset  *new*": {
+            "6 ONE Preplanning Asset ": {
                 "itemId": "fc38d03d7edb4d108b9e21efe36df585",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -573,7 +373,7 @@
                 "itemId": "ed77cf56bf8d435ab25b07eb476bf341",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -581,7 +381,7 @@
                 "itemId": "3540c541445e4c86be79d0d9d618fa62",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -617,11 +417,19 @@
             }
         },
         {
+            "Cafe Celebration Sharke Bank Preplanning Asset": {
+                "itemId": "24fb047fe6bb4227a09d1089d1271f7d",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
             "Crypto Wallet Timer Night Club Preplanning asset": {
                 "itemId": "dca07cf916b04dbf8f3eb4a134e874cf",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -629,7 +437,15 @@
                 "itemId": "96de618c6aca4d3a9b4df9b3220fcb1c",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
+            }
+        },
+        {
+            "Elevator Shaft Sharke Bank Preplanning Asset": {
+                "itemId": "6c0bc7b7053c486496f68402d313c20d",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
             }
         },
         {
@@ -637,7 +453,7 @@
                 "itemId": "ed3734c6be7142ca9ac17df4b91e4acb",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -645,7 +461,7 @@
                 "itemId": "b21d68ea6ba94dc38032697233b6aa41",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -653,7 +469,7 @@
                 "itemId": "736ee0a77016416ba9d35a9a5f4c7fd0",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -661,7 +477,7 @@
                 "itemId": "762a1305c25844a7aac3d0f0666c70e6",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -669,7 +485,7 @@
                 "itemId": "3872ce94c1bf4ae49962e97e6eee4c13",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -677,7 +493,7 @@
                 "itemId": "ea9fd9afab3d4e88ab8f9276bd5e66b3",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -685,7 +501,7 @@
                 "itemId": "714a8344431147b1bbb9a36c51a6e0fe",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -693,7 +509,7 @@
                 "itemId": "fb595a70be16479cbd6398866ceace43",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -701,7 +517,7 @@
                 "itemId": "0cd47901794a44b38a9f2d4b7b1b3f61",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -709,7 +525,7 @@
                 "itemId": "a8a42735b6ed4bf48456de9f33ff6477",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -733,7 +549,7 @@
                 "itemId": "b91465e2dc624101a3d157305637bbda",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -741,7 +557,7 @@
                 "itemId": "0441acf170484c509bcb2c7869170403",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -749,7 +565,7 @@
                 "itemId": "ec4f15db42d54fdfa1a4716d3e880aaf",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -757,7 +573,7 @@
                 "itemId": "d1a8dbc374684db69970fb9655af3e98",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -765,7 +581,7 @@
                 "itemId": "b815a9b61ba944dda953eb85fd8d6bbf",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -773,7 +589,7 @@
                 "itemId": "86104f11f3534828b6112f28717c5308",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -781,7 +597,7 @@
                 "itemId": "7ffcce86f7bb4dd78e9fcd6755fc9a43",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -789,7 +605,23 @@
                 "itemId": "f55bbfc9483948d69be74a55b5cd5038",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
+            }
+        },
+        {
+            "Teller Door Sharke Bank Preplanning Asset": {
+                "itemId": "244a532a15a540b8a2bb08ba61ca2cbe",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "Thermal Lance Sharke Bank Preplanning Asset": {
+                "itemId": "df2e66d7a0e94ff28ba46337ceaf9555",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
             }
         },
         {
@@ -797,7 +629,7 @@
                 "itemId": "ff2464ce14da473e97590ea2fb33b327",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -805,7 +637,7 @@
                 "itemId": "87d91fc1cc5f4e8fa3c4e9e2bd303376",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -813,7 +645,7 @@
                 "itemId": "7ef67d46c6224310b813afcc5f53ae62",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -821,7 +653,7 @@
                 "itemId": "65a355215bb8473bbf9d3f2661211899",
                 "price": 1999,
                 "discountedPrice": 1999,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -829,7 +661,7 @@
                 "itemId": "86b9d2fede264495a71aac9786b20a45",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
@@ -837,72 +669,14 @@
                 "itemId": "d953877d2f494605b89f40896fe85781",
                 "price": 1000,
                 "discountedPrice": 1000,
-                "currency": "CASH"
-            }
-        }
-    ],
-    "DLC Map Pack": [
-        {
-            "Epic DLC02 Heist pack": {
-                "itemId": "3bf57ed271e34c5ba08592a8c57f5421",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
+                "currency": "USD"
             }
         },
         {
-            "XBox DLC02 Heist pack": {
-                "itemId": "504a3fec0e6f459aa65bb9dc058dee93",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Steam DLC02 Heist pack": {
-                "itemId": "d9b299caae7e4620b17e961243e3aea6",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "PlayStation DLC02 Heist pack": {
-                "itemId": "86f89185a7fa4c9e897f93bb7428ab1d",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic DLC01 Heist pack": {
-                "itemId": "711cd306bb1142678b74ffeb51072380",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "PlayStation DLC01 Heist pack ": {
-                "itemId": "2b1086a1125a4b75ad9bfa0af7128f12",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Steam DLC01 Heist pack": {
-                "itemId": "f7bb2ffd415b4e39be0c09ebb6736b9a",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "XBox DLC01 Heist pack": {
-                "itemId": "dd0800a21b804c27b55ae954de880491",
-                "price": 0,
-                "discountedPrice": 0,
+            "Zipline Universal Preplanning Asset": {
+                "itemId": "cfb70d967cf149988eec391a61d4ac08",
+                "price": 10000,
+                "discountedPrice": 10000,
                 "currency": "CASH"
             }
         }
@@ -1489,6 +1263,14 @@
                 "itemId": "38b42b5755fc4de1abd522d2593e1293",
                 "price": 999,
                 "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Twitch drops set 05 *new*": {
+                "itemId": "912750c3a9f84bbabf76f2cd5bde014c",
+                "price": 0,
+                "discountedPrice": 0,
                 "currency": "CASH"
             }
         },
@@ -2604,6 +2386,22 @@
             }
         },
         {
+            "Heist Smash and Grab  Fort": {
+                "itemId": "5c1a6b2fd66245228724f4ad5280d85d",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Heist Smash and Grab Branch Bank": {
+                "itemId": "604281e42b454fc68ae0e3da57294774",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
             "Heist Station": {
                 "itemId": "4c1a3b8d1b3a4c32aff561c5d68c7eff",
                 "price": 0,
@@ -2622,30 +2420,6 @@
         {
             "Heist Villa": {
                 "itemId": "1855ea53b51c493a954500566db71326",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Heist One *new*": {
-                "itemId": "7859abbae4a3488ba5555ff91b49cc91",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Heist Smash and Grab  Fort *new*": {
-                "itemId": "5c1a6b2fd66245228724f4ad5280d85d",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Heist Smash and Grab Branch Bank *new*": {
-                "itemId": "604281e42b454fc68ae0e3da57294774",
                 "price": 0,
                 "discountedPrice": 0,
                 "currency": "CASH"
@@ -2686,47 +2460,7 @@
             }
         },
         {
-            "Heist Courthouse Epic": {
-                "itemId": "3a50a8b0631349a8831ddcc15a6653e1",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Heist Data Center Epic": {
-                "itemId": "db780556b7c2474fbe790ebd0bf8cc61",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Heist Fort Epic": {
-                "itemId": "f26d7322b3b94f8d9e42624397c2d9cc",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Heist Stock Exchange Epic": {
-                "itemId": "59999e9debf94f859894bed189f91325",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic DLC04 Heist pack *new*": {
-                "itemId": "dcd85e669ef84794bc7f18c9f70bdf45",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic DLCBust Heist pack *new*": {
+            "Epic DLCBust Heist pack": {
                 "itemId": "8e953357a746435eb46bc3d91442c72f",
                 "price": 0,
                 "discountedPrice": 0,
@@ -2734,19 +2468,75 @@
             }
         },
         {
-            "Heist Party Powder Epic *new*": {
-                "itemId": "211b6323d77b4eac81836e8bfd5b3e19",
+            "Epic DLCdema Heist pack *new*": {
+                "itemId": "a8bd66ff9c7b45b0b04e5a42243e9950",
+                "price": 50,
+                "discountedPrice": 50,
+                "currency": "USD"
+            }
+        },
+        {
+            "Epic DLCshiya Heist pack *new*": {
+                "itemId": "2e3c720f478a4d2fa47e9d53cbeabd2a",
                 "price": 0,
                 "discountedPrice": 0,
                 "currency": "CASH"
             }
         },
         {
-            "Heist Stock Exchange Epic *new*": {
+            "Heist Courthouse Epic": {
+                "itemId": "3a50a8b0631349a8831ddcc15a6653e1",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "Heist DEMA Epic *new*": {
+                "itemId": "de94e0cdc0784820aea640337220cba7",
+                "price": 50,
+                "discountedPrice": 50,
+                "currency": "USD"
+            }
+        },
+        {
+            "Heist Data Center Epic": {
+                "itemId": "db780556b7c2474fbe790ebd0bf8cc61",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "Heist Fort Epic": {
+                "itemId": "f26d7322b3b94f8d9e42624397c2d9cc",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "Heist Party Powder Epic": {
+                "itemId": "211b6323d77b4eac81836e8bfd5b3e19",
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
+            }
+        },
+        {
+            "Heist SHIYA Epic *new*": {
+                "itemId": "3dcb77d01b584d5f8c1a17d263b1879c",
+                "price": 50,
+                "discountedPrice": 50,
+                "currency": "USD"
+            }
+        },
+        {
+            "Heist Stock Exchange Epic": {
                 "itemId": "59999e9debf94f859894bed189f91325",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
+                "price": 1000,
+                "discountedPrice": 1000,
+                "currency": "USD"
             }
         }
     ],
@@ -2816,24 +2606,24 @@
             }
         },
         {
-            "Heist Stock Exchange Steam *new*": {
-                "itemId": "454e69fa3cf042139b1d3d1525e94484",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Steam DLC04 Heist pack *new*": {
-                "itemId": "87e8cb11af3744e59ddb9bdf0598ac6a",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
             "Steam DLCBust Heist pack *new*": {
                 "itemId": "2e871adc7bf24617ae0fc51ebcb37fd5",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam DLCdema Heist pack *new*": {
+                "itemId": "71fa89c7c834426d814f361a10e10e8f",
+                "price": 50,
+                "discountedPrice": 50,
+                "currency": "USD"
+            }
+        },
+        {
+            "Steam DLCshiya Heist pack *new*": {
+                "itemId": "3b7219f269154c3a83e7711554952548",
                 "price": 0,
                 "discountedPrice": 0,
                 "currency": "CASH"
@@ -2841,6 +2631,14 @@
         }
     ],
     "Epic Weapon Packs": [
+        {
+            "Epic DLC01 Weapon pack ": {
+                "itemId": "15b137e80a3f41819c57246805e29f70",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
         {
             "Epic DLC01 Weapon pack ": {
                 "itemId": "4bd7858dedf74532abc83f987470e4ab",
@@ -2875,22 +2673,6 @@
         },
         {
             "Epic Star Weapon Preset": {
-                "itemId": "997fe02e9963435b85a25ee42c46e4b6",
-                "price": 50,
-                "discountedPrice": 50,
-                "currency": "GOLD"
-            }
-        },
-        {
-            "Epic DLC04 Weapon pack *new*": {
-                "itemId": "028dfa799af94f1bb98ea17645064b11",
-                "price": 0,
-                "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic Star Weapon Preset *new*": {
                 "itemId": "997fe02e9963435b85a25ee42c46e4b6",
                 "price": 50,
                 "discountedPrice": 50,
@@ -3468,102 +3250,6 @@
                 "itemId": "6cce475cf54b4d0090df7e6df40170aa",
                 "price": 0,
                 "discountedPrice": 0,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic DLC04 Tailor pack *new*": {
-                "itemId": "f2205fbbf08a454a95845934f394f751",
-                "price": 123,
-                "discountedPrice": 123,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic Tailor Pack 04 Gloves 01 *new*": {
-                "itemId": "d668841338f248a88399b0dddbcfd4d9",
-                "price": 123,
-                "discountedPrice": 123,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic Tailor Pack 04 Gloves 02 *new*": {
-                "itemId": "d944e5df18c1473a9b9bb9eb3cc5e743",
-                "price": 123,
-                "discountedPrice": 123,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic Tailor Pack 04 Gloves 03 *new*": {
-                "itemId": "d94c726aedaf4e2686ae098bd4815620",
-                "price": 123,
-                "discountedPrice": 123,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic Tailor Pack 04 Gloves 04 *new*": {
-                "itemId": "4edf8f7ef95d41588b1f225e2b4dd616",
-                "price": 123,
-                "discountedPrice": 123,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic Tailor Pack 04 Mask 01 *new*": {
-                "itemId": "2c70891f6f1745f1bf8e1734c1de0985",
-                "price": 123,
-                "discountedPrice": 123,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic Tailor Pack 04 Mask 02 *new*": {
-                "itemId": "b4030417319c414cb905e2b0ff4d8a13",
-                "price": 123,
-                "discountedPrice": 123,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic Tailor Pack 04 Mask 03 *new*": {
-                "itemId": "f76fbb432c0d4b798332cd364f991a47",
-                "price": 123,
-                "discountedPrice": 123,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic Tailor Pack 04 Mask 04 *new*": {
-                "itemId": "a1abdabc362942b39cd641ea091e3f10",
-                "price": 123,
-                "discountedPrice": 123,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic Tailor Pack 04 Suit 02 *new*": {
-                "itemId": "abe1cb33bf6241d59ba8aad5c761ec4f",
-                "price": 123,
-                "discountedPrice": 123,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic Tailor Pack 04 Suit 03 *new*": {
-                "itemId": "9816a2b847094b93bc92c7924380e468",
-                "price": 123,
-                "discountedPrice": 123,
-                "currency": "CASH"
-            }
-        },
-        {
-            "Epic Tailor Pack 04 Suit 04 *new*": {
-                "itemId": "fc1c4c8b9ab3425f88e696148feb670b",
-                "price": 123,
-                "discountedPrice": 123,
                 "currency": "CASH"
             }
         }
@@ -6557,7 +6243,7 @@
             }
         },
         {
-            "Epic DLC04  Weapon Charm 01 *new*": {
+            "Epic DLC04  Weapon Charm 01": {
                 "itemId": "ea4ad628cf3c41bf8d46bf52bd550889",
                 "price": 0,
                 "discountedPrice": 0,
@@ -6565,7 +6251,7 @@
             }
         },
         {
-            "Epic Player Pack 03 Weapon Charm 01 *new*": {
+            "Epic Player Pack 03 Weapon Charm 01": {
                 "itemId": "339c1f28cb3340e59a652d9afaa2a7e4",
                 "price": 10,
                 "discountedPrice": 10,
@@ -6589,7 +6275,7 @@
             }
         },
         {
-            "Epic Weapon Charm Fool  01 *new*": {
+            "Epic Weapon Charm Fool  01": {
                 "itemId": "8144e53e262048358e307e7d7bd3e28c",
                 "price": 1,
                 "discountedPrice": 1,
@@ -6655,7 +6341,7 @@
             }
         },
         {
-            "Epic DLC04  Weapon Sticker 01 *new*": {
+            "Epic DLC04  Weapon Sticker 01": {
                 "itemId": "9e8ed67db05d4191bd7df8efe992e6da",
                 "price": 0,
                 "discountedPrice": 0,
@@ -6721,7 +6407,7 @@
             }
         },
         {
-            "Epic Fool Mask Vendor Item *new*": {
+            "Epic Fool Mask Vendor Item": {
                 "itemId": "e62d0e7e0cfe4adbb6b5d22fd3aa0147",
                 "price": 1,
                 "discountedPrice": 1,
@@ -6731,7 +6417,7 @@
     ],
     "Epic Mask Mould": [
         {
-            "Epic Mask Mould Fool  01 *new*": {
+            "Epic Mask Mould Fool  01": {
                 "itemId": "53ffc5ef849a45a28e9cffab44be8bd3",
                 "price": 500000,
                 "discountedPrice": 500000,
@@ -6739,7 +6425,7 @@
             }
         },
         {
-            "Epic Player Pack 03 Mask Mould 01 *new*": {
+            "Epic Player Pack 03 Mask Mould 01": {
                 "itemId": "fc4dcf250f674e19927437d36bb0d39e",
                 "price": 350000,
                 "discountedPrice": 350000,
@@ -6747,7 +6433,7 @@
             }
         },
         {
-            "Epic Player Pack 03 Mask Mould 01 - Vendor Item *new*": {
+            "Epic Player Pack 03 Mask Mould 01 - Vendor Item": {
                 "itemId": "7f9cfe2af8494701a32c33522ebab810",
                 "price": 0,
                 "discountedPrice": 0,
@@ -6755,7 +6441,7 @@
             }
         }
     ],
-    "Gloves Items": [
+   "Gloves Items": [
         {
             "Gloves - Gold Edition": {
                 "itemId": "f30a96c01c54492fb648f130106160da",
@@ -7321,7 +7007,7 @@
     ],
     "Weapon Packs": [
         {
-            "Primary Weapon Slot - Initial *new*": {
+            "Primary Weapon Slot - Initial": {
                 "itemId": "f9a13e6c2a0f4e6d9251347bc63634c7",
                 "price": 100000,
                 "discountedPrice": 100000,
@@ -7329,7 +7015,7 @@
             }
         },
         {
-            "STPatch 05 Renown pack Bundle *new*": {
+            "STPatch 05 Renown pack Bundle": {
                 "itemId": "6176a3072bbc4ffba9e6f1562c467e25",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7337,7 +7023,7 @@
             }
         },
         {
-            "Secondary Weapon Slot - Initial *new*": {
+            "Secondary Weapon Slot - Initial": {
                 "itemId": "84d0c77410184162a1b300dcca87c600",
                 "price": 1000,
                 "discountedPrice": 1000,
@@ -7795,7 +7481,7 @@
             }
         },
         {
-            "SprayCan LevelUp Accented Cloud 01 *new*": {
+            "SprayCan LevelUp Accented Cloud 01": {
                 "itemId": "d24e8ded55c747db9936f57a090c2410",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7803,7 +7489,7 @@
             }
         },
         {
-            "SprayCan LevelUp Accented Cloud 02 *new*": {
+            "SprayCan LevelUp Accented Cloud 02": {
                 "itemId": "2a039b4e774c4916afd6761015727783",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7811,7 +7497,7 @@
             }
         },
         {
-            "SprayCan LevelUp Accented Cloud 03 *new*": {
+            "SprayCan LevelUp Accented Cloud 03": {
                 "itemId": "22f4c81044f641f286d4fab9c728dd54",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7819,7 +7505,7 @@
             }
         },
         {
-            "SprayCan LevelUp Accented Cloud 04 *new*": {
+            "SprayCan LevelUp Accented Cloud 04": {
                 "itemId": "223cb59fd53d41fc98c5950737f4ffd0",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7827,7 +7513,7 @@
             }
         },
         {
-            "SprayCan LevelUp Accented Cloud 05 *new*": {
+            "SprayCan LevelUp Accented Cloud 05": {
                 "itemId": "1169746a1d9c4d6992b483b731281476",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7835,7 +7521,7 @@
             }
         },
         {
-            "SprayCan LevelUp Accented Cloud 06 *new*": {
+            "SprayCan LevelUp Accented Cloud 06": {
                 "itemId": "50de0605901c4528a46c0fd3a0dc4abc",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7843,7 +7529,7 @@
             }
         },
         {
-            "SprayCan LevelUp Accented Cloud 07 *new*": {
+            "SprayCan LevelUp Accented Cloud 07": {
                 "itemId": "e01228096a1b4701ba6b7f4cdc1f9fb2",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7851,7 +7537,7 @@
             }
         },
         {
-            "SprayCan LevelUp Accented Cloud 08 *new*": {
+            "SprayCan LevelUp Accented Cloud 08": {
                 "itemId": "7ec9bfbafc724cc186a2fac99859ca23",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7859,7 +7545,7 @@
             }
         },
         {
-            "SprayCan LevelUp Accented Cloud 09 *new*": {
+            "SprayCan LevelUp Accented Cloud 09": {
                 "itemId": "2271622391654c04afb7160906f298c2",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7867,7 +7553,7 @@
             }
         },
         {
-            "SprayCan LevelUp Accented Cloud 10 *new*": {
+            "SprayCan LevelUp Accented Cloud 10": {
                 "itemId": "9c865abbeef540e4ac4c84ac7a01528c",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7875,7 +7561,7 @@
             }
         },
         {
-            "SprayCan LevelUp Mystic Dragon 01 *new*": {
+            "SprayCan LevelUp Mystic Dragon 01": {
                 "itemId": "0831b31676b841b6ba10a900aa249d64",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7883,7 +7569,7 @@
             }
         },
         {
-            "SprayCan LevelUp Mystic Dragon 02 *new*": {
+            "SprayCan LevelUp Mystic Dragon 02": {
                 "itemId": "f1d8de42fefd4f3f9e8b8fb2c6b4f149",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7891,7 +7577,7 @@
             }
         },
         {
-            "SprayCan LevelUp Mystic Dragon 03 *new*": {
+            "SprayCan LevelUp Mystic Dragon 03": {
                 "itemId": "eb36933ad0344cd5974aad756033441d",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7899,7 +7585,7 @@
             }
         },
         {
-            "SprayCan LevelUp Mystic Dragon 04 *new*": {
+            "SprayCan LevelUp Mystic Dragon 04": {
                 "itemId": "ca2bd392cb904a018179785b500c5c4d",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7907,7 +7593,7 @@
             }
         },
         {
-            "SprayCan LevelUp Mystic Dragon 05 *new*": {
+            "SprayCan LevelUp Mystic Dragon 05": {
                 "itemId": "626850e858624976beb2f86cd6a5cc92",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7915,7 +7601,7 @@
             }
         },
         {
-            "SprayCan LevelUp Mystic Dragon 06 *new*": {
+            "SprayCan LevelUp Mystic Dragon 06": {
                 "itemId": "1abf10cf5c04492888240ded7ef4abc6",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7923,7 +7609,7 @@
             }
         },
         {
-            "SprayCan LevelUp Mystic Dragon 07 *new*": {
+            "SprayCan LevelUp Mystic Dragon 07": {
                 "itemId": "61dbae5c31274d60b3977f5d8e7cf37a",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7931,7 +7617,7 @@
             }
         },
         {
-            "SprayCan LevelUp Mystic Dragon 08 *new*": {
+            "SprayCan LevelUp Mystic Dragon 08": {
                 "itemId": "dd634e464baf4b7f977ead0e268970b8",
                 "price": 999,
                 "discountedPrice": 999,
@@ -7939,7 +7625,7 @@
             }
         },
         {
-            "SprayCan LevelUp Mystic Dragon 09 *new*": {
+            "SprayCan LevelUp Mystic Dragon 09": {
                 "itemId": "6877eff41b34442da59147e7643546a9",
                 "price": 999,
                 "discountedPrice": 999,
@@ -8013,6 +7699,14 @@
         {
             "SprayCan_DigitalBills_09": {
                 "itemId": "39371e7c919f4ef4b2f4f765fe2b662c",
+                "price": 999,
+                "discountedPrice": 999,
+                "currency": "CASH"
+            }
+        },
+        {
+            "SprayCan_DigitalBills_01": {
+                "itemId": "c6a9a3ab01bd4e3e951e841f4f001dd5",
                 "price": 999,
                 "discountedPrice": 999,
                 "currency": "CASH"
@@ -8259,7 +7953,7 @@
             }
         }
     ],
-    "Steam Guns": [
+   "Steam Guns": [
         {
             "Steam AssaultRifle CHS3": {
                 "itemId": "66124c84cd75421b854895b3135cb2be",
@@ -8285,7 +7979,7 @@
             }
         },
         {
-            "Steam Pistol GV50 *new*": {
+            "Steam Pistol GV50": {
                 "itemId": "95ce49a8855140e780e3821469d9b59c",
                 "price": 200000,
                 "discountedPrice": 200000,
@@ -8301,7 +7995,7 @@
             }
         },
         {
-            "Steam Pistol SE5 *new*": {
+            "Steam Pistol SE5": {
                 "itemId": "f696a75d46d24ea0a118ceb35d11caa9",
                 "price": 200000,
                 "discountedPrice": 200000,
@@ -8349,7 +8043,7 @@
             }
         },
         {
-            "Steam Shotgun TAS12 *new*": {
+            "Steam Shotgun TAS12": {
                 "itemId": "dca27ef4fde3479382a1277933e3ac2b",
                 "price": 200000,
                 "discountedPrice": 200000,
@@ -8381,7 +8075,7 @@
             }
         },
         {
-            "Steam Pistol GV50 - Vendor Item *new*": {
+            "Steam Pistol GV50 - Vendor Item": {
                 "itemId": "ca150f0abd634a2aa751753494b16c89",
                 "price": 0,
                 "discountedPrice": 0,
@@ -8397,7 +8091,7 @@
             }
         },
         {
-            "Steam Pistol SE5 - Vendor Item *new*": {
+            "Steam Pistol SE5 - Vendor Item": {
                 "itemId": "4ceded3d0da841b2b7c90276df3d7dbe",
                 "price": 0,
                 "discountedPrice": 0,
@@ -8437,7 +8131,7 @@
             }
         },
         {
-            "Steam Shotgun TAS12 - Vendor Item *new*": {
+            "Steam Shotgun TAS12 - Vendor Item": {
                 "itemId": "11c57563f609414293636b726aa54d18",
                 "price": 0,
                 "discountedPrice": 0,
@@ -8447,7 +8141,7 @@
     ],
     "Steam Characters": [
         {
-            "Steam Character Fool  01 *new*": {
+            "Steam Character Fool  01": {
                 "itemId": "7ca30f9324b04892b7283b22a5008d60",
                 "price": 999,
                 "discountedPrice": 999,
@@ -8455,7 +8149,7 @@
             }
         },
         {
-            "Steam Character Star *new*": {
+            "Steam Character Star": {
                 "itemId": "336b825486b8492aa76796a6737a177e",
                 "price": 999,
                 "discountedPrice": 999,
@@ -8463,7 +8157,7 @@
             }
         },
         {
-            "Steam Star Character Bundle *new*": {
+            "Steam Star Character Bundle": {
                 "itemId": "d5b71e18ebdd441b9cb2c0ac0cd9e7c9",
                 "price": 993,
                 "discountedPrice": 993,
@@ -8481,7 +8175,15 @@
             }
         },
         {
-            "Steam DLC04  Weapon Sticker 01 *new*": {
+            "Steam DLC03 Weapon Sticker 01": {
+                "itemId": "48b8fccda4b24d9d8353ddd0ae1dcce2",
+                "price": 0,
+                "discountedPrice": 0,
+                "currency": "CASH"
+            }
+        },
+        {
+            "Steam DLC04  Weapon Sticker 01": {
                 "itemId": "471c8b51a2794c72a90f7ed082a78e9f",
                 "price": 0,
                 "discountedPrice": 0,
@@ -8507,7 +8209,7 @@
     ],
     "Steam Base Preset": [
         {
-            "Steam Fool Preset *new*": {
+            "Steam Fool Preset": {
                 "itemId": "f1e66e51de004967a78b57de1d684e5b",
                 "price": 500000,
                 "discountedPrice": 500000,
@@ -8515,7 +8217,7 @@
             }
         },
         {
-            "Steam Fool Preset vendor Item *new*": {
+            "Steam Fool Preset vendor Item": {
                 "itemId": "02a49d09ae654f2e870cf09e20785035",
                 "price": 1,
                 "discountedPrice": 1,
@@ -8563,7 +8265,7 @@
             }
         },
         {
-            "Steam Star Preset Vendor Item *new*": {
+            "Steam Star Preset Vendor Item": {
                 "itemId": "de0d8096485c4426a57eab4b0c717f8b",
                 "price": 0,
                 "discountedPrice": 0,
@@ -8571,9 +8273,9 @@
             }
         }
     ],
-    "Steam Attachments For Guns": [
+     "Steam Attachments For Guns": [
         {
-            "Steam MOD BarrelExt Coronet *new*": {
+            "Steam MOD BarrelExt Coronet": {
                 "itemId": "5e0b73182ba24317ba7a5fa90b550583",
                 "price": 100000,
                 "discountedPrice": 100000,
@@ -8581,7 +8283,7 @@
             }
         },
         {
-            "Steam MOD BarrelExt Crated *new*": {
+            "Steam MOD BarrelExt Crated": {
                 "itemId": "2e53f906f03c4f23afe0404d1d1ca78e",
                 "price": 100000,
                 "discountedPrice": 100000,
@@ -8637,7 +8339,7 @@
             }
         },
         {
-            "Steam MOD Sight Voyeur *new*": {
+            "Steam MOD Sight Voyeur": {
                 "itemId": "ee41676ca685403f92fa672502f2250f",
                 "price": 100000,
                 "discountedPrice": 100000,
@@ -8671,7 +8373,7 @@
     ],
     "Steam Mask Mould": [
         {
-            "Steam Mask Mould Fool  01 *new*": {
+            "Steam Mask Mould Fool  01": {
                 "itemId": "c33755b1316742b7b6f43c9b47ce1350",
                 "price": 500000,
                 "discountedPrice": 500000,
@@ -8679,7 +8381,7 @@
             }
         },
         {
-            "Steam Player Pack 03 Mask Mould 01 *new*": {
+            "Steam Player Pack 03 Mask Mould 01": {
                 "itemId": "c41ac7fe974141c0bdb9efaecfc21f81",
                 "price": 350000,
                 "discountedPrice": 350000,
@@ -8687,7 +8389,7 @@
             }
         },
         {
-            "Steam Player Pack 03 Mask Mould 01 - Vendor Item *new*": {
+            "Steam Player Pack 03 Mask Mould 01 - Vendor Item": {
                 "itemId": "419a5eef6a204154959bd36a076b24da",
                 "price": 0,
                 "discountedPrice": 0,
@@ -8801,7 +8503,7 @@
             }
         }
     ],
-    "Weapon Stickers": [
+     "Weapon Stickers": [
         {
             "Weapon Sticker - Nebula 1": {
                 "itemId": "101d51146a464ea3b244b90658adb5ee",
