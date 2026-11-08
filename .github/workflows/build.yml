@@ -1,0 +1,66 @@
+name: Build Executables
+
+on:
+  push:
+    branches: [master]
+    tags: ["v*"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            platform: Linux
+            add_data_sep: ":"
+          - os: windows-latest
+            platform: Windows
+            add_data_sep: ";"
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt pyinstaller
+
+      - name: Build executable
+        run: >
+          pyinstaller
+          --onedir
+          --windowed
+          --name "PaydayBlackMarket"
+          --collect-all dearpygui
+          --add-data "Offsets${{ matrix.add_data_sep }}Offsets"
+          main.py
+
+      - name: Package (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          cd dist
+          tar -czf PaydayBlackMarket-Linux.tar.gz PaydayBlackMarket/
+
+      - name: Package (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: Compress-Archive -Path dist/PaydayBlackMarket -DestinationPath dist/PaydayBlackMarket-Windows.zip
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PaydayBlackMarket-${{ matrix.platform }}
+          path: dist/PaydayBlackMarket-${{ matrix.platform }}.*
+          if-no-files-found: error
+
+      - name: Create release asset
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/PaydayBlackMarket-${{ matrix.platform }}.*
