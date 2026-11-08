@@ -3,21 +3,13 @@ import logging
 import os
 from functools import partial
 from Util.login import login, manage_credentials, load_credentials
-from Util.buy_Inventory import buy_inventory_callback
-from Util.buy_paints import buy_paint_callback
-from Util.buy_preplanning_assets import buy_preplanning_assets_callback
-from Util.buy_weapon_pattern import buy_weapon_pattern_callback
-from Util.buy_mask_pattern import buy_mask_pattern_callback
-from Util.buy_weapon_sticker import buy_weapon_sticker_callback
-from Util.buy_money import buy_money_farmer_callback
-from Util.buy_cstacks import buy_cstacks_farmer_callback
-from Util.buy_cred import buy_cred_farmer_callback
-from Util.buy_custom import buy_custom_callback
-from Util.buy_heist import buy_Heist_Pack_callback
-from Util.buy_dlcweapon import buy_dlcweapon_Pack_callback
-from Util.buy_dlctailor import buy_dlctailor_Pack_callback
-from Util.buy_twitchdrop import buy_Twitch_Pack_callback
-from Util.update_items import fetch_weapon_data
+from Util.buy_cosmetics import (buy_paint_callback, buy_preplanning_assets_callback,
+                                buy_weapon_pattern_callback, buy_mask_pattern_callback,
+                                buy_weapon_sticker_callback)
+from Util.buy_farmers import (buy_money_farmer_callback, buy_cstacks_farmer_callback,
+                               buy_cred_farmer_callback, buy_custom_callback)
+from Util.buy_unlocker import (buy_Heist_Pack_callback, buy_dlcweapon_Pack_callback,
+                                buy_dlctailor_Pack_callback, buy_Twitch_Pack_callback)
 from Util.update_offsets import update_offsets_callback
 from Util.buy_all import buy_all_callback
 from Util.gun_stats import gun_stats_callback
@@ -112,10 +104,10 @@ def _find_font():
     return None
 
 def _setup_theme():
-    # Payday orange accent
-    ORANGE      = (232, 104, 22, 255)
-    ORANGE_HOV  = (255, 134, 42, 255)
-    ORANGE_ACT  = (200, 78, 10, 255)
+    # Muted magenta accent
+    ORANGE      = (145, 20, 145, 255)
+    ORANGE_HOV  = (170, 38, 170, 255)
+    ORANGE_ACT  = (112, 10, 112, 255)
     BG_MAIN     = (18,  18,  22, 255)
     BG_WIN      = (24,  24,  30, 255)
     BG_CHILD    = (30,  30,  38, 255)
@@ -177,19 +169,19 @@ def _setup_theme():
             dpg.add_theme_style(dpg.mvStyleVar_ChildBorderSize,       1)
             dpg.add_theme_style(dpg.mvStyleVar_FrameBorderSize,       0)
             dpg.add_theme_style(dpg.mvStyleVar_WindowPadding,         20, 16)
-            dpg.add_theme_style(dpg.mvStyleVar_FramePadding,          12, 8)
+            dpg.add_theme_style(dpg.mvStyleVar_FramePadding,          14, 10)
             dpg.add_theme_style(dpg.mvStyleVar_ItemSpacing,           8,  8)
             dpg.add_theme_style(dpg.mvStyleVar_ItemInnerSpacing,      6,  5)
             dpg.add_theme_style(dpg.mvStyleVar_ScrollbarSize,         10)
     return t
 
 def _accent_button_theme():
-    """Slightly larger/brighter variant — not used here but kept for future calls."""
+    """Slightly lighter magenta variant — for emphasis."""
     with dpg.theme() as t:
         with dpg.theme_component(dpg.mvButton):
-            dpg.add_theme_color(dpg.mvThemeCol_Button,         (232, 104, 22, 255))
-            dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered,  (255, 140, 50, 255))
-            dpg.add_theme_color(dpg.mvThemeCol_ButtonActive,   (200, 78,  10, 255))
+            dpg.add_theme_color(dpg.mvThemeCol_Button,         (145, 20, 145, 255))
+            dpg.add_theme_color(dpg.mvThemeCol_ButtonHovered,  (170, 38, 170, 255))
+            dpg.add_theme_color(dpg.mvThemeCol_ButtonActive,   (112, 10, 112, 255))
     return t
 
 def _subtle_button_theme():
@@ -215,85 +207,96 @@ def run_gui():
     font_header = None
     if font_path:
         with dpg.font_registry():
-            font_normal = dpg.add_font(font_path, 15)
-            font_header = dpg.add_font(font_path, 18)
-            font_title  = dpg.add_font(font_path, 26)
+            font_normal = dpg.add_font(font_path, 17)
+            font_header = dpg.add_font(font_path, 22)
+            font_title  = dpg.add_font(font_path, 30)
         dpg.bind_font(font_normal)
 
     VP_W, VP_H = 860, 620
-    BTN_H = 42
+    BTN_H = 46
 
     # ── LOGIN WINDOW ─────────────────────────────────────────────────────────
-    LW, LH = 440, 350
+    # Fill the full viewport so no dark border shows behind it
+    FORM_W = 400  # width of the form content inside the full-screen window
     with dpg.window(tag="login_window", label="",
-                    width=LW, height=LH, show=False,
+                    width=VP_W, height=VP_H, show=False,
                     no_title_bar=True, no_resize=True,
                     no_move=True, no_collapse=True,
-                    pos=[(VP_W - LW) // 2, (VP_H - LH) // 2]):
+                    no_scrollbar=True, no_scroll_with_mouse=True, pos=[0, 0]):
 
-        dpg.add_spacer(height=10)
+        dpg.add_spacer(height=20)
 
-        # Title
-        with dpg.group(horizontal=False):
-            dpg.add_text("PAYDAY BLACK MARKET", tag="_login_title",
-                         color=(232, 104, 22, 255))
-            if font_title:
-                dpg.bind_item_font("_login_title", font_title)
+        pad = (VP_W - FORM_W) // 2
+        with dpg.group():
+            dpg.add_spacer(width=pad)
 
-            dpg.add_text("Revanced Edition", color=(140, 140, 155, 255))
+        with dpg.table(header_row=False, borders_innerH=False,
+                       borders_innerV=False, borders_outerH=False,
+                       borders_outerV=False, width=VP_W):
+            dpg.add_table_column(width_fixed=True, init_width_or_weight=pad)
+            dpg.add_table_column(width_fixed=True, init_width_or_weight=FORM_W)
+            dpg.add_table_column()  # absorbs remaining space
 
-        dpg.add_spacer(height=6)
-        dpg.add_separator()
-        dpg.add_spacer(height=10)
+            with dpg.table_row():
+                dpg.add_spacer()   # left column spacer
 
-        # Username
-        dpg.add_text("USERNAME", color=(160, 160, 175, 255))
-        dpg.add_input_text(tag="username_input", width=-1,
-                           hint="Enter your username")
-        dpg.add_spacer(height=6)
+                with dpg.table_cell():
+                    # Title
+                    dpg.add_text("PAYDAY BLACK MARKET", tag="_login_title",
+                                 color=(185, 55, 185, 255))
+                    if font_title:
+                        dpg.bind_item_font("_login_title", font_title)
+                    dpg.add_text("Revanced Edition", color=(140, 140, 155, 255))
+                    dpg.add_spacer(height=8)
+                    dpg.add_separator()
+                    dpg.add_spacer(height=12)
 
-        # Password
-        dpg.add_text("PASSWORD", color=(160, 160, 175, 255))
-        dpg.add_input_text(tag="password_input", width=-1,
-                           password=True, hint="Enter your password", show=True)
-        dpg.add_input_text(tag="password_input_temp", width=-1, show=False)
-        dpg.add_spacer(height=6)
+                    # Username
+                    dpg.add_text("USERNAME", color=(160, 160, 175, 255))
+                    dpg.add_input_text(tag="username_input", width=FORM_W,
+                                       hint="Enter your username")
+                    dpg.add_spacer(height=8)
 
-        # Option checkboxes
-        with dpg.group(horizontal=True):
-            dpg.add_checkbox(label="Show Password", tag="show_password_checkbox",
-                             callback=toggle_password_visibility)
-            dpg.add_spacer(width=14)
-            dpg.add_checkbox(label="Remember me", tag="remember_me_checkbox")
+                    # Password
+                    dpg.add_text("PASSWORD", color=(160, 160, 175, 255))
+                    dpg.add_input_text(tag="password_input", width=FORM_W,
+                                       password=True, hint="Enter your password")
+                    dpg.add_input_text(tag="password_input_temp", width=FORM_W, show=False)
+                    dpg.add_spacer(height=8)
 
-        dpg.add_checkbox(label="Debugger Mode", tag="debugger_mode_checkbox",
-                         callback=toggle_debugger_mode)
-        dpg.add_spacer(height=12)
+                    # Checkboxes
+                    with dpg.group(horizontal=True):
+                        dpg.add_checkbox(label="Show Password", tag="show_password_checkbox",
+                                         callback=toggle_password_visibility)
+                        dpg.add_spacer(width=14)
+                        dpg.add_checkbox(label="Remember me", tag="remember_me_checkbox")
+                    dpg.add_checkbox(label="Debugger Mode", tag="debugger_mode_checkbox",
+                                     callback=toggle_debugger_mode)
+                    dpg.add_spacer(height=16)
 
-        # Login button
-        dpg.add_button(label="  LOGIN", tag="login_button",
-                       callback=login_callback, width=-1, height=BTN_H)
-
-        dpg.add_spacer(height=6)
-        dpg.add_text("", tag="login_status")
+                    # Login button
+                    dpg.add_button(label="  LOGIN", tag="login_button",
+                                   callback=login_callback, width=FORM_W, height=BTN_H)
+                    dpg.add_spacer(height=6)
+                    dpg.add_text("", tag="login_status", wrap=FORM_W)
 
     # ── MAIN MENU ─────────────────────────────────────────────────────────────
-    MW, MH = 820, 540
-    with dpg.window(tag="Main Menu",
-                    label="Payday Black Market  |  Revanced",
-                    width=MW, height=MH, show=False,
-                    no_collapse=True,
-                    pos=[(VP_W - MW) // 2, (VP_H - MH) // 2]):
+    with dpg.window(tag="Main Menu", label="",
+                    width=VP_W, height=VP_H, show=False,
+                    no_title_bar=True, no_resize=True,
+                    no_move=True, no_collapse=True,
+                    no_scrollbar=True, no_scroll_with_mouse=True,
+                    pos=[0, 0]):
 
-        # Header row
-        dpg.add_text("MAIN MENU", tag="_mm_hdr", color=(232, 104, 22, 255))
+        dpg.add_spacer(height=10)
+        dpg.add_text("MAIN MENU", tag="_mm_hdr", color=(185, 55, 185, 255))
         if font_header:
             dpg.bind_item_font("_mm_hdr", font_header)
         dpg.add_text("Choose an action below", color=(130, 130, 148, 255))
         dpg.add_separator()
         dpg.add_spacer(height=10)
 
-        HALF = (MW - 20*2 - 12) // 2  # two columns with padding & gap
+        HALF = (VP_W - 20*2 - 12) // 2
 
         def row(label_a, cb_a, ud_a, label_b, cb_b, ud_b):
             with dpg.group(horizontal=True):
@@ -304,11 +307,13 @@ def run_gui():
                                width=HALF, height=BTN_H)
             dpg.add_spacer(height=6)
 
-        row("  Buy C-Stacks",          buy_cstacks_farmer_callback, None,
-            "  Custom Buy",            buy_custom_callback,         None)
+        dpg.add_button(label="  Custom Buy", callback=buy_custom_callback,
+                       width=-1, height=BTN_H)
+        dpg.add_spacer(height=6)
 
-        row("  Buy Preplanning Assets", buy_preplanning_assets_callback, None,
-            "  Buy Inventory",          buy_inventory_callback,          None)
+        dpg.add_button(label="  Buy All Items", callback=buy_all_callback,
+                       width=-1, height=BTN_H)
+        dpg.add_spacer(height=6)
 
         row("  Buy Paint",             buy_paint_callback,             None,
             "  Buy Weapon Pattern",    buy_weapon_pattern_callback,    None)
@@ -319,24 +324,19 @@ def run_gui():
         row("  Unlocker",              show_sub_menu, "Unlocker Menu",
             "  Treasure Top-Up",       show_sub_menu, "Treasure Top-Up Menu")
 
-        dpg.add_spacer(height=4)
-        with dpg.group(horizontal=True):
-            dpg.add_button(label="  Buy All Items",
-                           callback=buy_all_callback,
-                           width=HALF, height=BTN_H)
-            dpg.add_spacer(width=12)
-            dpg.add_button(label="  Update Items (offsets.json)",
-                           callback=update_offsets_callback,
-                           width=HALF, height=BTN_H)
+        dpg.add_spacer(height=6)
+        row("  Buy Preplanning Assets", buy_preplanning_assets_callback,     None,
+            "  Update Items (offsets.json)", update_offsets_callback,         None)
 
     # ── TREASURE TOP-UP MENU ──────────────────────────────────────────────────
-    SW, SH = 500, 400
-    with dpg.window(tag="Treasure Top-Up Menu", label="Treasure Top-Up",
-                    width=SW, height=SH, show=False,
-                    no_collapse=True,
-                    pos=[(VP_W - SW) // 2, (VP_H - SH) // 2]):
+    with dpg.window(tag="Treasure Top-Up Menu", label="",
+                    width=VP_W, height=VP_H, show=False,
+                    no_title_bar=True, no_resize=True,
+                    no_move=True, no_collapse=True,
+                    no_scrollbar=True, no_scroll_with_mouse=True,
+                    pos=[0, 0]):
 
-        dpg.add_text("TREASURE TOP-UP", tag="_tu_hdr", color=(232, 104, 22, 255))
+        dpg.add_text("TREASURE TOP-UP", tag="_tu_hdr", color=(185, 55, 185, 255))
         if font_header:
             dpg.bind_item_font("_tu_hdr", font_header)
         dpg.add_separator()
@@ -359,12 +359,14 @@ def run_gui():
         dpg.bind_item_theme(back, subtle)
 
     # ── UNLOCKER MENU ─────────────────────────────────────────────────────────
-    with dpg.window(tag="Unlocker Menu", label="DLC Unlocker",
-                    width=SW, height=SH, show=False,
-                    no_collapse=True,
-                    pos=[(VP_W - SW) // 2, (VP_H - SH) // 2]):
+    with dpg.window(tag="Unlocker Menu", label="",
+                    width=VP_W, height=VP_H, show=False,
+                    no_title_bar=True, no_resize=True,
+                    no_move=True, no_collapse=True,
+                    no_scrollbar=True, no_scroll_with_mouse=True,
+                    pos=[0, 0]):
 
-        dpg.add_text("DLC UNLOCKER", tag="_ul_hdr", color=(232, 104, 22, 255))
+        dpg.add_text("DLC UNLOCKER", tag="_ul_hdr", color=(185, 55, 185, 255))
         if font_header:
             dpg.bind_item_font("_ul_hdr", font_header)
         dpg.add_separator()
