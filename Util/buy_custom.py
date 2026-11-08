@@ -25,8 +25,8 @@ def load_token_headers():
                 return data.get("headers", {}), data.get("url_buy_products", {}).get("url", "")
         except json.JSONDecodeError:
             logger.error("Error: Invalid JSON in request file.")
-            return {}, {}, ""
-    return {}, {}, ""
+            return {}, ""
+    return {}, ""
 
 # Thread-safe method to update Dear PyGui elements
 def update_gui_element(tag, value):
@@ -91,8 +91,7 @@ def confirm_assets_purchase(item_id, price, purchase_count, currency):
         dpg.add_text("Your purchase is being processed...", tag="purchase_status_cstacks_buy")
         dpg.add_button(label="Force Stop", tag="force_stop_button_individual", callback=force_stop_purchase)
 
-    start_thread(buy_preplanning_assets(item_id, price, purchase_count, currency))
-    # buy_preplanning_assets
+    start_thread(buy_preplanning_assets, item_id, price, purchase_count, currency)
 
 # Function to handle the purchase process
 def buy_preplanning_assets(item_id, price, num_purchases, currency, ):

@@ -179,7 +179,7 @@ def buy_individual_Inventory_slots(slot_count, item_id, price, currency):
                 dpg.set_value("purchase_status_text_Inventory_individual", f"Error purchasing Inventory slot {i + 1}: {response.text}")
         except requests.RequestException as e:
             logger.error(f"Network error purchasing Inventory item {item_id}: {e}")
-            dpg.set_value("purchase_status_text", f"Network error purchasing Inventory item {i + 1}: {e}")
+            dpg.set_value("purchase_status_text_Inventory_individual", f"Network error purchasing Inventory item {i + 1}: {e}")
         
         time.sleep(0.5)
     

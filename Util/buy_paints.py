@@ -178,7 +178,7 @@ def buy_individual_paint(slot_count, item_id, price, currency):
                 dpg.set_value("purchase_status_text_individual", f"Error purchasing slot {i + 1}: {response.text}")
         except requests.RequestException as e:
             logger.error(f"Network error purchasing item {item_id}: {e}")
-            dpg.set_value("purchase_status_text", f"Network error purchasing item {i + 1}: {e}")
+            dpg.set_value("purchase_status_text_individual", f"Network error purchasing item {i + 1}: {e}")
         
         time.sleep(0.5)
     

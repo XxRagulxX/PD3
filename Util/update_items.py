@@ -8,7 +8,7 @@ logger = logging.getLogger("Util.gui")
 logger.setLevel(logging.DEBUG if __debug__ else logging.WARNING)
 
 request_file = "../Offsets/request.json"
-output_file = "./Offsets/weapons.json"  # Save inside the current directory's "Offsets" folder
+output_file = os.path.join(os.path.dirname(__file__), "../Offsets/weapons.json")
 
 def load_token_headers():
     """Load token headers and URL from the request JSON file."""

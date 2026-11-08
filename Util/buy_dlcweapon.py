@@ -158,7 +158,7 @@ def confirm_dlcweapon_purchase(item_id, price, currency):
     global purchase_running
     """Logic to handle the purchase confirmation and create a new window."""
     logger.debug(f"Attempting to purchase item: {item_id}")
-    dlcweapon_count = dpg.get_value("dlcweapon_count_Heist_Pack_input")
+    dlcweapon_count = 1
 
     # Close the current window
     if dpg.does_item_exist("Buy DLC weapon Pack Window"):
@@ -215,7 +215,7 @@ def buy_dlcweapon_Heist_Pack(dlcweapon_count, item_id, price, currency):
             dpg.set_value("purchase_status_text_individual_dlcweapon", f"Error purchasing dlcweapon 1: {response.text}")
     except requests.RequestException as e:
         logger.error(f"Network error purchasing item {item_id}: {e}")
-        dpg.set_value("purchase_status_text", f"Network error purchasing item: {e}")
+        dpg.set_value("purchase_status_text_individual_dlcweapon", f"Network error purchasing item: {e}")
 
     # Clean up windows
     if dpg.does_item_exist("Purchase Confirmation Window"):

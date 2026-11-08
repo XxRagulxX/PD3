@@ -170,7 +170,13 @@
     {
         "Pistol Gv50": {
             "statCode": "pistol-gv50-weapon-level",
-            "value": 4.0
+            "value": 5.0
+        }
+    },
+    {
+        "Shotgun Tas12": {
+            "statCode": "shotgun-tas12-weapon-level",
+            "value": 3.0
         }
     }
 ]

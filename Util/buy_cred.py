@@ -60,7 +60,7 @@ def display_preplanning_details(assets_type):
 
     with dpg.window(label="Buy_Cred", tag="Buy_Cred", width=600, height=400, show=True):
         dpg.add_text(f"Items in {assets_type}:")
-        dpg.add_button(label="Farm Cstacks", callback=lambda: start_thread(confirm_assets_purchase))
+        dpg.add_button(label="Farm Cred", callback=lambda: start_thread(confirm_assets_purchase))
         dpg.add_button(label="Back", callback=lambda: (dpg.hide_item("Buy_Cred"), dpg.show_item("Treasure Top-Up Menu")))
 
 # Confirm the purchase and start a new thread
