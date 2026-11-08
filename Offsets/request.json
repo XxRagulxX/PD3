@@ -1,0 +1,64 @@
+{
+    "token_header": {
+        "Host": "nebula.starbreeze.com",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": "Basic MGIzYmZkZjVhMjVmNDUyZmJkMzNhMzYxMzNhMmRlYWI6",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.289 Electron/25.8.3 Safari/537.36",
+        "Accept": "*/*",
+        "Sec-Fetch-Site": "cross-site",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Dest": "empty",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Accept-Language": "en-US"
+    },
+    "token_header_with_token": {
+        "Host": "nebula.starbreeze.com",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Authorization": "Bearer ",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.289 Electron/25.8.3 Safari/537.36",
+        "Accept": "*/*",
+        "Sec-Fetch-Site": "cross-site",
+        "Sec-Fetch-Mode": "cors",
+        "Sec-Fetch-Dest": "empty",
+        "Accept-Encoding": "gzip, deflate, br",
+        "Accept-Language": "en-US"
+    },
+    "url_buy_products": {
+        "url": "https://nebula.starbreeze.com/platform/public/namespaces/pd3/users//orders",
+        "url_upgrade": "https://nebula.starbreeze.com/social/v1/public/namespaces/pd3/users//statitems?limit=1000000&sortBy=updatedAt%3Aasc"
+    },
+    "headers": {
+        "Accept-Encoding": "deflate, gzip",
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Authorization": "Bearer ",
+        "Namespace": "pd3",
+        "Game-Client-Version": "1.0.0.1",
+        "AccelByte-SDK-Version": "21.0.3",
+        "AccelByte-OSS-Version": "0.8.11",
+        "User-Agent": "PAYDAY3/++UE4+Release-4.27-CL-0 Windows/10.0.19045.1.256.64bit"
+    },
+    "url_buy": {
+        "url_money": "https://szel3hys1l.execute-api.us-east-1.amazonaws.com/platform/admin/wallets/CASH/credit",
+        "url_cstacks": "https://szel3hys1l.execute-api.us-east-1.amazonaws.com/platform/admin/wallets/GOLD/credit",
+        "url_usd": "https://szel3hys1l.execute-api.us-east-1.amazonaws.com/platform/admin/wallets/USD/credit"
+    },
+    "payload_money": {
+        "amount": 2500000,
+        "source": "ACHIEVEMENT",
+        "reason": "Mission Reward",
+        "origin": "System"
+    },
+    "payload_cstacks": {
+        "amount": 7000,
+        "source": "ACHIEVEMENT",
+        "reason": "Mission Reward",
+        "origin": "System"
+    },
+    "payload_cred": {
+        "amount": 8000,
+        "source": "ACHIEVEMENT",
+        "reason": "Mission Reward",
+        "origin": "System"
+    }
+}
