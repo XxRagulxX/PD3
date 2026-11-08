@@ -34,33 +34,26 @@ jobs:
       - name: Build executable
         run: >
           pyinstaller
-          --onedir
+          --onefile
           --windowed
           --name "PaydayBlackMarket"
           --collect-all dearpygui
           --add-data "Offsets${{ matrix.add_data_sep }}Offsets"
           main.py
 
-      - name: Package (Linux)
-        if: runner.os == 'Linux'
-        run: |
-          cd dist
-          tar -czf PaydayBlackMarket-Linux.tar.gz PaydayBlackMarket/
-
-      - name: Package (Windows)
-        if: runner.os == 'Windows'
-        shell: pwsh
-        run: Compress-Archive -Path dist/PaydayBlackMarket -DestinationPath dist/PaydayBlackMarket-Windows.zip
-
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: PaydayBlackMarket-${{ matrix.platform }}
-          path: dist/PaydayBlackMarket-${{ matrix.platform }}.*
+          path: |
+            dist/PaydayBlackMarket
+            dist/PaydayBlackMarket.exe
           if-no-files-found: error
 
       - name: Create release asset
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/PaydayBlackMarket-${{ matrix.platform }}.*
+          files: |
+            dist/PaydayBlackMarket
+            dist/PaydayBlackMarket.exe

@@ -2,6 +2,7 @@ import dearpygui.dearpygui as dpg
 import requests
 import json
 import os
+import sys
 import logging
 import threading
 from Util.login import load_credentials, login
@@ -10,8 +11,9 @@ from Util.common import set_status
 logger = logging.getLogger("Util.gui")
 
 _BASE      = os.path.dirname(__file__)
-_OFFSETS   = os.path.join(_BASE, "../Offsets/offsets.json")
-_REQUEST   = os.path.join(_BASE, "../Offsets/request.json")
+_ROOT      = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(_BASE)
+_OFFSETS   = os.path.join(_ROOT, "Offsets", "offsets.json")
+_REQUEST   = os.path.join(_ROOT, "Offsets", "request.json")
 _ITEMS_URL = "https://nebula.starbreeze.com/platform/public/namespaces/pd3/items/byCriteria"
 
 _KEY_MAP = {

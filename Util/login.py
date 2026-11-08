@@ -1,11 +1,13 @@
 import requests
 import secrets
 import os
+import sys
 import json
 
 _BASE            = os.path.dirname(__file__)
-_CREDENTIALS     = os.path.join(_BASE, "../credentials.json")
-_REQUEST         = os.path.join(_BASE, "../Offsets/request.json")
+_ROOT            = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(_BASE)
+_CREDENTIALS     = os.path.join(_ROOT, "credentials.json")
+_REQUEST         = os.path.join(_ROOT, "Offsets", "request.json")
 _TOKEN_URL       = "https://nebula.starbreeze.com/iam/v3/oauth/token"
 
 

@@ -1,6 +1,7 @@
 import dearpygui.dearpygui as dpg
 import json
 import os
+import sys
 import logging
 import requests
 import threading
@@ -8,8 +9,9 @@ import threading
 logger = logging.getLogger("Util.gui")
 
 _BASE        = os.path.dirname(__file__)
-_WEAPONS     = os.path.join(_BASE, "../Offsets/weapons.json")
-_REQUEST     = os.path.join(_BASE, "../Offsets/request.json")
+_ROOT        = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(_BASE)
+_WEAPONS     = os.path.join(_ROOT, "Offsets", "weapons.json")
+_REQUEST     = os.path.join(_ROOT, "Offsets", "request.json")
 MAX_LEVEL    = 28
 
 

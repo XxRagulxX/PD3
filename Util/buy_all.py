@@ -2,6 +2,7 @@ import dearpygui.dearpygui as dpg
 import requests
 import json
 import os
+import sys
 import logging
 import threading
 from Util.login import load_credentials, login
@@ -9,8 +10,9 @@ from Util.login import load_credentials, login
 logger = logging.getLogger("Util.gui")
 
 _BASE_DIR    = os.path.dirname(__file__)
-_OFFSETS     = os.path.join(_BASE_DIR, "../Offsets/offsets.json")
-_REQUEST     = os.path.join(_BASE_DIR, "../Offsets/request.json")
+_ROOT        = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(_BASE_DIR)
+_OFFSETS     = os.path.join(_ROOT, "Offsets", "offsets.json")
+_REQUEST     = os.path.join(_ROOT, "Offsets", "request.json")
 
 _stop_event  = threading.Event()
 

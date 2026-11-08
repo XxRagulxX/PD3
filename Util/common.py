@@ -2,6 +2,7 @@ import dearpygui.dearpygui as dpg
 import requests
 import json
 import os
+import sys
 import time
 import logging
 import threading
@@ -9,8 +10,9 @@ from Util.login import load_credentials, login
 
 logger   = logging.getLogger("Util.gui")
 _BASE    = os.path.dirname(__file__)
-_REQUEST = os.path.join(_BASE, "../Offsets/request.json")
-_OFFSETS = os.path.join(_BASE, "../Offsets/offsets.json")
+_ROOT    = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(_BASE)
+_REQUEST = os.path.join(_ROOT, "Offsets", "request.json")
+_OFFSETS = os.path.join(_ROOT, "Offsets", "offsets.json")
 
 # Match the viewport size defined in gui.py
 _VP_W, _VP_H = 860, 620

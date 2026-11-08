@@ -1,4 +1,10 @@
 credentials.json
 Offsets/request.json
 .venv
-__pycache__
+venv/
+__pycache__/
+*.pyc
+*.pyo
+build/
+dist/
+*.spec
