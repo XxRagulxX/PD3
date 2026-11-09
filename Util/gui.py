@@ -13,6 +13,7 @@ from Util.buy_unlocker import (buy_Heist_Pack_callback, buy_dlcweapon_Pack_callb
 from Util.update_offsets import update_offsets_callback
 from Util.buy_all import buy_all_callback
 from Util.gun_stats import gun_stats_callback
+from Util.loadout import loadout_decode_callback
 
 logger = logging.getLogger("Util.gui")
 logger.setLevel(logging.INFO)
@@ -327,6 +328,9 @@ def run_gui():
         dpg.add_spacer(height=6)
         row("  Buy Preplanning Assets", buy_preplanning_assets_callback,     None,
             "  Update Items (offsets.json)", update_offsets_callback,         None)
+        dpg.add_spacer(height=6)
+        dpg.add_button(label="  LoadOut Decoder", callback=loadout_decode_callback,
+                       width=-1, height=BTN_H)
 
     # ── TREASURE TOP-UP MENU ──────────────────────────────────────────────────
     with dpg.window(tag="Treasure Top-Up Menu", label="",
