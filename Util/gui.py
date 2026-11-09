@@ -410,7 +410,7 @@ def run_gui():
         dpg.add_image("mm_avatar_tex", width=_AV, height=_AV,
                       pos=[VP_W - _AV - 18, 14])
         dpg.add_text("", tag="mm_username", color=(185, 55, 185, 255),
-                     pos=[VP_W - _AV - 18 - 185, 30])
+                     pos=[VP_W - _AV - 18 - 8 - 100, 30])
 
     # ── TREASURE TOP-UP MENU ──────────────────────────────────────────────────
     with dpg.window(tag="Treasure Top-Up Menu", label="",
