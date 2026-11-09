@@ -20,6 +20,43 @@ from Util.loadout import loadout_decode_callback
 
 logger = logging.getLogger("Util.gui")
 logger.setLevel(logging.INFO)
+
+_AV = 52  # avatar size in pixels
+
+def _avatar_pixels(img_bytes):
+    """Return flat RGBA float list for a circular-cropped image."""
+    try:
+        import io
+        from PIL import Image, ImageDraw
+        img = Image.open(io.BytesIO(img_bytes)).convert("RGBA").resize((_AV, _AV), Image.LANCZOS)
+        mask = Image.new("L", (_AV, _AV), 0)
+        ImageDraw.Draw(mask).ellipse((0, 0, _AV - 1, _AV - 1), fill=255)
+        img.putalpha(mask)
+        flat = []
+        for r, g, b, a in img.getdata():
+            flat.extend([r / 255.0, g / 255.0, b / 255.0, a / 255.0])
+        return flat
+    except Exception:
+        return _default_avatar_pixels()
+
+def _default_avatar_pixels():
+    """Magenta circle placeholder when no avatar is available."""
+    try:
+        from PIL import Image, ImageDraw
+        img = Image.new("RGBA", (_AV, _AV), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(img)
+        draw.ellipse((0, 0, _AV - 1, _AV - 1), fill=(145, 20, 145, 180))
+        # simple head + body silhouette
+        cx, r = _AV // 2, _AV // 7
+        draw.ellipse((cx - r, _AV // 6, cx + r, _AV // 6 + r * 2), fill=(220, 200, 220, 220))
+        bw = _AV // 3
+        draw.ellipse((cx - bw, _AV // 2, cx + bw, _AV - 2), fill=(220, 200, 220, 220))
+        flat = []
+        for rv, g, b, a in img.getdata():
+            flat.extend([rv / 255.0, g / 255.0, b / 255.0, a / 255.0])
+        return flat
+    except Exception:
+        return [0.0] * (_AV * _AV * 4)
 _ch = logging.StreamHandler()
 _ch.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
 logger.addHandler(_ch)
@@ -41,12 +78,31 @@ def _fetch_display_name(uid):
             json={"userIds": [uid]},
             timeout=10,
         )
-        if resp.ok:
-            data = resp.json().get("data", [])
-            if data:
-                name = data[0].get("displayName", "")
-                if name and dpg.does_item_exist("mm_username"):
-                    dpg.set_value("mm_username", f"  {name}")
+        if not resp.ok:
+            return
+        data = resp.json().get("data", [])
+        if not data:
+            return
+        profile = data[0]
+
+        # Display name
+        name = profile.get("displayName", "")
+        if name and dpg.does_item_exist("mm_username"):
+            dpg.set_value("mm_username", f"  {name}")
+
+        # Avatar
+        avatar_url = profile.get("avatarUrl", "")
+        if avatar_url:
+            av_resp = requests.get(avatar_url, timeout=10)
+            if av_resp.ok:
+                px = _avatar_pixels(av_resp.content)
+            else:
+                px = _default_avatar_pixels()
+        else:
+            px = _default_avatar_pixels()
+
+        if dpg.does_item_exist("mm_avatar_tex"):
+            dpg.set_value("mm_avatar_tex", px)
     except Exception:
         pass
 
@@ -225,6 +281,10 @@ def run_gui():
     dpg.bind_theme(_setup_theme())
     subtle = _subtle_button_theme()
 
+    # Avatar texture (dynamic so it can be updated after login)
+    with dpg.texture_registry():
+        dpg.add_dynamic_texture(_AV, _AV, _default_avatar_pixels(), tag="mm_avatar_tex")
+
     # Font setup
     font_path = _find_font()
     font_normal = None
@@ -352,9 +412,11 @@ def run_gui():
         dpg.add_button(label="  LoadOut Decoder", callback=loadout_decode_callback,
                        width=-1, height=BTN_H)
 
-        # Absolute-positioned username — added last so it doesn't shift the layout
+        # Avatar + username — added last so absolute pos doesn't shift the layout
+        dpg.add_image("mm_avatar_tex", width=_AV, height=_AV,
+                      pos=[VP_W - _AV - 18, 14])
         dpg.add_text("", tag="mm_username", color=(185, 55, 185, 255),
-                     pos=[VP_W - 200, 20])
+                     pos=[VP_W - _AV - 18 - 185, 30])
 
     # ── TREASURE TOP-UP MENU ──────────────────────────────────────────────────
     with dpg.window(tag="Treasure Top-Up Menu", label="",
