@@ -11,8 +11,37 @@ from Util.login import load_credentials, login
 logger   = logging.getLogger("Util.gui")
 _BASE    = os.path.dirname(__file__)
 _ROOT    = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(_BASE)
-_REQUEST = os.path.join(_ROOT, "Offsets", "request.json")
-_OFFSETS = os.path.join(_ROOT, "Offsets", "offsets.json")
+_REQUEST     = os.path.join(_ROOT, "Offsets", "request.json")
+_OFFSETS     = os.path.join(_ROOT, "Offsets", "offsets.json")
+_OWNED_CACHE = os.path.join(_ROOT, "Offsets", "owned.json")
+
+# Set of itemIds the logged-in user already owns (populated after login).
+_owned_ids: set = set()
+
+
+def set_owned_ids(ids):
+    global _owned_ids
+    _owned_ids = set(ids)
+
+
+def is_owned(item_id: str) -> bool:
+    return item_id in _owned_ids
+
+
+def load_owned_cache():
+    """Return (cached_user_id, item_ids_set). Both None/empty on miss."""
+    try:
+        with open(_OWNED_CACHE) as f:
+            d = json.load(f)
+        return d.get("user_id"), set(d.get("item_ids", []))
+    except Exception:
+        return None, set()
+
+
+def save_owned_cache(user_id: str, ids: set):
+    os.makedirs(os.path.dirname(_OWNED_CACHE), exist_ok=True)
+    with open(_OWNED_CACHE, "w") as f:
+        json.dump({"user_id": user_id, "item_ids": sorted(ids)}, f, indent=2)
 
 # Match the viewport size defined in gui.py
 _VP_W, _VP_H = 860, 620
@@ -454,8 +483,10 @@ def item_list_flow(category_key, win_label, win_tag, back_tag,
                 for name, det in entry.items():
                     if not isinstance(det, dict):
                         continue
+                    owned  = is_owned(det.get("itemId", ""))
+                    suffix = "  (owned)" if owned else ""
                     dpg.add_button(
-                        label=f"  {name}", width=-1, height=32,
+                        label=f"  {name}{suffix}", width=-1, height=32,
                         user_data=(name, det),
                         callback=lambda s, a, u: _open_item_page(u[0], u[1]))
                     dpg.add_spacer(height=2)
@@ -511,10 +542,11 @@ def combo_purchase_flow(win_tag, win_label, back_tag, sections):
             for entry in items:
                 for name, det in entry.items():
                     if isinstance(det, dict):
-                        options.append(name)
-                        callbacks[name] = (det["itemId"], det["price"],
-                                           det.get("discountedPrice", det["price"]),
-                                           det["currency"])
+                        display = f"{name} (owned)" if is_owned(det.get("itemId", "")) else name
+                        options.append(display)
+                        callbacks[display] = (det["itemId"], det["price"],
+                                              det.get("discountedPrice", det["price"]),
+                                              det["currency"])
 
             dpg.add_text(section_label, color=(160, 160, 175, 255))
             if options:

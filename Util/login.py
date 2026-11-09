@@ -3,6 +3,9 @@ import secrets
 import os
 import sys
 import json
+import re
+
+_UID_RE = re.compile(r'(?<=users/)[0-9a-f]{32}(?=[/?]|$)')
 
 _BASE            = os.path.dirname(__file__)
 _ROOT            = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(_BASE)
@@ -74,11 +77,14 @@ def login(username, password):
     if "token_header_with_token" in data:
         data["token_header_with_token"]["Authorization"] = bearer
 
-    # Substitute {user_id} placeholder in buy URLs
+    # Update user_id in buy URLs — handles both {user_id} placeholder and
+    # any previously-substituted 32-char hex ID already in the URL.
     ubp = data.get("url_buy_products", {})
     for key in ("url", "url_upgrade"):
         if key in ubp:
-            ubp[key] = ubp[key].replace("{user_id}", user_id)
+            url = ubp[key].replace("{user_id}", user_id)
+            url = _UID_RE.sub(user_id, url)
+            ubp[key] = url
 
     _save_request(data)
     return user_id, access_token

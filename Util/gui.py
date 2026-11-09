@@ -5,7 +5,7 @@ import threading
 import requests
 from functools import partial
 from Util.login import login, manage_credentials, load_credentials
-from Util.common import load_token_headers
+from Util.common import load_token_headers, set_owned_ids, load_owned_cache, save_owned_cache
 from Util.buy_cosmetics import (buy_paint_callback, buy_preplanning_assets_callback,
                                 buy_weapon_pattern_callback, buy_mask_pattern_callback,
                                 buy_weapon_sticker_callback)
@@ -100,6 +100,36 @@ def _fetch_display_name(uid):
     except Exception:
         pass
 
+def _fetch_entitlements(uid):
+    """Load owned itemIds from cache when user matches; full API fetch otherwise."""
+    # Fast path: same user_id already cached on disk
+    cached_uid, cached_ids = load_owned_cache()
+    if cached_uid == uid and cached_ids:
+        set_owned_ids(cached_ids)
+        return
+
+    # Slow path: different user or no cache — fetch everything and save
+    try:
+        headers, _ = load_token_headers()
+        if not headers:
+            return
+        url = (
+            f"https://nebula.starbreeze.com/platform/public/namespaces/pd3"
+            f"/users/{uid}/entitlements?limit=2147483647"
+        )
+        resp = requests.get(url, headers=headers, timeout=30)
+        if not resp.ok:
+            return
+        body = resp.json()
+        # AccelByte returns either a plain list or {"data": [...]}
+        entries = body if isinstance(body, list) else body.get("data", [])
+        ids = {e["itemId"] for e in entries if "itemId" in e}
+        set_owned_ids(ids)
+        save_owned_cache(uid, ids)
+    except Exception:
+        pass
+
+
 def toggle_debugger_mode(sender, app_data, user_data):
     global debugger_mode_enabled
     debugger_mode_enabled = dpg.get_value("debugger_mode_checkbox")
@@ -138,7 +168,8 @@ def login_callback(sender, app_data, user_data):
             manage_credentials(username, password, True)
         dpg.hide_item("login_window")
         dpg.show_item("Main Menu")
-        threading.Thread(target=_fetch_display_name, args=(user_id,), daemon=True).start()
+        threading.Thread(target=_fetch_display_name,  args=(user_id,), daemon=True).start()
+        threading.Thread(target=_fetch_entitlements, args=(user_id,), daemon=True).start()
     else:
         dpg.configure_item("login_button", label="  LOGIN")
         dpg.set_value("login_status", "Login failed. Check your credentials.")
