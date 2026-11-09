@@ -3,9 +3,6 @@ import zlib
 import json
 import os
 import sys
-import re
-import threading
-import requests as req_lib
 
 from Util.common import _full_win, _VP_W, set_status
 
@@ -13,23 +10,6 @@ _BASE    = os.path.dirname(__file__)
 _ROOT    = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(_BASE)
 _OUT_DEC = os.path.join(_ROOT, "Offsets", "loadout_decoded.json")
 _OUT_ENC = os.path.join(_ROOT, "Offsets", "loadout_encoded.json")
-_REQUEST = os.path.join(_ROOT, "Offsets", "request.json")
-
-_CLOUD_URL = "https://nebula.starbreeze.com/cloudsave/v1/namespaces/pd3/users/{uid}/records/PartyMemberData/public"
-
-
-def _load_request():
-    try:
-        with open(_REQUEST, encoding="utf-8") as f:
-            return json.load(f)
-    except Exception:
-        return {}
-
-
-def _get_user_id(data):
-    url = data.get("url_buy_products", {}).get("url", "")
-    m = re.search(r"/users/([^/]+)/", url)
-    return m.group(1) if m else None
 
 
 def _encode(decoded_data):
@@ -43,8 +23,6 @@ def loadout_decode_callback(sender=None, app_data=None, user_data=None):
     WIN        = "LoadOut Decoder"
     INPUT_TAG  = "lo_hex_input"
     STATUS_TAG = "lo_status"
-    HALF       = (_VP_W - 40 - 12) // 2
-
     if dpg.does_item_exist(WIN):
         dpg.delete_item(WIN)
 
@@ -94,46 +72,6 @@ def loadout_decode_callback(sender=None, app_data=None, user_data=None):
             json.dump(payload, f, indent=4)
         set_status(STATUS_TAG, f"Encoded — saved to {_OUT_ENC}  (CS={cs}, DS={ds})")
 
-    # ── Send to Server ────────────────────────────────────────────────────────
-    def _do_send(s=None, a=None, u=None):
-        if not os.path.exists(_OUT_DEC):
-            set_status(STATUS_TAG, "No loadout_decoded.json found — decode first.")
-            return
-        try:
-            with open(_OUT_DEC, encoding="utf-8") as f:
-                data = json.load(f)
-        except Exception as e:
-            set_status(STATUS_TAG, f"Failed to read loadout_decoded.json: {e}")
-            return
-
-        rdata = _load_request()
-        headers = rdata.get("headers", {})
-        user_id = _get_user_id(rdata)
-
-        if not user_id or not headers.get("Authorization", "").startswith("Bearer "):
-            set_status(STATUS_TAG, "Not logged in or user ID missing — log in first.")
-            return
-
-        hex_str, cs, ds = _encode(data)
-        payload = {"Loadout": hex_str, "CS": cs, "DS": ds}
-        url = _CLOUD_URL.format(uid=user_id)
-
-        set_status(STATUS_TAG, "Sending to server...")
-
-        def _work():
-            try:
-                resp = req_lib.post(url, headers=headers, json=payload, timeout=30)
-                if resp.status_code in (200, 201):
-                    set_status(STATUS_TAG, f"Saved to server.  (CS={cs}, DS={ds})")
-                elif resp.status_code == 401:
-                    set_status(STATUS_TAG, "Unauthorized — log in again and retry.")
-                else:
-                    set_status(STATUS_TAG, f"Server error {resp.status_code}: {resp.text[:120]}")
-            except Exception as e:
-                set_status(STATUS_TAG, f"Request failed: {e}")
-
-        threading.Thread(target=_work, daemon=True).start()
-
     # ── UI ────────────────────────────────────────────────────────────────────
     with dpg.window(**_full_win(WIN, "LoadOut Decoder")):
         dpg.add_button(label="  Back", width=-1, height=30,
@@ -155,16 +93,12 @@ def loadout_decode_callback(sender=None, app_data=None, user_data=None):
         dpg.add_separator()
 
         # ── Encode + Send section ─────────────────────────────────────────────
-        dpg.add_text("ENCODE & SEND", color=(130, 130, 148, 255))
+        dpg.add_text("ENCODE", color=(130, 130, 148, 255))
         dpg.add_text(f"Edit  {_OUT_DEC}  then:",
                      color=(160, 160, 175, 255), wrap=_VP_W - 40)
 
-        with dpg.group(horizontal=True):
-            dpg.add_button(label="  Encode & Save to File", width=HALF, height=42,
-                           callback=_do_encode)
-            dpg.add_spacer(width=12)
-            dpg.add_button(label="  Send to Server", width=HALF, height=42,
-                           callback=_do_send)
+        dpg.add_button(label="  Encode & Save to File", width=-1, height=42,
+                       callback=_do_encode)
 
         dpg.add_separator()
         dpg.add_text("", tag=STATUS_TAG, wrap=_VP_W - 40)
