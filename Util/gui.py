@@ -40,23 +40,17 @@ def _avatar_pixels(img_bytes):
         return _default_avatar_pixels()
 
 def _default_avatar_pixels():
-    """Magenta circle placeholder when no avatar is available."""
-    try:
-        from PIL import Image, ImageDraw
-        img = Image.new("RGBA", (_AV, _AV), (0, 0, 0, 0))
-        draw = ImageDraw.Draw(img)
-        draw.ellipse((0, 0, _AV - 1, _AV - 1), fill=(145, 20, 145, 180))
-        # simple head + body silhouette
-        cx, r = _AV // 2, _AV // 7
-        draw.ellipse((cx - r, _AV // 6, cx + r, _AV // 6 + r * 2), fill=(220, 200, 220, 220))
-        bw = _AV // 3
-        draw.ellipse((cx - bw, _AV // 2, cx + bw, _AV - 2), fill=(220, 200, 220, 220))
-        flat = []
-        for rv, g, b, a in img.getdata():
-            flat.extend([rv / 255.0, g / 255.0, b / 255.0, a / 255.0])
-        return flat
-    except Exception:
-        return [0.0] * (_AV * _AV * 4)
+    """Pure-Python magenta circle — no Pillow required, always visible."""
+    cx = cy = (_AV - 1) / 2.0
+    r  = cx
+    fr, fg, fb = 145 / 255.0, 20 / 255.0, 145 / 255.0
+    flat = []
+    for y in range(_AV):
+        for x in range(_AV):
+            dist  = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5
+            alpha = max(0.0, min(1.0, r - dist + 0.5))
+            flat.extend([fr, fg, fb, alpha * 0.85])
+    return flat
 _ch = logging.StreamHandler()
 _ch.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
 logger.addHandler(_ch)
