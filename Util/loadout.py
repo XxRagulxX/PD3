@@ -3,52 +3,138 @@ import zlib
 import json
 import os
 import sys
+import re
+import threading
+import requests as req_lib
 
 from Util.common import _full_win, _VP_W, set_status
 
-_BASE = os.path.dirname(__file__)
-_ROOT = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(_BASE)
-_OUT  = os.path.join(_ROOT, "Offsets", "loadout_decoded.json")
+_BASE    = os.path.dirname(__file__)
+_ROOT    = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else os.path.dirname(_BASE)
+_OUT_DEC = os.path.join(_ROOT, "Offsets", "loadout_decoded.json")
+_OUT_ENC = os.path.join(_ROOT, "Offsets", "loadout_encoded.json")
+_REQUEST = os.path.join(_ROOT, "Offsets", "request.json")
+
+_CLOUD_URL = "https://nebula.starbreeze.com/cloudsave/v1/namespaces/pd3/users/{uid}/records/PartyMemberData/public"
+
+
+def _load_request():
+    try:
+        with open(_REQUEST, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def _get_user_id(data):
+    url = data.get("url_buy_products", {}).get("url", "")
+    m = re.search(r"/users/([^/]+)/", url)
+    return m.group(1) if m else None
+
+
+def _encode(decoded_data):
+    """Return (hex_str, cs, ds) from a dict."""
+    json_bytes = json.dumps(decoded_data, indent=4, ensure_ascii=False).encode("utf-8")
+    compressed = zlib.compress(json_bytes)
+    return compressed.hex().upper(), len(compressed), len(json_bytes)
 
 
 def loadout_decode_callback(sender=None, app_data=None, user_data=None):
     WIN        = "LoadOut Decoder"
-    INPUT_TAG  = "loadout_hex_input"
-    STATUS_TAG = "loadout_status"
+    INPUT_TAG  = "lo_hex_input"
+    STATUS_TAG = "lo_status"
+    HALF       = (_VP_W - 40 - 12) // 2
 
     if dpg.does_item_exist(WIN):
         dpg.delete_item(WIN)
 
-    def _decode(s=None, a=None, u=None):
+    # ── Decode ────────────────────────────────────────────────────────────────
+    def _do_decode(s=None, a=None, u=None):
         hex_str = dpg.get_value(INPUT_TAG).strip()
         if not hex_str:
-            set_status(STATUS_TAG, "Please paste the Loadout hex data first.")
+            set_status(STATUS_TAG, "Paste the Loadout hex data first.")
             return
-
         try:
             raw = bytes.fromhex(hex_str)
         except ValueError:
             set_status(STATUS_TAG, "Invalid hex — make sure you copied the full Loadout value.")
             return
-
         try:
             decompressed = zlib.decompress(raw)
         except zlib.error as e:
             set_status(STATUS_TAG, f"Decompression failed: {e}")
             return
-
         try:
             data = json.loads(decompressed.decode("utf-8"))
         except (json.JSONDecodeError, UnicodeDecodeError) as e:
             set_status(STATUS_TAG, f"JSON parse failed: {e}")
             return
 
-        os.makedirs(os.path.dirname(_OUT), exist_ok=True)
-        with open(_OUT, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=4)
+        os.makedirs(os.path.dirname(_OUT_DEC), exist_ok=True)
+        with open(_OUT_DEC, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4, ensure_ascii=False)
+        set_status(STATUS_TAG, f"Decoded — saved to {_OUT_DEC}")
 
-        set_status(STATUS_TAG, f"Decoded & saved to:  {_OUT}")
+    # ── Encode & Save ─────────────────────────────────────────────────────────
+    def _do_encode(s=None, a=None, u=None):
+        if not os.path.exists(_OUT_DEC):
+            set_status(STATUS_TAG, "No loadout_decoded.json found — decode first.")
+            return
+        try:
+            with open(_OUT_DEC, encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception as e:
+            set_status(STATUS_TAG, f"Failed to read loadout_decoded.json: {e}")
+            return
 
+        hex_str, cs, ds = _encode(data)
+        payload = {"Loadout": hex_str, "CS": cs, "DS": ds}
+        os.makedirs(os.path.dirname(_OUT_ENC), exist_ok=True)
+        with open(_OUT_ENC, "w", encoding="utf-8") as f:
+            json.dump(payload, f, indent=4)
+        set_status(STATUS_TAG, f"Encoded — saved to {_OUT_ENC}  (CS={cs}, DS={ds})")
+
+    # ── Send to Server ────────────────────────────────────────────────────────
+    def _do_send(s=None, a=None, u=None):
+        if not os.path.exists(_OUT_DEC):
+            set_status(STATUS_TAG, "No loadout_decoded.json found — decode first.")
+            return
+        try:
+            with open(_OUT_DEC, encoding="utf-8") as f:
+                data = json.load(f)
+        except Exception as e:
+            set_status(STATUS_TAG, f"Failed to read loadout_decoded.json: {e}")
+            return
+
+        rdata = _load_request()
+        headers = rdata.get("headers", {})
+        user_id = _get_user_id(rdata)
+
+        if not user_id or not headers.get("Authorization", "").startswith("Bearer "):
+            set_status(STATUS_TAG, "Not logged in or user ID missing — log in first.")
+            return
+
+        hex_str, cs, ds = _encode(data)
+        payload = {"Loadout": hex_str, "CS": cs, "DS": ds}
+        url = _CLOUD_URL.format(uid=user_id)
+
+        set_status(STATUS_TAG, "Sending to server...")
+
+        def _work():
+            try:
+                resp = req_lib.post(url, headers=headers, json=payload, timeout=30)
+                if resp.status_code in (200, 201):
+                    set_status(STATUS_TAG, f"Saved to server.  (CS={cs}, DS={ds})")
+                elif resp.status_code == 401:
+                    set_status(STATUS_TAG, "Unauthorized — log in again and retry.")
+                else:
+                    set_status(STATUS_TAG, f"Server error {resp.status_code}: {resp.text[:120]}")
+            except Exception as e:
+                set_status(STATUS_TAG, f"Request failed: {e}")
+
+        threading.Thread(target=_work, daemon=True).start()
+
+    # ── UI ────────────────────────────────────────────────────────────────────
     with dpg.window(**_full_win(WIN, "LoadOut Decoder")):
         dpg.add_button(label="  Back", width=-1, height=30,
                        callback=lambda: (dpg.hide_item(WIN), dpg.show_item("Main Menu")))
@@ -56,20 +142,31 @@ def loadout_decode_callback(sender=None, app_data=None, user_data=None):
         dpg.add_text("LoadOut Decoder", color=(185, 55, 185, 255))
         dpg.add_separator()
 
-        dpg.add_text(
-            "Paste the Loadout hex value from the POST /records/PartyMemberData/public"
-            " request body:",
-            color=(160, 160, 175, 255), wrap=_VP_W - 40,
-        )
+        # ── Decode section ────────────────────────────────────────────────────
+        dpg.add_text("DECODE", color=(130, 130, 148, 255))
+        dpg.add_text("Paste the Loadout hex value from the POST /records/PartyMemberData/public body:",
+                     color=(160, 160, 175, 255), wrap=_VP_W - 40)
 
-        dpg.add_input_text(
-            tag=INPUT_TAG, width=-1, height=390,
-            multiline=True, hint="789CED9A...",
-        )
+        dpg.add_input_text(tag=INPUT_TAG, width=-1, height=120,
+                           multiline=True, hint="789CED9A...")
 
-        dpg.add_button(label="  Decode & Save", width=-1, height=46,
-                       callback=_decode)
+        dpg.add_button(label="  Decode & Save", width=-1, height=42, callback=_do_decode)
 
+        dpg.add_separator()
+
+        # ── Encode + Send section ─────────────────────────────────────────────
+        dpg.add_text("ENCODE & SEND", color=(130, 130, 148, 255))
+        dpg.add_text(f"Edit  {_OUT_DEC}  then:",
+                     color=(160, 160, 175, 255), wrap=_VP_W - 40)
+
+        with dpg.group(horizontal=True):
+            dpg.add_button(label="  Encode & Save to File", width=HALF, height=42,
+                           callback=_do_encode)
+            dpg.add_spacer(width=12)
+            dpg.add_button(label="  Send to Server", width=HALF, height=42,
+                           callback=_do_send)
+
+        dpg.add_separator()
         dpg.add_text("", tag=STATUS_TAG, wrap=_VP_W - 40)
 
     dpg.hide_item("Main Menu")

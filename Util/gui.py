@@ -289,13 +289,13 @@ def run_gui():
                     no_scrollbar=True, no_scroll_with_mouse=True,
                     pos=[0, 0]):
 
-        dpg.add_spacer(height=10)
+        dpg.add_spacer(height=4)
         dpg.add_text("MAIN MENU", tag="_mm_hdr", color=(185, 55, 185, 255))
         if font_header:
             dpg.bind_item_font("_mm_hdr", font_header)
         dpg.add_text("Choose an action below", color=(130, 130, 148, 255))
         dpg.add_separator()
-        dpg.add_spacer(height=10)
+        dpg.add_spacer(height=4)
 
         HALF = (VP_W - 20*2 - 12) // 2
 
@@ -306,15 +306,12 @@ def run_gui():
                 dpg.add_spacer(width=12)
                 dpg.add_button(label=label_b, callback=cb_b, user_data=ud_b,
                                width=HALF, height=BTN_H)
-            dpg.add_spacer(height=6)
 
         dpg.add_button(label="  Custom Buy", callback=buy_custom_callback,
                        width=-1, height=BTN_H)
-        dpg.add_spacer(height=6)
 
         dpg.add_button(label="  Buy All Items", callback=buy_all_callback,
                        width=-1, height=BTN_H)
-        dpg.add_spacer(height=6)
 
         row("  Buy Paint",             buy_paint_callback,             None,
             "  Buy Weapon Pattern",    buy_weapon_pattern_callback,    None)
@@ -325,10 +322,9 @@ def run_gui():
         row("  Unlocker",              show_sub_menu, "Unlocker Menu",
             "  Treasure Top-Up",       show_sub_menu, "Treasure Top-Up Menu")
 
-        dpg.add_spacer(height=6)
         row("  Buy Preplanning Assets", buy_preplanning_assets_callback,     None,
             "  Update Items (offsets.json)", update_offsets_callback,         None)
-        dpg.add_spacer(height=6)
+
         dpg.add_button(label="  LoadOut Decoder", callback=loadout_decode_callback,
                        width=-1, height=BTN_H)
 
