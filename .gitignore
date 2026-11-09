@@ -2,6 +2,7 @@ credentials.json
 Offsets/loadout_decoded.json
 Offsets/loadout_encoded.json
 Offsets/owned.json
+debug.log
 .venv
 venv/
 __pycache__/

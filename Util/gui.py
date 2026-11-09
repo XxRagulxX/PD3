@@ -1,11 +1,16 @@
 import dearpygui.dearpygui as dpg
 import logging
 import os
+import platform
+import subprocess
+import sys
 import threading
 import requests
 from functools import partial
 from Util.login import login, manage_credentials, load_credentials
-from Util.common import load_token_headers, set_owned_ids, load_owned_cache, save_owned_cache
+from Util.common import (load_token_headers, set_owned_ids, load_owned_cache,
+                         save_owned_cache, get_log_path,
+                         enable_file_logging, disable_file_logging)
 from Util.buy_cosmetics import (buy_paint_callback, buy_preplanning_assets_callback,
                                 buy_weapon_pattern_callback, buy_mask_pattern_callback,
                                 buy_weapon_sticker_callback)
@@ -58,6 +63,7 @@ logger.addHandler(_ch)
 user_id = None
 access_token = None
 debugger_mode_enabled = False
+_debug_proc = None  # terminal process opened for the debug console
 
 # ── Callbacks ────────────────────────────────────────────────────────────────
 
@@ -130,10 +136,52 @@ def _fetch_entitlements(uid):
         pass
 
 
+def _open_debug_console(log_path):
+    """Open a terminal window that tails the debug log file."""
+    global _debug_proc
+    system = platform.system()
+    try:
+        if system == "Windows":
+            _debug_proc = subprocess.Popen(
+                f'start "PD3 Debug Console" powershell -NoExit -Command "Get-Content -Path \'{log_path}\' -Wait"',
+                shell=True,
+            )
+        else:
+            tail_cmd = f'tail -f "{log_path}"'
+            for args in [
+                ["xterm",          "-title", "PD3 Debug Console", "-e", tail_cmd],
+                ["gnome-terminal", "--title=PD3 Debug Console", "--", "bash", "-c", tail_cmd + "; read"],
+                ["konsole",        "--title", "PD3 Debug Console", "-e", "bash", "-c", tail_cmd + "; read"],
+                ["xfce4-terminal", "--title=PD3 Debug Console",  "-e", tail_cmd],
+                ["lxterminal",     "--title=PD3 Debug Console",  "-e", tail_cmd],
+                ["kitty",          "--title=PD3 Debug Console", "bash", "-c", tail_cmd + "; read"],
+            ]:
+                try:
+                    _debug_proc = subprocess.Popen(args)
+                    break
+                except FileNotFoundError:
+                    continue
+    except Exception as e:
+        logger.warning("Could not open debug console: %s", e)
+
+
 def toggle_debugger_mode(sender, app_data, user_data):
-    global debugger_mode_enabled
+    global debugger_mode_enabled, _debug_proc
     debugger_mode_enabled = dpg.get_value("debugger_mode_checkbox")
-    logger.setLevel(logging.DEBUG if debugger_mode_enabled else logging.INFO)
+    if debugger_mode_enabled:
+        logger.setLevel(logging.DEBUG)
+        enable_file_logging()
+        _open_debug_console(get_log_path())
+        logger.debug("Debug mode enabled — log: %s", get_log_path())
+    else:
+        logger.setLevel(logging.INFO)
+        disable_file_logging()
+        if _debug_proc:
+            try:
+                _debug_proc.terminate()
+            except Exception:
+                pass
+            _debug_proc = None
 
 def toggle_password_visibility(sender, app_data, user_data):
     show = dpg.get_value("show_password_checkbox")

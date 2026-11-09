@@ -14,6 +14,32 @@ _ROOT    = os.path.dirname(sys.executable) if getattr(sys, 'frozen', False) else
 _REQUEST     = os.path.join(_ROOT, "Offsets", "request.json")
 _OFFSETS     = os.path.join(_ROOT, "Offsets", "offsets.json")
 _OWNED_CACHE = os.path.join(_ROOT, "Offsets", "owned.json")
+_LOG_FILE    = os.path.join(_ROOT, "debug.log")
+
+_file_handler = None  # active only when debug mode is on
+
+
+def get_log_path() -> str:
+    return _LOG_FILE
+
+
+def enable_file_logging():
+    global _file_handler
+    if _file_handler:
+        return
+    _file_handler = logging.FileHandler(_LOG_FILE, mode="a", encoding="utf-8")
+    _file_handler.setLevel(logging.DEBUG)
+    _file_handler.setFormatter(
+        logging.Formatter("%(asctime)s  %(levelname)-7s  %(message)s"))
+    logger.addHandler(_file_handler)
+
+
+def disable_file_logging():
+    global _file_handler
+    if _file_handler:
+        logger.removeHandler(_file_handler)
+        _file_handler.close()
+        _file_handler = None
 
 # Set of itemIds the logged-in user already owns (populated after login).
 _owned_ids: set = set()
@@ -129,14 +155,18 @@ def run_purchase_loop(count, item_id, price, disc_price, currency,
             break
         set_status(status_tag, f"[{i+1}/{count}] Sending request...")
         try:
+            logger.debug("POST %s  payload=%s", url, payload)
             resp = requests.post(url, json=payload, headers=headers, timeout=15)
+            logger.debug("→ %s  body=%s", resp.status_code, resp.text[:800])
             if resp.status_code == 201:
                 success += 1
                 set_status(status_tag, f"[{i+1}/{count}] Purchased.")
             elif resp.status_code == 401:
                 set_status(status_tag, f"[{i+1}/{count}] Token expired — re-authenticating...")
                 if refresh_token(headers):
+                    logger.debug("Re-auth POST %s  payload=%s", url, payload)
                     resp2 = requests.post(url, json=payload, headers=headers, timeout=15)
+                    logger.debug("→ %s  body=%s", resp2.status_code, resp2.text[:800])
                     if resp2.status_code == 201:
                         success += 1
                         set_status(status_tag, f"[{i+1}/{count}] Purchased (re-auth).")
@@ -151,6 +181,7 @@ def run_purchase_loop(count, item_id, price, disc_price, currency,
                 set_status(status_tag, f"[{i+1}/{count}] Error {resp.status_code}.")
         except requests.RequestException as e:
             failed += 1
+            logger.debug("Network error on POST %s: %s", url, e)
             set_status(status_tag, f"[{i+1}/{count}] Network error: {e}")
 
         prog = (i + 1) / count
@@ -174,7 +205,9 @@ def run_farmer_loop(url, payload, headers, status_tag, stop_event, bar_tag=None)
             dpg.set_value(bar_tag, 0.0)
         set_status(status_tag, f"Round {slot} — sending request...")
         try:
+            logger.debug("PUT %s  payload=%s", url, payload)
             resp = requests.put(url, json=payload, headers=headers, timeout=15)
+            logger.debug("→ %s  body=%s", resp.status_code, resp.text[:800])
             if resp.status_code == 200:
                 balance = resp.json().get("balance", "?")
                 set_status(status_tag, f"Round {slot} done.  Balance: {balance:,}" if isinstance(balance, int) else f"Round {slot} done.  Balance: {balance}")
@@ -186,6 +219,7 @@ def run_farmer_loop(url, payload, headers, status_tag, stop_event, bar_tag=None)
             else:
                 set_status(status_tag, f"Round {slot} — Error {resp.status_code}: {resp.text[:80]}")
         except requests.RequestException as e:
+            logger.debug("Network error on PUT %s: %s", url, e)
             set_status(status_tag, f"Round {slot} — Network error: {e}")
 
         # Animate the bar as a countdown to the next round
