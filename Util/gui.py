@@ -1,8 +1,11 @@
 import dearpygui.dearpygui as dpg
 import logging
 import os
+import threading
+import requests
 from functools import partial
 from Util.login import login, manage_credentials, load_credentials
+from Util.common import load_token_headers
 from Util.buy_cosmetics import (buy_paint_callback, buy_preplanning_assets_callback,
                                 buy_weapon_pattern_callback, buy_mask_pattern_callback,
                                 buy_weapon_sticker_callback)
@@ -26,6 +29,26 @@ access_token = None
 debugger_mode_enabled = False
 
 # ── Callbacks ────────────────────────────────────────────────────────────────
+
+def _fetch_display_name(uid):
+    try:
+        headers, _ = load_token_headers()
+        if not headers:
+            return
+        resp = requests.post(
+            "https://nebula.starbreeze.com/iam/v3/public/namespaces/pd3/users/platforms",
+            headers=headers,
+            json={"userIds": [uid]},
+            timeout=10,
+        )
+        if resp.ok:
+            data = resp.json().get("data", [])
+            if data:
+                name = data[0].get("displayName", "")
+                if name and dpg.does_item_exist("mm_username"):
+                    dpg.set_value("mm_username", f"  {name}")
+    except Exception:
+        pass
 
 def toggle_debugger_mode(sender, app_data, user_data):
     global debugger_mode_enabled
@@ -65,6 +88,7 @@ def login_callback(sender, app_data, user_data):
             manage_credentials(username, password, True)
         dpg.hide_item("login_window")
         dpg.show_item("Main Menu")
+        threading.Thread(target=_fetch_display_name, args=(user_id,), daemon=True).start()
     else:
         dpg.configure_item("login_button", label="  LOGIN")
         dpg.set_value("login_status", "Login failed. Check your credentials.")
@@ -327,6 +351,10 @@ def run_gui():
 
         dpg.add_button(label="  LoadOut Decoder", callback=loadout_decode_callback,
                        width=-1, height=BTN_H)
+
+        # Absolute-positioned username — added last so it doesn't shift the layout
+        dpg.add_text("", tag="mm_username", color=(185, 55, 185, 255),
+                     pos=[VP_W - 200, 20])
 
     # ── TREASURE TOP-UP MENU ──────────────────────────────────────────────────
     with dpg.window(tag="Treasure Top-Up Menu", label="",
