@@ -375,7 +375,7 @@ def run_gui():
         dpg.add_separator()
         dpg.add_spacer(height=4)
 
-        HALF = (VP_W - 20*2 - 12) // 2
+        HALF = (VP_W - 20*2 - 28) // 2  # 28 = spacer(12) + 2×ItemSpacing(8)
 
         def row(label_a, cb_a, ud_a, label_b, cb_b, ud_b):
             with dpg.group(horizontal=True):
